@@ -5,7 +5,7 @@
 
 
 MapWidget::MapWidget(QWidget *parent) :
-    QWidget(parent), passenger(QPointF(100, 100), 0, ":/ultraman.ico"), graph()
+    QWidget(parent), passenger(QPointF(CSU_X, CSU_Y+20), 0, ":/ultraman.ico"), graph()
 {
     this->setAutoFillBackground(true);
     QPalette palette = this->palette();
@@ -47,8 +47,8 @@ void MapWidget::paintEvent(QPaintEvent *event)
                 painter.drawLine(source, target); // 绘制边
 
                 // 计算边的中点位置
-//                QPointF midPoint((source.x() + target.x()) / 2, (source.y() + target.y()) / 2);
-//                painter.drawText(midPoint, QString::number(weight)); // 绘制权值
+                QPointF midPoint((source.x() + target.x()) / 2, (source.y() + target.y()) / 2);
+                painter.drawText(midPoint, QString::number(weight)); // 绘制权值
             }
         }
     }

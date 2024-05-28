@@ -7,11 +7,12 @@
 #include <QIcon>
 #include <QTimer>
 #include <QThread>
+#include <QPushButton>
 
 
 
 namespace Ui {
-class Widget;
+    class Widget;
 }
 
 class Widget : public QWidget
@@ -19,7 +20,7 @@ class Widget : public QWidget
     Q_OBJECT
 
 public:
-    explicit Widget(QWidget *parent = 0);
+    explicit Widget(QWidget *parent = nullptr);
     ~Widget();
 
 
@@ -33,10 +34,11 @@ private:
 
     void Initial_UI();
     void Initial_Time_Thread();
+    void Initial_Signal_Slot();
 
 
 private slots:
-
+    void startButtonClicked();//开始按钮按下，开始计算路径图形输出
 
 signals:
 };

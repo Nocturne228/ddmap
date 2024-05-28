@@ -5,7 +5,8 @@ Widget::Widget(QWidget *parent) :
     QWidget(parent), ui(new Ui::Widget)
 {
     ui->setupUi(this);
-    Initial_UI();//初始化界面
+    Initial_UI(); // 初始化界面
+    Initial_Signal_Slot(); // 初始化信号槽
 }
 
 
@@ -45,3 +46,12 @@ void Widget::Initial_Time_Thread()
     mstimer->moveToThread(timethread);
 }
 
+void Widget::Initial_Signal_Slot()
+{
+    connect(ui->StartButton, &QPushButton::clicked, this, &Widget::startButtonClicked); //计时线程
+}
+
+void Widget::startButtonClicked() {
+    qDebug() << "StartButton clicked for Passenger";
+
+}

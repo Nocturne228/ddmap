@@ -25,18 +25,18 @@ Graph::Graph() {
     addEdge(getLocCor(1), getLocCor(4), 327);
     addEdge(getLocCor(2), getLocCor(3), 298);
     addEdge(getLocCor(3), getLocCor(4), 370);
-    addEdge(getLocCor(4), getLocCor(5), 1);
-    addEdge(getLocCor(5), getLocCor(6), 1);
-    addEdge(getLocCor(6), getLocCor(7), 1);
-    addEdge(getLocCor(7), getLocCor(8), 1);
-    addEdge(getLocCor(2), getLocCor(10), 1);
-    addEdge(getLocCor(3), getLocCor(11), 1);
-    addEdge(getLocCor(9), getLocCor(10), 1);
-    addEdge(getLocCor(11), getLocCor(13), 1);
-    addEdge(getLocCor(9), getLocCor(11), 1);
-    addEdge(getLocCor(8), getLocCor(9), 1);
-    addEdge(getLocCor(8), getLocCor(12), 1);
-    addEdge(getLocCor(12), getLocCor(13), 1);
+    addEdge(getLocCor(4), getLocCor(5), 514);
+    addEdge(getLocCor(5), getLocCor(6), 492);
+    addEdge(getLocCor(6), getLocCor(7), 428);
+    addEdge(getLocCor(7), getLocCor(8), 538);
+    addEdge(getLocCor(2), getLocCor(10), 226);
+    addEdge(getLocCor(3), getLocCor(11), 339);
+    addEdge(getLocCor(9), getLocCor(10), 128);
+    addEdge(getLocCor(11), getLocCor(13), 96);
+    addEdge(getLocCor(9), getLocCor(11), 381);
+    addEdge(getLocCor(8), getLocCor(9), 179);
+    addEdge(getLocCor(8), getLocCor(12), 166);
+    addEdge(getLocCor(12), getLocCor(13), 655);
 
 }
 
