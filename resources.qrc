@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>map.jpg</file>
+        <file>exe.ico</file>
+    </qresource>
+</RCC>
