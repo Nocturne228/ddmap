@@ -1,31 +1,13 @@
 #ifndef WIDGET_H
 #define WIDGET_H
 
-#include "mapwidget.h"
-
-#include <QMainWindow>
 #include <QWidget>
 #include <QDebug>
 
-#include <QPushButton>
-#include <QComboBox>
-#include <QLabel>
-#include <QString>
-#include <QMessageBox>
-
-#include <QDate>
-#include <QTime>
-#include <QDateTimeEdit>
+#include <QIcon>
 #include <QTimer>
 #include <QThread>
-#include <QKeyEvent>
-#include <QEvent>
 
-#include <QPixmap>
-#include <QScrollArea>
-#include <QPalette>
-#include <QLayout>
-#include <QPalette>
 
 
 namespace Ui {
@@ -44,8 +26,13 @@ public:
 private:
     Ui::Widget *ui;
 
+    // 参与时间进程的变量
+    QTimer *mstimer;
+    QThread *timethread;
+
 
     void Initial_UI();
+    void Initial_Time_Thread();
 
 
 private slots:

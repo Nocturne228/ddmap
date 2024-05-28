@@ -1,11 +1,13 @@
-#include <QApplication>
 #include "widget.h"
-#include "mainwindow.h"
+#include <QApplication>
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
-    Widget widget;
-    widget.show();
-    return a.exec();
+    QApplication app(argc, argv);
+
+    Widget windows;
+    windows.setMinimumSize(1431, 800);
+    windows.show();
+
+    return app.exec();
 }

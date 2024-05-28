@@ -2,5 +2,8 @@
     <qresource prefix="/">
         <file>map.jpg</file>
         <file>exe.ico</file>
+        <file>waiting.ico</file>
+        <file>ultraman.ico</file>
+        <file>csmap.png</file>
     </qresource>
 </RCC>

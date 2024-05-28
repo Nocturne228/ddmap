@@ -27,12 +27,16 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     mapwidget.cpp \
-    widget.cpp
+    widget.cpp \
+    passenger.cpp \
+    graph.cpp
 
 HEADERS += \
         mainwindow.h \
     mapwidget.h \
-    widget.h
+    widget.h \
+    passenger.h \
+    graph.h
 
 FORMS += \
         mainwindow.ui \
