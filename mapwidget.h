@@ -6,6 +6,7 @@
 #include "graph.h"
 
 #include <QPainter>
+#include <QPushButton>
 
 
 class MapWidget : public QWidget
@@ -15,13 +16,20 @@ public:
 
 protected:
     void paintEvent(QPaintEvent *event) override;
+    void showEvent(QShowEvent *event) override;
 
 
 private slots:
+    void onMEIXIHUButtonClicked();
 
 private:
+    // 乘客类与图结构
     Passenger passenger;
     Graph graph;
+    std::vector<QPointF> path; // 存储路径的成员变量
+
+    // 地图中的按钮
+    QPushButton *MEIXIHU_Button;
 };
 
 #endif // MAPWIDGET_H

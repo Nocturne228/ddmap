@@ -5,12 +5,29 @@
 
 
 MapWidget::MapWidget(QWidget *parent) :
+    // 根据乘客位置设置图标
     QWidget(parent), passenger(QPointF(CSU_X, CSU_Y+20), 0, ":/ultraman.ico"), graph()
 {
+    // 设置基础背景图片
     this->setAutoFillBackground(true);
     QPalette palette = this->palette();
     palette.setBrush(QPalette::Background, QBrush(QPixmap(":/csmap.png")));
     this->setPalette(palette);
+
+}
+
+
+void MapWidget::showEvent(QShowEvent *event) {
+    QWidget::showEvent(event);
+
+    // 查找并连接按钮
+    MEIXIHU_Button = findChild<QPushButton*>("MEIXIHU_Button");
+    if (MEIXIHU_Button) {
+        connect(MEIXIHU_Button, &QPushButton::clicked, this, &MapWidget::onMEIXIHUButtonClicked);
+        qDebug() << "MEIXIHU_Button found and connected.";
+    } else {
+        qDebug() << "MEIXIHU_Button not found!";
+    }
 }
 
 
@@ -53,5 +70,25 @@ void MapWidget::paintEvent(QPaintEvent *event)
         }
     }
 
+    // 绘制出行路线的路径
+        if (!path.empty()) {
+            painter.setPen(QPen(Qt::red, 2)); // 红色线条表示路径，线条宽度为2
+            for (size_t i = 1; i < path.size(); ++i) {
+                painter.drawLine(path[i - 1], path[i]);
+            }
+        }
+
+}
+
+
+void MapWidget::onMEIXIHUButtonClicked()
+{
+    qDebug() << "Go to MEIXIHU";
+    QPointF source = this->graph.getLocCor(0);
+    QPointF target = this->graph.getLocCor(4);
+
+    std::vector<QPointF> paths = this->graph.dijkstra(source, target);
+    path = paths;
+    update();
 }
 

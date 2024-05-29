@@ -50,7 +50,7 @@ void Widget::Initial_Time_Thread()
 void Widget::Initial_Signal_Slot()
 {
     connect(ui->StartButton, &QPushButton::clicked, this, &Widget::startButtonClicked); //计时线程
-    connect(ui->MEIXIHU_Button, &QPushButton::clicked, this, &Widget::Button4Clicked);
+//    connect(ui->MEIXIHU_Button, &QPushButton::clicked, this, &Widget::Button4Clicked);
 }
 
 void Widget::startButtonClicked() {
@@ -58,11 +58,11 @@ void Widget::startButtonClicked() {
 }
 
 // 梅溪湖
-void Widget::Button4Clicked() {
-    qDebug() << "Go to MEIXIHU";
-    QPointF source = this->graph.getLocCor(1);
-    QPointF target = this->graph.getLocCor(4);
+//void Widget::Button4Clicked() {
+//    qDebug() << "Go to MEIXIHU";
+//    QPointF source = this->graph.getLocCor(1);
+//    QPointF target = this->graph.getLocCor(4);
 
-    std::vector<QPointF> paths = this->graph.dijkstra(source, target);
+//    std::vector<QPointF> paths = this->graph.dijkstra(source, target);
 
-}
+//}
