@@ -1,8 +1,9 @@
 #include "widget.h"
 #include "ui_widget.h"
 
+
 Widget::Widget(QWidget *parent) :
-    QWidget(parent), ui(new Ui::Widget)
+    QWidget(parent), ui(new Ui::Widget), graph()
 {
     ui->setupUi(this);
     Initial_UI(); // 初始化界面
@@ -49,9 +50,19 @@ void Widget::Initial_Time_Thread()
 void Widget::Initial_Signal_Slot()
 {
     connect(ui->StartButton, &QPushButton::clicked, this, &Widget::startButtonClicked); //计时线程
+    connect(ui->MEIXIHU_Button, &QPushButton::clicked, this, &Widget::Button4Clicked);
 }
 
 void Widget::startButtonClicked() {
     qDebug() << "StartButton clicked for Passenger";
+}
+
+// 梅溪湖
+void Widget::Button4Clicked() {
+    qDebug() << "Go to MEIXIHU";
+    QPointF source = this->graph.getLocCor(1);
+    QPointF target = this->graph.getLocCor(4);
+
+    std::vector<QPointF> paths = this->graph.dijkstra(source, target);
 
 }

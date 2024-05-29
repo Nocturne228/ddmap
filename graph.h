@@ -49,6 +49,7 @@
 
 
 #include <QPointF>
+#include <vector>
 
 class Graph {
 private:

@@ -1,6 +1,8 @@
 #ifndef WIDGET_H
 #define WIDGET_H
 
+#include "graph.h"
+
 #include <QWidget>
 #include <QDebug>
 
@@ -30,6 +32,7 @@ private:
     // 参与时间进程的变量
     QTimer *mstimer;
     QThread *timethread;
+    Graph graph;
 
 
     void Initial_UI();
@@ -39,6 +42,7 @@ private:
 
 private slots:
     void startButtonClicked();//开始按钮按下，开始计算路径图形输出
+    void Button4Clicked();
 
 signals:
 };
