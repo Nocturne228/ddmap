@@ -21,6 +21,8 @@ protected:
 
 private slots:
     void onMEIXIHUButtonClicked();
+    void moveAlongPath();
+    void updatePosition();
 
 private:
     // 乘客类与图结构
@@ -30,6 +32,13 @@ private:
 
     // 地图中的按钮
     QPushButton *MEIXIHU_Button;
+
+    int currentSegment;
+    int totalSegments;
+    QTimer* moveTimer;
+    int moveInterval;
+    double speed;
+
 };
 
 #endif // MAPWIDGET_H
