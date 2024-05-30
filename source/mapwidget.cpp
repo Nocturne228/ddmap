@@ -91,6 +91,24 @@ void MapWidget::onMEIXIHUButtonClicked()
 
     std::vector<QPointF> paths = this->graph.dijkstra(source, target);
     path = paths;
+
+    if (!path.empty()) {
+            // 开始移动，设置定时器来更新乘客位置
+            QTimer* moveTimer = new QTimer(this);
+            connect(moveTimer, &QTimer::timeout, [=]() {
+                if (!path.empty()) {
+                    // 更新乘客位置为路径的下一个点
+                    this->passenger.setPosition(path.front());
+                    path.erase(path.begin());
+                    update(); // 触发界面更新
+                } else {
+                    moveTimer->stop(); // 移动结束，停止定时器
+                    delete moveTimer;
+                }
+            });
+            moveTimer->start(1000); // 每秒更新一次位置
+        }
+
     update();
 }
 
