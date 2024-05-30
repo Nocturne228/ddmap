@@ -6,7 +6,8 @@
 
 MapWidget::MapWidget(QWidget *parent) :
     // 根据乘客位置设置图标
-    QWidget(parent), passenger(QPointF(CSU_X, CSU_Y+20), 0, ":/ultraman.ico"), graph()
+    QWidget(parent), graph(), passenger(QPointF(CSU_X, CSU_Y+20), 0, ":/ultraman.ico"),
+    driver1(QPointF(MEIXIHU_X, MEIXIHU_Y+20), 0, ":/driver1.ico")
 {
     // 设置基础背景图片
     this->setAutoFillBackground(true);
@@ -44,6 +45,7 @@ void MapWidget::paintEvent(QPaintEvent *event)
 
     // 绘制乘客图标
     painter.drawPixmap(this->passenger.getPosition(), this->passenger.getIcon());
+    painter.drawPixmap(this->driver1.getPosition(), this->driver1.getIcon());
 
     // 绘制地点坐标点
     for (int i = 0; i < graph.getMaxNode(); ++i) { // 假设共有10个地点

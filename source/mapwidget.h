@@ -24,8 +24,10 @@ private slots:
 
 private:
     // 乘客类与图结构
-    Passenger passenger;
     Graph graph;
+    Passenger passenger;
+    Passenger driver1;
+
     std::vector<QPointF> path; // 存储路径的成员变量
 
     // 地图中的按钮
