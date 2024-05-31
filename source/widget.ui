@@ -73,14 +73,20 @@
    <widget class="QPushButton" name="MEIXIHU_Button">
     <property name="geometry">
      <rect>
-      <x>390</x>
-      <y>20</y>
-      <width>93</width>
-      <height>28</height>
+      <x>320</x>
+      <y>-20</y>
+      <width>131</width>
+      <height>71</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: transparent;  /* 绿色背景 */
+border: none;  /* 无边框 */
+color: transparent;  /* 白色文字 */
+</string>
+    </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>到这</string>
     </property>
    </widget>
    <widget class="QPushButton" name="HUIWANG_Button">
@@ -99,11 +105,17 @@
    <widget class="QPushButton" name="CSU_OLD_Button">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>340</y>
-      <width>93</width>
-      <height>28</height>
+      <x>400</x>
+      <y>320</y>
+      <width>101</width>
+      <height>51</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: transparent;  /* 绿色背景 */
+border: none;  /* 无边框 */
+color: transparent;  /* 白色文字 */
+</string>
     </property>
     <property name="text">
      <string>PushButton</string>

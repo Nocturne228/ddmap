@@ -19,12 +19,32 @@ void MapWidget::showEvent(QShowEvent *event) {
     QWidget::showEvent(event);
 
     // 查找并连接按钮
+    // 中南校本部
+    CSU_OLD_Button = findChild<QPushButton*>("CSU_OLD_Button");
+    if (CSU_OLD_Button) {
+        CSU_OLD_Button->setIcon(QIcon(":/loc.ico"));
+        connect(CSU_OLD_Button, &QPushButton::clicked, this, &MapWidget::onCSUOLDButtonClicked);
+        qDebug() << "CSU_OLD_Button found and connected.";
+    } else {
+        qDebug() << "CSU_OLD_Button not found!";
+    }
+    // 梅溪湖
     MEIXIHU_Button = findChild<QPushButton*>("MEIXIHU_Button");
     if (MEIXIHU_Button) {
+        MEIXIHU_Button->setIcon(QIcon(":/loc.ico"));
         connect(MEIXIHU_Button, &QPushButton::clicked, this, &MapWidget::onMEIXIHUButtonClicked);
         qDebug() << "MEIXIHU_Button found and connected.";
     } else {
         qDebug() << "MEIXIHU_Button not found!";
+    }
+    // 回望书店
+    HUIWANG_Button = findChild<QPushButton*>("HUIWANG_Button");
+    if (HUIWANG_Button) {
+        HUIWANG_Button->setIcon(QIcon(":/loc.ico"));
+        connect(HUIWANG_Button, &QPushButton::clicked, this, &MapWidget::onHUIWANGButtonClicked);
+        qDebug() << "HUIWANG_Button found and connected.";
+    } else {
+        qDebug() << "HUIWANG_Button not found!";
     }
 }
 
@@ -74,10 +94,13 @@ void MapWidget::paintEvent(QPaintEvent *event)
     }
 }
 
+// 去梅溪湖
 void MapWidget::onMEIXIHUButtonClicked()
 {
     qDebug() << "Go to MEIXIHU";
-    QPointF source = this->graph.getLocCor(0);
+    qDebug() << "Passenger is at location" << findClosestNode();
+    int currPosition = findClosestNode();
+    QPointF source = this->graph.getLocCor(currPosition);
     QPointF target = this->graph.getLocCor(4);
 
     std::vector<QPointF> paths = this->graph.dijkstra(source, target);
@@ -90,6 +113,48 @@ void MapWidget::onMEIXIHUButtonClicked()
     update();
 }
 
+
+// 去回望书店
+void MapWidget::onHUIWANGButtonClicked()
+{
+    qDebug() << "Go to MEIXIHU";
+    qDebug() << "Passenger is at location" << findClosestNode();
+    int currPosition = findClosestNode();
+    QPointF source = this->graph.getLocCor(currPosition);
+    QPointF target = this->graph.getLocCor(2);
+
+    std::vector<QPointF> paths = this->graph.dijkstra(source, target);
+    path = paths;
+
+    if (!path.empty()) {
+        moveAlongPath();
+    }
+
+    update();
+}
+
+// 去校本部
+void MapWidget::onCSUOLDButtonClicked()
+{
+    qDebug() << "Go to CSU_Old";
+    qDebug() << "Passenger is at location" << findClosestNode();
+    int currPosition = findClosestNode();
+    QPointF source = this->graph.getLocCor(currPosition);
+    QPointF target = this->graph.getLocCor(1);
+
+    std::vector<QPointF> paths = this->graph.dijkstra(source, target);
+    path = paths;
+
+    if (!path.empty()) {
+        moveAlongPath();
+    }
+
+    update();
+}
+
+
+
+// 沿paths路径移动
 void MapWidget::moveAlongPath()
 {
     qDebug() << "Move";
@@ -130,4 +195,23 @@ void MapWidget::updatePosition()
         moveTimer->deleteLater();
         moveTimer = nullptr;
     }
+}
+
+// 查询距离最近的节点，找到对应的graph中的节点坐标
+int MapWidget::findClosestNode() {
+    QPointF passengerPos = passenger.getPosition();
+    double minDistance = std::numeric_limits<double>::max();
+    int closestNode = -1;
+
+    for (int i = 0; i < graph.getMaxNode(); ++i) {
+        QPointF nodePos = graph.getLoc(i);
+        double distance = std::hypot(nodePos.x() - passengerPos.x(), nodePos.y() - passengerPos.y());
+
+        if (distance < minDistance) {
+            minDistance = distance;
+            closestNode = i;
+        }
+    }
+
+    return closestNode;
 }

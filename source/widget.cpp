@@ -17,7 +17,7 @@ void Widget::Initial_UI()
     qDebug() << "Successfully initialize UI";
     this->setFixedSize(1280, 820);//设置窗口大小
     this->setWindowTitle("滴滴出行");//设置窗口标题
-    QIcon exe_ico(":/exe.ico");
+    QIcon exe_ico(":/appicon.ico");
     this->setWindowIcon(exe_ico);//设置窗口图标
 
     // 添加出发时间(不可编辑)
