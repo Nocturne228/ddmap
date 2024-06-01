@@ -53,6 +53,12 @@
       <height>28</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: transparent;  /* 绿色背景 */
+border: none;  /* 无边框 */
+color: transparent;  /* 白色文字 */
+</string>
+    </property>
     <property name="text">
      <string>PushButton</string>
     </property>
@@ -65,6 +71,12 @@
       <width>93</width>
       <height>28</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: transparent;  /* 绿色背景 */
+border: none;  /* 无边框 */
+color: transparent;  /* 白色文字 */
+</string>
     </property>
     <property name="text">
      <string>PushButton</string>
@@ -98,6 +110,12 @@ color: transparent;  /* 白色文字 */
       <height>28</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: transparent;  /* 绿色背景 */
+border: none;  /* 无边框 */
+color: transparent;  /* 白色文字 */
+</string>
+    </property>
     <property name="text">
      <string>PushButton</string>
     </property>
@@ -109,6 +127,177 @@ color: transparent;  /* 白色文字 */
       <y>320</y>
       <width>101</width>
       <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: transparent;  /* 绿色背景 */
+border: none;  /* 无边框 */
+color: transparent;  /* 白色文字 */
+</string>
+    </property>
+    <property name="text">
+     <string>PushButton</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="XIANGBIWO_Button">
+    <property name="geometry">
+     <rect>
+      <x>74</x>
+      <y>271</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: transparent;  /* 绿色背景 */
+border: none;  /* 无边框 */
+color: transparent;  /* 白色文字 */
+</string>
+    </property>
+    <property name="text">
+     <string>PushButton</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="YANGHU_Button">
+    <property name="geometry">
+     <rect>
+      <x>504</x>
+      <y>627</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: transparent;  /* 绿色背景 */
+border: none;  /* 无边框 */
+color: transparent;  /* 白色文字 */
+</string>
+    </property>
+    <property name="text">
+     <string>PushButton</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="WUYI_Button">
+    <property name="geometry">
+     <rect>
+      <x>870</x>
+      <y>100</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: transparent;  /* 绿色背景 */
+border: none;  /* 无边框 */
+color: transparent;  /* 白色文字 */
+</string>
+    </property>
+    <property name="text">
+     <string>PushButton</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="HNNU_Button">
+    <property name="geometry">
+     <rect>
+      <x>163</x>
+      <y>621</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: transparent;  /* 绿色背景 */
+border: none;  /* 无边框 */
+color: transparent;  /* 白色文字 */
+</string>
+    </property>
+    <property name="text">
+     <string>PushButton</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="BISHAHU_Button">
+    <property name="geometry">
+     <rect>
+      <x>798</x>
+      <y>371</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: transparent;  /* 绿色背景 */
+border: none;  /* 无边框 */
+color: transparent;  /* 白色文字 */
+</string>
+    </property>
+    <property name="text">
+     <string>PushButton</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="CSUST_Button">
+    <property name="geometry">
+     <rect>
+      <x>906</x>
+      <y>403</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: transparent;  /* 绿色背景 */
+border: none;  /* 无边框 */
+color: transparent;  /* 白色文字 */
+</string>
+    </property>
+    <property name="text">
+     <string>PushButton</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="XINAGYA_Button">
+    <property name="geometry">
+     <rect>
+      <x>990</x>
+      <y>130</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: transparent;  /* 绿色背景 */
+border: none;  /* 无边框 */
+color: transparent;  /* 白色文字 */
+</string>
+    </property>
+    <property name="text">
+     <string>PushButton</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="NANJIAO_Button">
+    <property name="geometry">
+     <rect>
+      <x>895</x>
+      <y>589</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: transparent;  /* 绿色背景 */
+border: none;  /* 无边框 */
+color: transparent;  /* 白色文字 */
+</string>
+    </property>
+    <property name="text">
+     <string>PushButton</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="CSUFT_Button">
+    <property name="geometry">
+     <rect>
+      <x>1012</x>
+      <y>610</y>
+      <width>93</width>
+      <height>28</height>
      </rect>
     </property>
     <property name="styleSheet">

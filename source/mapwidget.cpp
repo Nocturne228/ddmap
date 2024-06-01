@@ -46,6 +46,105 @@ void MapWidget::showEvent(QShowEvent *event) {
     } else {
         qDebug() << "HUIWANG_Button not found!";
     }
+
+    CSU_Button = findChild<QPushButton*>("CSU_Button");
+        if (CSU_Button) {
+            CSU_Button->setIcon(QIcon(":/loc.ico"));
+            connect(CSU_Button, &QPushButton::clicked, this, &MapWidget::onCSUButtonClicked);
+            qDebug() << "CSU_Button found and connected.";
+        } else {
+            qDebug() << "CSU_Button not found!";
+        }
+
+        HNU_Button = findChild<QPushButton*>("HNU_Button");
+        if (HNU_Button) {
+            HNU_Button->setIcon(QIcon(":/loc.ico"));
+            connect(HNU_Button, &QPushButton::clicked, this, &MapWidget::onHNUButtonClicked);
+            qDebug() << "HNU_Button found and connected.";
+        } else {
+            qDebug() << "HNU_Button not found!";
+        }
+
+        XIANGBIWO_Button = findChild<QPushButton*>("XIANGBIWO_Button");
+        if (XIANGBIWO_Button) {
+            XIANGBIWO_Button->setIcon(QIcon(":/loc.ico"));
+            connect(XIANGBIWO_Button, &QPushButton::clicked, this, &MapWidget::onXIANGBIWOButtonClicked);
+            qDebug() << "XIANGBIWO_Button found and connected.";
+        } else {
+            qDebug() << "XIANGBIWO_Button not found!";
+        }
+
+        YANGHU_Button = findChild<QPushButton*>("YANGHU_Button");
+        if (YANGHU_Button) {
+            YANGHU_Button->setIcon(QIcon(":/loc.ico"));
+            connect(YANGHU_Button, &QPushButton::clicked, this, &MapWidget::onYANGHUButtonClicked);
+            qDebug() << "YANGHU_Button found and connected.";
+        } else {
+            qDebug() << "YANGHU_Button not found!";
+        }
+
+        WUYI_Button = findChild<QPushButton*>("WUYI_Button");
+        if (WUYI_Button) {
+            WUYI_Button->setIcon(QIcon(":/loc.ico"));
+            connect(WUYI_Button, &QPushButton::clicked, this, &MapWidget::onWUYIButtonClicked);
+            qDebug() << "WUYI_Button found and connected.";
+        } else {
+            qDebug() << "WUYI_Button not found!";
+        }
+
+        HNNU_Button = findChild<QPushButton*>("HNNU_Button");
+        if (HNNU_Button) {
+            HNNU_Button->setIcon(QIcon(":/loc.ico"));
+            connect(HNNU_Button, &QPushButton::clicked, this, &MapWidget::onHNNUButtonClicked);
+            qDebug() << "HNNU_Button found and connected.";
+        } else {
+            qDebug() << "HNNU_Button not found!";
+        }
+
+        BISHAHU_Button = findChild<QPushButton*>("BISHAHU_Button");
+        if (BISHAHU_Button) {
+            BISHAHU_Button->setIcon(QIcon(":/loc.ico"));
+            connect(BISHAHU_Button, &QPushButton::clicked, this, &MapWidget::onBISHAHUButtonClicked);
+            qDebug() << "BISHAHU_Button found and connected.";
+        } else {
+            qDebug() << "BISHAHU_Button not found!";
+        }
+
+        CSUST_Button = findChild<QPushButton*>("CSUST_Button");
+        if (CSUST_Button) {
+            CSUST_Button->setIcon(QIcon(":/loc.ico"));
+            connect(CSUST_Button, &QPushButton::clicked, this, &MapWidget::onCSUSTButtonClicked);
+            qDebug() << "CSUST_Button found and connected.";
+        } else {
+            qDebug() << "CSUST_Button not found!";
+        }
+
+        XIANGYA_Button = findChild<QPushButton*>("XIANGYA_Button");
+        if (XIANGYA_Button) {
+            XIANGYA_Button->setIcon(QIcon(":/loc.ico"));
+            connect(XIANGYA_Button, &QPushButton::clicked, this, &MapWidget::onXIANGYAButtonClicked);
+            qDebug() << "XIANGYA_Button found and connected.";
+        } else {
+            qDebug() << "XIANGYA_Button not found!";
+        }
+
+        NANJIAO_Button = findChild<QPushButton*>("NANJIAO_Button");
+        if (NANJIAO_Button) {
+            NANJIAO_Button->setIcon(QIcon(":/loc.ico"));
+            connect(NANJIAO_Button, &QPushButton::clicked, this, &MapWidget::onNANJIAOButtonClicked);
+            qDebug() << "NANJIAO_Button found and connected.";
+        } else {
+            qDebug() << "NANJIAO_Button not found!";
+        }
+
+        CSUFT_Button = findChild<QPushButton*>("CSUFT_Button");
+        if (CSUFT_Button) {
+            CSUFT_Button->setIcon(QIcon(":/loc.ico"));
+            connect(CSUFT_Button, &QPushButton::clicked, this, &MapWidget::onCSUFTButtonClicked);
+            qDebug() << "CSUFT_Button found and connected.";
+        } else {
+            qDebug() << "CSUFT_Button not found!";
+        }
 }
 
 void MapWidget::paintEvent(QPaintEvent *event)
@@ -152,6 +251,139 @@ void MapWidget::onCSUOLDButtonClicked()
     update();
 }
 
+void MapWidget::onCSUButtonClicked() {
+    int currPosition = findClosestNode();
+    QPointF source = this->graph.getLocCor(currPosition);
+    QPointF target = this->graph.getLocCor(0);
+    std::vector<QPointF> paths = this->graph.dijkstra(source, target);
+    path = paths;
+    if (!path.empty()) {
+        moveAlongPath();
+    }
+    update();
+}
+
+void MapWidget::onHNUButtonClicked() {
+    int currPosition = findClosestNode();
+    QPointF source = this->graph.getLocCor(currPosition);
+    QPointF target = this->graph.getLocCor(3);
+    std::vector<QPointF> paths = this->graph.dijkstra(source, target);
+    path = paths;
+    if (!path.empty()) {
+        moveAlongPath();
+    }
+    update();
+}
+
+// 继续添加其他槽函数...
+
+void MapWidget::onXIANGBIWOButtonClicked() {
+    int currPosition = findClosestNode();
+    QPointF source = this->graph.getLocCor(currPosition);
+    QPointF target = this->graph.getLocCor(5);
+    std::vector<QPointF> paths = this->graph.dijkstra(source, target);
+    path = paths;
+    if (!path.empty()) {
+        moveAlongPath();
+    }
+    update();
+}
+
+void MapWidget::onYANGHUButtonClicked() {
+    int currPosition = findClosestNode();
+    QPointF source = this->graph.getLocCor(currPosition);
+    QPointF target = this->graph.getLocCor(7);
+    std::vector<QPointF> paths = this->graph.dijkstra(source, target);
+    path = paths;
+    if (!path.empty()) {
+        moveAlongPath();
+    }
+    update();
+}
+
+void MapWidget::onWUYIButtonClicked() {
+    int currPosition = findClosestNode();
+    QPointF source = this->graph.getLocCor(currPosition);
+    QPointF target = this->graph.getLocCor(11);
+    std::vector<QPointF> paths = this->graph.dijkstra(source, target);
+    path = paths;
+    if (!path.empty()) {
+        moveAlongPath();
+    }
+    update();
+}
+
+void MapWidget::onHNNUButtonClicked() {
+    int currPosition = findClosestNode();
+    QPointF source = this->graph.getLocCor(currPosition);
+    QPointF target = this->graph.getLocCor(6);
+    std::vector<QPointF> paths = this->graph.dijkstra(source, target);
+    path = paths;
+    if (!path.empty()) {
+        moveAlongPath();
+    }
+    update();
+}
+
+void MapWidget::onBISHAHUButtonClicked() {
+    int currPosition = findClosestNode();
+    QPointF source = this->graph.getLocCor(currPosition);
+    QPointF target = this->graph.getLocCor(10);
+    std::vector<QPointF> paths = this->graph.dijkstra(source, target);
+    path = paths;
+    if (!path.empty()) {
+        moveAlongPath();
+    }
+    update();
+}
+
+void MapWidget::onCSUSTButtonClicked() {
+    int currPosition = findClosestNode();
+    QPointF source = this->graph.getLocCor(currPosition);
+    QPointF target = this->graph.getLocCor(9);
+    std::vector<QPointF> paths = this->graph.dijkstra(source, target);
+    path = paths;
+    if (!path.empty()) {
+        moveAlongPath();
+    }
+    update();
+}
+
+void MapWidget::onXIANGYAButtonClicked() {
+    int currPosition = findClosestNode();
+    QPointF source = this->graph.getLocCor(currPosition);
+    QPointF target = this->graph.getLocCor(13);
+    std::vector<QPointF> paths = this->graph.dijkstra(source, target);
+    path = paths;
+    if (!path.empty()) {
+        moveAlongPath();
+    }
+    update();
+}
+
+void MapWidget::onNANJIAOButtonClicked() {
+    int currPosition = findClosestNode();
+    QPointF source = this->graph.getLocCor(currPosition);
+    QPointF target = this->graph.getLocCor(8);
+    std::vector<QPointF> paths = this->graph.dijkstra(source, target);
+    path = paths;
+    if (!path.empty()) {
+        moveAlongPath();
+    }
+    update();
+}
+
+void MapWidget::onCSUFTButtonClicked() {
+    int currPosition = findClosestNode();
+    QPointF source = this->graph.getLocCor(currPosition);
+    QPointF target = this->graph.getLocCor(12);
+    std::vector<QPointF> paths = this->graph.dijkstra(source, target);
+    path = paths;
+    if (!path.empty()) {
+        moveAlongPath();
+    }
+    update();
+}
 
 
 // 沿paths路径移动
