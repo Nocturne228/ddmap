@@ -57,12 +57,7 @@ void Widget::startButtonClicked() {
     qDebug() << "StartButton clicked for Passenger";
 }
 
-// 梅溪湖
-//void Widget::Button4Clicked() {
-//    qDebug() << "Go to MEIXIHU";
-//    QPointF source = this->graph.getLocCor(1);
-//    QPointF target = this->graph.getLocCor(4);
-
-//    std::vector<QPointF> paths = this->graph.dijkstra(source, target);
-
-//}
+void Widget::on_CSU_Button_clicked()
+{
+    qDebug() << "CSU Button Clicked";
+}

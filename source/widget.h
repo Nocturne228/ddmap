@@ -44,6 +44,8 @@ private slots:
     void startButtonClicked();//开始按钮按下，开始计算路径图形输出
 //    void Button4Clicked();
 
+    void on_CSU_Button_clicked();
+
 signals:
 };
 

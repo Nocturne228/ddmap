@@ -5,7 +5,7 @@
 MapWidget::MapWidget(QWidget *parent) :
     // 根据乘客位置设置图标
     QWidget(parent), passenger(QPointF(CSU_X, CSU_Y+20), 0, ":/ultraman.ico"), graph(),
-        currentSegment(0), totalSegments(0), moveTimer(nullptr), moveInterval(50), speed(5)
+        currentSegment(0), totalSegments(0), moveTimer(nullptr), moveInterval(20), speed(10)
 
 {
     // 设置基础背景图片
@@ -392,8 +392,8 @@ void MapWidget::moveAlongPath()
     qDebug() << "Move";
     currentSegment = 0;
     totalSegments = path.size() - 1;
-    moveInterval = 50; // 每 50 毫秒更新一次位置
-    speed = 5; // 每次移动 0.05 个单位
+//    moveInterval = 50; // 每 50 毫秒更新一次位置
+//    speed = 5; // 每次移动 0.05 个单位
 
     if (moveTimer) {
         moveTimer->stop();
