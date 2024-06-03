@@ -79,6 +79,7 @@ private:
     int moveInterval;
     double speed;
 
+    void setAllButtonsEnabled(bool isEnable);
 };
 
 #endif // MAPWIDGET_H

@@ -147,7 +147,9 @@ void MapWidget::showEvent(QShowEvent *event) {
         qDebug() << "CSUFT_Button not found!";
     }
 
+
     StartMove_Button = findChild<QPushButton*>("StartMove_Button");
+    StartMove_Button->setVisible(false);
     if (StartMove_Button) {
         StartMove_Button->setIcon(QIcon(":/loc.ico"));
         connect(StartMove_Button, &QPushButton::clicked, this, &MapWidget::onStartMoveButtonClicked);
@@ -349,6 +351,7 @@ void MapWidget::onStartMoveButtonClicked() {
     CostNumber_MAP->display(graph.getTotalWeight());
     if (!path.empty()) {
         moveAlongPath();
+        setAllButtonsEnabled(false); // 禁用按钮
     }
     update();
 }
@@ -392,6 +395,7 @@ void MapWidget::updatePosition()
         moveTimer->stop();
         moveTimer->deleteLater();
         moveTimer = nullptr;
+        setAllButtonsEnabled(true); // 启用按钮
     }
 }
 
@@ -412,4 +416,21 @@ int MapWidget::findClosestNode() {
     }
 
     return closestNode;
+}
+
+void MapWidget::setAllButtonsEnabled(bool isEnable) {
+    CSU_Button->setEnabled(isEnable);
+    CSU_OLD_Button->setEnabled(isEnable);
+    CSUST_Button->setEnabled(isEnable);
+    CSUFT_Button->setEnabled(isEnable);
+    HNU_Button->setEnabled(isEnable);
+    HNNU_Button->setEnabled(isEnable);
+    HUIWANG_Button->setEnabled(isEnable);
+    XIANGBIWO_Button->setEnabled(isEnable);
+    XIANGYA_Button->setEnabled(isEnable);
+    MEIXIHU_Button->setEnabled(isEnable);
+    YANGHU_Button->setEnabled(isEnable);
+    WUYI_Button->setEnabled(isEnable);
+    NANJIAO_Button->setEnabled(isEnable);
+    BISHAHU_Button->setEnabled(isEnable);
 }
