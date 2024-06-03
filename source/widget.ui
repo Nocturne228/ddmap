@@ -301,6 +301,16 @@ color: transparent;  /* 白色文字 */
      <string>PushButton</string>
     </property>
    </widget>
+   <widget class="QLCDNumber" name="CostNumber_map">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>0</y>
+      <width>251</width>
+      <height>131</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
   <widget class="QPushButton" name="StartButton">
    <property name="geometry">
@@ -358,6 +368,16 @@ color: transparent;  /* 白色文字 */
      <widget class="QTimeEdit" name="TimeCostEdit"/>
     </item>
    </layout>
+  </widget>
+  <widget class="QLCDNumber" name="CostNumber">
+   <property name="geometry">
+    <rect>
+     <x>1180</x>
+     <y>50</y>
+     <width>241</width>
+     <height>101</height>
+    </rect>
+   </property>
   </widget>
  </widget>
  <customwidgets>

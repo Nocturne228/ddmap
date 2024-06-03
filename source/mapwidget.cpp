@@ -49,112 +49,119 @@ void MapWidget::showEvent(QShowEvent *event) {
     }
 
     CSU_Button = findChild<QPushButton*>("CSU_Button");
-        if (CSU_Button) {
-            CSU_Button->setIcon(QIcon(":/loc.ico"));
-            connect(CSU_Button, &QPushButton::clicked, this, &MapWidget::onCSUButtonClicked);
-            qDebug() << "CSU_Button found and connected.";
-        } else {
-            qDebug() << "CSU_Button not found!";
-        }
+    if (CSU_Button) {
+        CSU_Button->setIcon(QIcon(":/loc.ico"));
+        connect(CSU_Button, &QPushButton::clicked, this, &MapWidget::onCSUButtonClicked);
+        qDebug() << "CSU_Button found and connected.";
+    } else {
+        qDebug() << "CSU_Button not found!";
+    }
 
-        HNU_Button = findChild<QPushButton*>("HNU_Button");
-        if (HNU_Button) {
-            HNU_Button->setIcon(QIcon(":/loc.ico"));
-            connect(HNU_Button, &QPushButton::clicked, this, &MapWidget::onHNUButtonClicked);
-            qDebug() << "HNU_Button found and connected.";
-        } else {
-            qDebug() << "HNU_Button not found!";
-        }
+    HNU_Button = findChild<QPushButton*>("HNU_Button");
+    if (HNU_Button) {
+        HNU_Button->setIcon(QIcon(":/loc.ico"));
+        connect(HNU_Button, &QPushButton::clicked, this, &MapWidget::onHNUButtonClicked);
+        qDebug() << "HNU_Button found and connected.";
+    } else {
+        qDebug() << "HNU_Button not found!";
+    }
 
-        XIANGBIWO_Button = findChild<QPushButton*>("XIANGBIWO_Button");
-        if (XIANGBIWO_Button) {
-            XIANGBIWO_Button->setIcon(QIcon(":/loc.ico"));
-            connect(XIANGBIWO_Button, &QPushButton::clicked, this, &MapWidget::onXIANGBIWOButtonClicked);
-            qDebug() << "XIANGBIWO_Button found and connected.";
-        } else {
-            qDebug() << "XIANGBIWO_Button not found!";
-        }
+    XIANGBIWO_Button = findChild<QPushButton*>("XIANGBIWO_Button");
+    if (XIANGBIWO_Button) {
+        XIANGBIWO_Button->setIcon(QIcon(":/loc.ico"));
+        connect(XIANGBIWO_Button, &QPushButton::clicked, this, &MapWidget::onXIANGBIWOButtonClicked);
+        qDebug() << "XIANGBIWO_Button found and connected.";
+    } else {
+        qDebug() << "XIANGBIWO_Button not found!";
+    }
 
-        YANGHU_Button = findChild<QPushButton*>("YANGHU_Button");
-        if (YANGHU_Button) {
-            YANGHU_Button->setIcon(QIcon(":/loc.ico"));
-            connect(YANGHU_Button, &QPushButton::clicked, this, &MapWidget::onYANGHUButtonClicked);
-            qDebug() << "YANGHU_Button found and connected.";
-        } else {
-            qDebug() << "YANGHU_Button not found!";
-        }
+    YANGHU_Button = findChild<QPushButton*>("YANGHU_Button");
+    if (YANGHU_Button) {
+        YANGHU_Button->setIcon(QIcon(":/loc.ico"));
+        connect(YANGHU_Button, &QPushButton::clicked, this, &MapWidget::onYANGHUButtonClicked);
+        qDebug() << "YANGHU_Button found and connected.";
+    } else {
+        qDebug() << "YANGHU_Button not found!";
+    }
 
-        WUYI_Button = findChild<QPushButton*>("WUYI_Button");
-        if (WUYI_Button) {
-            WUYI_Button->setIcon(QIcon(":/loc.ico"));
-            connect(WUYI_Button, &QPushButton::clicked, this, &MapWidget::onWUYIButtonClicked);
-            qDebug() << "WUYI_Button found and connected.";
-        } else {
-            qDebug() << "WUYI_Button not found!";
-        }
+    WUYI_Button = findChild<QPushButton*>("WUYI_Button");
+    if (WUYI_Button) {
+        WUYI_Button->setIcon(QIcon(":/loc.ico"));
+        connect(WUYI_Button, &QPushButton::clicked, this, &MapWidget::onWUYIButtonClicked);
+        qDebug() << "WUYI_Button found and connected.";
+    } else {
+        qDebug() << "WUYI_Button not found!";
+    }
 
-        HNNU_Button = findChild<QPushButton*>("HNNU_Button");
-        if (HNNU_Button) {
-            HNNU_Button->setIcon(QIcon(":/loc.ico"));
-            connect(HNNU_Button, &QPushButton::clicked, this, &MapWidget::onHNNUButtonClicked);
-            qDebug() << "HNNU_Button found and connected.";
-        } else {
-            qDebug() << "HNNU_Button not found!";
-        }
+    HNNU_Button = findChild<QPushButton*>("HNNU_Button");
+    if (HNNU_Button) {
+        HNNU_Button->setIcon(QIcon(":/loc.ico"));
+        connect(HNNU_Button, &QPushButton::clicked, this, &MapWidget::onHNNUButtonClicked);
+        qDebug() << "HNNU_Button found and connected.";
+    } else {
+        qDebug() << "HNNU_Button not found!";
+    }
 
-        BISHAHU_Button = findChild<QPushButton*>("BISHAHU_Button");
-        if (BISHAHU_Button) {
-            BISHAHU_Button->setIcon(QIcon(":/loc.ico"));
-            connect(BISHAHU_Button, &QPushButton::clicked, this, &MapWidget::onBISHAHUButtonClicked);
-            qDebug() << "BISHAHU_Button found and connected.";
-        } else {
-            qDebug() << "BISHAHU_Button not found!";
-        }
+    BISHAHU_Button = findChild<QPushButton*>("BISHAHU_Button");
+    if (BISHAHU_Button) {
+        BISHAHU_Button->setIcon(QIcon(":/loc.ico"));
+        connect(BISHAHU_Button, &QPushButton::clicked, this, &MapWidget::onBISHAHUButtonClicked);
+        qDebug() << "BISHAHU_Button found and connected.";
+    } else {
+        qDebug() << "BISHAHU_Button not found!";
+    }
 
-        CSUST_Button = findChild<QPushButton*>("CSUST_Button");
-        if (CSUST_Button) {
-            CSUST_Button->setIcon(QIcon(":/loc.ico"));
-            connect(CSUST_Button, &QPushButton::clicked, this, &MapWidget::onCSUSTButtonClicked);
-            qDebug() << "CSUST_Button found and connected.";
-        } else {
-            qDebug() << "CSUST_Button not found!";
-        }
+    CSUST_Button = findChild<QPushButton*>("CSUST_Button");
+    if (CSUST_Button) {
+        CSUST_Button->setIcon(QIcon(":/loc.ico"));
+        connect(CSUST_Button, &QPushButton::clicked, this, &MapWidget::onCSUSTButtonClicked);
+        qDebug() << "CSUST_Button found and connected.";
+    } else {
+        qDebug() << "CSUST_Button not found!";
+    }
 
-        XIANGYA_Button = findChild<QPushButton*>("XIANGYA_Button");
-        if (XIANGYA_Button) {
-            XIANGYA_Button->setIcon(QIcon(":/loc.ico"));
-            connect(XIANGYA_Button, &QPushButton::clicked, this, &MapWidget::onXIANGYAButtonClicked);
-            qDebug() << "XIANGYA_Button found and connected.";
-        } else {
-            qDebug() << "XIANGYA_Button not found!";
-        }
+    XIANGYA_Button = findChild<QPushButton*>("XIANGYA_Button");
+    if (XIANGYA_Button) {
+        XIANGYA_Button->setIcon(QIcon(":/loc.ico"));
+        connect(XIANGYA_Button, &QPushButton::clicked, this, &MapWidget::onXIANGYAButtonClicked);
+        qDebug() << "XIANGYA_Button found and connected.";
+    } else {
+        qDebug() << "XIANGYA_Button not found!";
+    }
 
-        NANJIAO_Button = findChild<QPushButton*>("NANJIAO_Button");
-        if (NANJIAO_Button) {
-            NANJIAO_Button->setIcon(QIcon(":/loc.ico"));
-            connect(NANJIAO_Button, &QPushButton::clicked, this, &MapWidget::onNANJIAOButtonClicked);
-            qDebug() << "NANJIAO_Button found and connected.";
-        } else {
-            qDebug() << "NANJIAO_Button not found!";
-        }
+    NANJIAO_Button = findChild<QPushButton*>("NANJIAO_Button");
+    if (NANJIAO_Button) {
+        NANJIAO_Button->setIcon(QIcon(":/loc.ico"));
+        connect(NANJIAO_Button, &QPushButton::clicked, this, &MapWidget::onNANJIAOButtonClicked);
+        qDebug() << "NANJIAO_Button found and connected.";
+    } else {
+        qDebug() << "NANJIAO_Button not found!";
+    }
 
-        CSUFT_Button = findChild<QPushButton*>("CSUFT_Button");
-        if (CSUFT_Button) {
-            CSUFT_Button->setIcon(QIcon(":/loc.ico"));
-            connect(CSUFT_Button, &QPushButton::clicked, this, &MapWidget::onCSUFTButtonClicked);
-            qDebug() << "CSUFT_Button found and connected.";
-        } else {
-            qDebug() << "CSUFT_Button not found!";
-        }
+    CSUFT_Button = findChild<QPushButton*>("CSUFT_Button");
+    if (CSUFT_Button) {
+        CSUFT_Button->setIcon(QIcon(":/loc.ico"));
+        connect(CSUFT_Button, &QPushButton::clicked, this, &MapWidget::onCSUFTButtonClicked);
+        qDebug() << "CSUFT_Button found and connected.";
+    } else {
+        qDebug() << "CSUFT_Button not found!";
+    }
 
-        StartMove_Button = findChild<QPushButton*>("StartMove_Button");
-        if (StartMove_Button) {
-            StartMove_Button->setIcon(QIcon(":/loc.ico"));
-            connect(StartMove_Button, &QPushButton::clicked, this, &MapWidget::onStartMoveButtonClicked);
-            qDebug() << "StartMove_Button found and connected.";
-        } else {
-            qDebug() << "StartMove_Button not found!";
-        }
+    StartMove_Button = findChild<QPushButton*>("StartMove_Button");
+    if (StartMove_Button) {
+        StartMove_Button->setIcon(QIcon(":/loc.ico"));
+        connect(StartMove_Button, &QPushButton::clicked, this, &MapWidget::onStartMoveButtonClicked);
+        qDebug() << "StartMove_Button found and connected.";
+    } else {
+        qDebug() << "StartMove_Button not found!";
+    }
+
+    CostNumber_MAP = findChild<QLCDNumber*>("CostNumber_map");
+    if (CostNumber_MAP) {
+        qDebug() << "CostNumber_map connected";
+    } else {
+        qDebug() << "CostNumber_map not found";
+    }
 }
 
 void MapWidget::paintEvent(QPaintEvent *event)
@@ -338,6 +345,7 @@ void MapWidget::onCSUFTButtonClicked() {
 void MapWidget::onStartMoveButtonClicked() {
     qDebug() << "Start Move";
     qDebug() << "Total weight in mapwidget: " << graph.getTotalWeight();
+    CostNumber_MAP->display(graph.getTotalWeight());
     if (!path.empty()) {
         moveAlongPath();
     }

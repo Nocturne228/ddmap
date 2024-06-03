@@ -7,6 +7,7 @@
 
 #include <QPainter>
 #include <QPushButton>
+#include <QLCDNumber>
 
 
 class MapWidget : public QWidget
@@ -49,6 +50,9 @@ private:
     Passenger driver;
     Graph graph;
     std::vector<QPointF> path; // 存储路径的成员变量
+
+    // 展示车费
+    QLCDNumber *CostNumber_MAP;
 
     // 地图中的按钮
     QPushButton *MEIXIHU_Button;
