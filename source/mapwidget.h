@@ -41,9 +41,12 @@ private slots:
     void onNANJIAOButtonClicked();
     void onCSUFTButtonClicked();
 
+    void onStartMoveButtonClicked();
+
 private:
     // 乘客类与图结构
     Passenger passenger;
+    Passenger driver;
     Graph graph;
     std::vector<QPointF> path; // 存储路径的成员变量
 
@@ -62,6 +65,8 @@ private:
     QPushButton *XIANGYA_Button;
     QPushButton *NANJIAO_Button;
     QPushButton *CSUFT_Button;
+
+    QPushButton *StartMove_Button;
 
     // 移动参数
     int currentSegment;

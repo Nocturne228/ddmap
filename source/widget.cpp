@@ -49,15 +49,30 @@ void Widget::Initial_Time_Thread()
 
 void Widget::Initial_Signal_Slot()
 {
-    connect(ui->StartButton, &QPushButton::clicked, this, &Widget::startButtonClicked); //计时线程
-//    connect(ui->MEIXIHU_Button, &QPushButton::clicked, this, &Widget::Button4Clicked);
-}
-
-void Widget::startButtonClicked() {
-    qDebug() << "StartButton clicked for Passenger";
 }
 
 void Widget::on_CSU_Button_clicked()
 {
     qDebug() << "CSU Button Clicked";
+    // 获取当前时间
+    QDateTime currentDateTime = QDateTime::currentDateTime();
+
+    // 将时间转换为字符串
+    QString timeString = currentDateTime.toString("hh:mm:ss");
+
+    // 将时间字符串设置为 TimeEdit 的值
+    ui->TimeCostEdit->setTime(QTime::fromString(timeString, "hh:mm:ss"));
+
+}
+
+void Widget::on_XIANGYA_Button_clicked()
+{
+    qDebug() << "XIANGYA Button Clicked";
+}
+
+
+void Widget::on_StartButton_clicked()
+{
+    qDebug() << "Start";
+    ui->StartMove_Button->click();
 }

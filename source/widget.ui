@@ -13,28 +13,6 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QWidget" name="horizontalLayoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>1160</x>
-     <y>460</y>
-     <width>271</width>
-     <height>80</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="StartTimeLayout">
-    <item>
-     <widget class="QLabel" name="StartTimeLabel">
-      <property name="text">
-       <string>  起始时间</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QDateTimeEdit" name="StartDateTimeEdit"/>
-    </item>
-   </layout>
-  </widget>
   <widget class="MapWidget" name="TopWidget" native="true">
    <property name="geometry">
     <rect>
@@ -310,6 +288,19 @@ color: transparent;  /* 白色文字 */
      <string>PushButton</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="StartMove_Button">
+    <property name="geometry">
+     <rect>
+      <x>940</x>
+      <y>20</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PushButton</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QPushButton" name="StartButton">
    <property name="geometry">
@@ -321,8 +312,52 @@ color: transparent;  /* 白色文字 */
     </rect>
    </property>
    <property name="text">
-    <string>PushButton</string>
+    <string>开始</string>
    </property>
+  </widget>
+  <widget class="QWidget" name="horizontalLayoutWidget_3">
+   <property name="geometry">
+    <rect>
+     <x>1170</x>
+     <y>530</y>
+     <width>243</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="StartTimeHorizonalLayout">
+    <item>
+     <widget class="QLabel" name="StartTimeLabel">
+      <property name="text">
+       <string>  起始时间</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QDateTimeEdit" name="StartDateTimeEdit"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="horizontalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>1180</x>
+     <y>350</y>
+     <width>241</width>
+     <height>111</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="TimeCostHorizonalLayout">
+    <item>
+     <widget class="QLabel" name="TimeCostLabel">
+      <property name="text">
+       <string>预计用时</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QTimeEdit" name="TimeCostEdit"/>
+    </item>
+   </layout>
   </widget>
  </widget>
  <customwidgets>

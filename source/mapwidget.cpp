@@ -4,8 +4,9 @@
 
 MapWidget::MapWidget(QWidget *parent) :
     // 根据乘客位置设置图标
-    QWidget(parent), passenger(QPointF(CSU_X, CSU_Y+20), 0, ":/ultraman.ico"), graph(),
-        currentSegment(0), totalSegments(0), moveTimer(nullptr), moveInterval(20), speed(10)
+    QWidget(parent), passenger(QPointF(CSU_X, CSU_Y+20), 0, ":/ultraman.ico"),
+    driver(QPointF(CSUFT_X, CSUFT_Y+20), 0, ":/car.ico"), graph(),
+    currentSegment(0), totalSegments(0), moveTimer(nullptr), moveInterval(20), speed(10)
 
 {
     // 设置基础背景图片
@@ -145,6 +146,15 @@ void MapWidget::showEvent(QShowEvent *event) {
         } else {
             qDebug() << "CSUFT_Button not found!";
         }
+
+        StartMove_Button = findChild<QPushButton*>("StartMove_Button");
+        if (StartMove_Button) {
+            StartMove_Button->setIcon(QIcon(":/loc.ico"));
+            connect(StartMove_Button, &QPushButton::clicked, this, &MapWidget::onStartMoveButtonClicked);
+            qDebug() << "StartMove_Button found and connected.";
+        } else {
+            qDebug() << "StartMove_Button not found!";
+        }
 }
 
 void MapWidget::paintEvent(QPaintEvent *event)
@@ -160,6 +170,7 @@ void MapWidget::paintEvent(QPaintEvent *event)
 
     // 绘制乘客图标
     painter.drawPixmap(this->passenger.getPosition(), this->passenger.getIcon());
+    painter.drawPixmap(this->driver.getPosition(), this->driver.getIcon());
 
     // 绘制地点坐标点
     for (int i = 0; i < graph.getMaxNode(); ++i) { // 假设共有10个地点
@@ -379,6 +390,11 @@ void MapWidget::onCSUFTButtonClicked() {
     QPointF target = this->graph.getLocCor(12);
     std::vector<QPointF> paths = this->graph.dijkstra(source, target);
     path = paths;
+}
+
+
+void MapWidget::onStartMoveButtonClicked() {
+    qDebug() << "Start Move";
     if (!path.empty()) {
         moveAlongPath();
     }
@@ -389,11 +405,9 @@ void MapWidget::onCSUFTButtonClicked() {
 // 沿paths路径移动
 void MapWidget::moveAlongPath()
 {
-    qDebug() << "Move";
+    qDebug() << "Path size:" << path.size();
     currentSegment = 0;
     totalSegments = path.size() - 1;
-//    moveInterval = 50; // 每 50 毫秒更新一次位置
-//    speed = 5; // 每次移动 0.05 个单位
 
     if (moveTimer) {
         moveTimer->stop();
