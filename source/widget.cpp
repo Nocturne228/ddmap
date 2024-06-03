@@ -73,6 +73,6 @@ void Widget::on_XIANGYA_Button_clicked()
 
 void Widget::on_StartButton_clicked()
 {
-    qDebug() << "Start";
+    qDebug() << "Total weight in widget: " << graph.getTotalWeight();
     ui->StartMove_Button->click();
 }

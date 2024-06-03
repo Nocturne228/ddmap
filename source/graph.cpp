@@ -3,6 +3,11 @@
 #include <queue>
 #include <algorithm>
 
+int Graph::getTotalWeight() const
+{
+    return totalWeight;
+}
+
 Graph::Graph() {
     numNodes = 0;
     numEdges = 0;
@@ -175,10 +180,13 @@ std::vector<QPointF> Graph::dijkstra(const QPointF& source, const QPointF& targe
 
         visited[u] = true;
 
+        totalWeight = 0;
+
         for (int v = 0; v < numNodes; ++v) {
             if (adjacencyMatrix[u][v] != std::numeric_limits<int>::max() && !visited[v]) {
                 int weight = adjacencyMatrix[u][v];
                 if (distance[u] + weight < distance[v]) {
+                    totalWeight += weight;
                     distance[v] = distance[u] + weight;
                     parent[v] = u;
                     pq.push(v);
@@ -190,6 +198,9 @@ std::vector<QPointF> Graph::dijkstra(const QPointF& source, const QPointF& targe
     // 构建最短路径
     std::vector<QPointF> shortestPath;
     for (int v = targetIndex; v != -1; v = parent[v]) {
+        if (parent[v] != -1) {
+            totalWeight += adjacencyMatrix[parent[v]][v];
+        }
         shortestPath.push_back(nodeList[v]);
     }
     std::reverse(shortestPath.begin(), shortestPath.end());
@@ -208,3 +219,4 @@ int Graph::getWeight(int s_index, int t_index) {
 QPointF Graph::getLoc(int index) {
     return nodeList[index];
 }
+

@@ -61,6 +61,8 @@ private:
     int numNodes;
     int numEdges;
 
+    int totalWeight; // 新增的私有成员变量，用于存储总权重值
+
 public:
     Graph();  // 构造函数
 
@@ -72,6 +74,9 @@ public:
     QPointF getLocCor(int location);
     int getMaxNode();
     int getWeight(int s_index, int t_index);
+
+
+    int getTotalWeight() const;
 };
 
 #endif // GRAPH_H

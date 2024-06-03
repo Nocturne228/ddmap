@@ -44,13 +44,7 @@ private slots:
 //    void Button4Clicked();
 
     void on_CSU_Button_clicked();
-
     void on_XIANGYA_Button_clicked();
-
-
-
-
-
 
 
     void on_StartButton_clicked();

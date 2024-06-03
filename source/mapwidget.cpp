@@ -215,12 +215,6 @@ void MapWidget::onMEIXIHUButtonClicked()
 
     std::vector<QPointF> paths = this->graph.dijkstra(source, target);
     path = paths;
-
-    if (!path.empty()) {
-        moveAlongPath();
-    }
-
-    update();
 }
 
 
@@ -235,12 +229,6 @@ void MapWidget::onHUIWANGButtonClicked()
 
     std::vector<QPointF> paths = this->graph.dijkstra(source, target);
     path = paths;
-
-    if (!path.empty()) {
-        moveAlongPath();
-    }
-
-    update();
 }
 
 // 去校本部
@@ -254,12 +242,6 @@ void MapWidget::onCSUOLDButtonClicked()
 
     std::vector<QPointF> paths = this->graph.dijkstra(source, target);
     path = paths;
-
-    if (!path.empty()) {
-        moveAlongPath();
-    }
-
-    update();
 }
 
 void MapWidget::onCSUButtonClicked() {
@@ -268,10 +250,6 @@ void MapWidget::onCSUButtonClicked() {
     QPointF target = this->graph.getLocCor(0);
     std::vector<QPointF> paths = this->graph.dijkstra(source, target);
     path = paths;
-    if (!path.empty()) {
-        moveAlongPath();
-    }
-    update();
 }
 
 void MapWidget::onHNUButtonClicked() {
@@ -280,10 +258,6 @@ void MapWidget::onHNUButtonClicked() {
     QPointF target = this->graph.getLocCor(3);
     std::vector<QPointF> paths = this->graph.dijkstra(source, target);
     path = paths;
-    if (!path.empty()) {
-        moveAlongPath();
-    }
-    update();
 }
 
 // 继续添加其他槽函数...
@@ -294,10 +268,6 @@ void MapWidget::onXIANGBIWOButtonClicked() {
     QPointF target = this->graph.getLocCor(5);
     std::vector<QPointF> paths = this->graph.dijkstra(source, target);
     path = paths;
-    if (!path.empty()) {
-        moveAlongPath();
-    }
-    update();
 }
 
 void MapWidget::onYANGHUButtonClicked() {
@@ -306,10 +276,6 @@ void MapWidget::onYANGHUButtonClicked() {
     QPointF target = this->graph.getLocCor(7);
     std::vector<QPointF> paths = this->graph.dijkstra(source, target);
     path = paths;
-    if (!path.empty()) {
-        moveAlongPath();
-    }
-    update();
 }
 
 void MapWidget::onWUYIButtonClicked() {
@@ -318,10 +284,6 @@ void MapWidget::onWUYIButtonClicked() {
     QPointF target = this->graph.getLocCor(11);
     std::vector<QPointF> paths = this->graph.dijkstra(source, target);
     path = paths;
-    if (!path.empty()) {
-        moveAlongPath();
-    }
-    update();
 }
 
 void MapWidget::onHNNUButtonClicked() {
@@ -330,10 +292,6 @@ void MapWidget::onHNNUButtonClicked() {
     QPointF target = this->graph.getLocCor(6);
     std::vector<QPointF> paths = this->graph.dijkstra(source, target);
     path = paths;
-    if (!path.empty()) {
-        moveAlongPath();
-    }
-    update();
 }
 
 void MapWidget::onBISHAHUButtonClicked() {
@@ -342,10 +300,6 @@ void MapWidget::onBISHAHUButtonClicked() {
     QPointF target = this->graph.getLocCor(10);
     std::vector<QPointF> paths = this->graph.dijkstra(source, target);
     path = paths;
-    if (!path.empty()) {
-        moveAlongPath();
-    }
-    update();
 }
 
 void MapWidget::onCSUSTButtonClicked() {
@@ -354,10 +308,6 @@ void MapWidget::onCSUSTButtonClicked() {
     QPointF target = this->graph.getLocCor(9);
     std::vector<QPointF> paths = this->graph.dijkstra(source, target);
     path = paths;
-    if (!path.empty()) {
-        moveAlongPath();
-    }
-    update();
 }
 
 void MapWidget::onXIANGYAButtonClicked() {
@@ -366,10 +316,6 @@ void MapWidget::onXIANGYAButtonClicked() {
     QPointF target = this->graph.getLocCor(13);
     std::vector<QPointF> paths = this->graph.dijkstra(source, target);
     path = paths;
-    if (!path.empty()) {
-        moveAlongPath();
-    }
-    update();
 }
 
 void MapWidget::onNANJIAOButtonClicked() {
@@ -378,10 +324,6 @@ void MapWidget::onNANJIAOButtonClicked() {
     QPointF target = this->graph.getLocCor(8);
     std::vector<QPointF> paths = this->graph.dijkstra(source, target);
     path = paths;
-    if (!path.empty()) {
-        moveAlongPath();
-    }
-    update();
 }
 
 void MapWidget::onCSUFTButtonClicked() {
@@ -395,6 +337,7 @@ void MapWidget::onCSUFTButtonClicked() {
 
 void MapWidget::onStartMoveButtonClicked() {
     qDebug() << "Start Move";
+    qDebug() << "Total weight in mapwidget: " << graph.getTotalWeight();
     if (!path.empty()) {
         moveAlongPath();
     }
