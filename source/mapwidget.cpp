@@ -157,6 +157,7 @@ void MapWidget::showEvent(QShowEvent *event) {
     }
 
     CostNumber_MAP = findChild<QLCDNumber*>("CostNumber_map");
+    CostNumber_MAP->setVisible(false);
     if (CostNumber_MAP) {
         qDebug() << "CostNumber_map connected";
     } else {

@@ -304,10 +304,10 @@ color: transparent;  /* 白色文字 */
    <widget class="QLCDNumber" name="CostNumber_map">
     <property name="geometry">
      <rect>
-      <x>300</x>
+      <x>980</x>
       <y>0</y>
-      <width>251</width>
-      <height>131</height>
+      <width>51</width>
+      <height>20</height>
      </rect>
     </property>
    </widget>
