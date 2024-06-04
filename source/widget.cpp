@@ -74,5 +74,5 @@ void Widget::on_XIANGYA_Button_clicked()
 void Widget::on_StartButton_clicked()
 {
     ui->StartMove_Button->click();
-    ui->CostNumber->display(ui->CostNumber_map->value());
+    ui->CostNumber->display(ui->CostNumber_map->value()/30);
 }

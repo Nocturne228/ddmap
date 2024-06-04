@@ -206,10 +206,28 @@ void MapWidget::paintEvent(QPaintEvent *event)
     }
 
     // 绘制出行路线的路径
-    if (!path.empty()) {
+    if (!path.empty() && isMoving == 1) {
         painter.setPen(QPen(Qt::red, 2)); // 红色线条表示路径，线条宽度为2
         for (size_t i = 1; i < path.size(); ++i) {
             painter.drawLine(path[i - 1], path[i]);
+        }
+    }
+
+    if (!isMoving) {
+        // 绘制连接线
+        for (int i = 0; i < this->graph.getMaxNode(); ++i) {
+            for (int j = i + 1; j < this->graph.getMaxNode(); ++j) { // 只处理上三角矩阵，避免重复
+                int weight = this->graph.getWeight(i, j);
+                if (weight != std::numeric_limits<int>::max()) {
+                    QPointF source = this->graph.getLocCor(i);
+                    QPointF target = this->graph.getLocCor(j);
+                    painter.drawLine(source, target); // 绘制边
+
+                    // 计算边的中点位置
+                    QPointF midPoint((source.x() + target.x()) / 2, (source.y() + target.y()) / 2);
+                    painter.drawText(midPoint, QString::number(weight)); // 绘制权值
+                }
+            }
         }
     }
 }
@@ -352,6 +370,7 @@ void MapWidget::onStartMoveButtonClicked() {
     if (!path.empty()) {
         moveAlongPath();
         setAllButtonsEnabled(false); // 禁用按钮
+        isMoving = 1;
     }
     update();
 }
@@ -392,10 +411,13 @@ void MapWidget::updatePosition()
 
         update();
     } else {
+        // 停止计时
         moveTimer->stop();
         moveTimer->deleteLater();
         moveTimer = nullptr;
         setAllButtonsEnabled(true); // 启用按钮
+        isMoving = 0; // 设置移动状态
+        update();
     }
 }
 

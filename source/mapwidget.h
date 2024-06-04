@@ -78,6 +78,7 @@ private:
     QTimer* moveTimer;
     int moveInterval;
     double speed;
+    int isMoving;
 
     void setAllButtonsEnabled(bool isEnable);
 };

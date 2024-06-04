@@ -22,6 +22,8 @@ private:
     QPointF position;
     int state;
     QPixmap icon;
+
+
 };
 
 #endif // PASSENGER_H
