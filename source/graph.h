@@ -49,6 +49,7 @@
 
 
 #include <QPointF>
+#include <QDebug>
 #include <vector>
 
 class Graph {
@@ -63,6 +64,7 @@ private:
 
     int totalWeight; // 新增的私有成员变量，用于存储总权重值
 
+
 public:
     Graph();  // 构造函数
 
@@ -75,8 +77,9 @@ public:
     int getMaxNode();
     int getWeight(int s_index, int t_index);
 
+    int getShortestPathWeight(int sourceIndex, int targetIndex);
+    int getTotalWeight();
 
-    int getTotalWeight() const;
 };
 
 #endif // GRAPH_H

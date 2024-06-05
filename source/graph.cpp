@@ -3,9 +3,9 @@
 #include <queue>
 #include <algorithm>
 
-int Graph::getTotalWeight() const
+int Graph::getTotalWeight()
 {
-    return totalWeight;
+    return this->totalWeight;
 }
 
 Graph::Graph() {
@@ -42,7 +42,6 @@ Graph::Graph() {
     addEdge(getLocCor(8), getLocCor(9), 179);
     addEdge(getLocCor(8), getLocCor(12), 166);
     addEdge(getLocCor(12), getLocCor(13), 655);
-
 }
 
 void Graph::addNode(const QPointF& node) {
@@ -169,6 +168,8 @@ std::vector<QPointF> Graph::dijkstra(const QPointF& source, const QPointF& targe
     distance[sourceIndex] = 0;
     pq.push(sourceIndex);
 
+    this->totalWeight = 0;
+
     // Dijkstra算法
     while (!pq.empty()) {
         int u = pq.top();
@@ -180,13 +181,10 @@ std::vector<QPointF> Graph::dijkstra(const QPointF& source, const QPointF& targe
 
         visited[u] = true;
 
-        totalWeight = 0;
-
         for (int v = 0; v < numNodes; ++v) {
             if (adjacencyMatrix[u][v] != std::numeric_limits<int>::max() && !visited[v]) {
                 int weight = adjacencyMatrix[u][v];
                 if (distance[u] + weight < distance[v]) {
-                    totalWeight += weight;
                     distance[v] = distance[u] + weight;
                     parent[v] = u;
                     pq.push(v);
@@ -198,9 +196,6 @@ std::vector<QPointF> Graph::dijkstra(const QPointF& source, const QPointF& targe
     // 构建最短路径
     std::vector<QPointF> shortestPath;
     for (int v = targetIndex; v != -1; v = parent[v]) {
-        if (parent[v] != -1) {
-            totalWeight += adjacencyMatrix[parent[v]][v];
-        }
         shortestPath.push_back(nodeList[v]);
     }
     std::reverse(shortestPath.begin(), shortestPath.end());
@@ -220,3 +215,33 @@ QPointF Graph::getLoc(int index) {
     return nodeList[index];
 }
 
+int Graph::getShortestPathWeight(int sourceIndex, int targetIndex) {
+    std::vector<int> dist(MAX_NODES, std::numeric_limits<int>::max());
+    std::vector<bool> visited(MAX_NODES, false);
+
+    dist[sourceIndex] = 0;
+
+    for (int i = 0; i < MAX_NODES - 1; ++i) {
+        int minDist = std::numeric_limits<int>::max();
+        int minIndex = -1;
+
+        for (int j = 0; j < MAX_NODES; ++j) {
+            if (!visited[j] && dist[j] <= minDist) {
+                minDist = dist[j];
+                minIndex = j;
+            }
+        }
+
+        visited[minIndex] = true;
+
+        for (int j = 0; j < MAX_NODES; ++j) {
+            if (!visited[j] && adjacencyMatrix[minIndex][j] != std::numeric_limits<int>::max() &&
+                dist[minIndex] != std::numeric_limits<int>::max() &&
+                dist[minIndex] + adjacencyMatrix[minIndex][j] < dist[j]) {
+                dist[j] = dist[minIndex] + adjacencyMatrix[minIndex][j];
+            }
+        }
+    }
+
+    return dist[targetIndex];
+}

@@ -44,10 +44,10 @@ color: transparent;  /* 白色文字 */
    <widget class="QPushButton" name="HNU_Button">
     <property name="geometry">
      <rect>
-      <x>650</x>
+      <x>632</x>
       <y>100</y>
-      <width>93</width>
-      <height>28</height>
+      <width>111</width>
+      <height>51</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -304,10 +304,10 @@ color: transparent;  /* 白色文字 */
    <widget class="QLCDNumber" name="CostNumber_map">
     <property name="geometry">
      <rect>
-      <x>980</x>
+      <x>1050</x>
       <y>0</y>
-      <width>51</width>
-      <height>20</height>
+      <width>111</width>
+      <height>71</height>
      </rect>
     </property>
    </widget>

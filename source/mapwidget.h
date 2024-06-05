@@ -25,7 +25,7 @@ private slots:
 
     void moveAlongPath();
     void updatePosition();
-    int findClosestNode();
+    int findClosestNode(Passenger p);
 
     void onMEIXIHUButtonClicked();
     void onHUIWANGButtonClicked();
@@ -50,6 +50,7 @@ private:
     Passenger driver;
     Graph graph;
     std::vector<QPointF> path; // 存储路径的成员变量
+    std::vector<QPointF> drivePath;
 
     // 展示车费
     QLCDNumber *CostNumber_MAP;
@@ -78,7 +79,7 @@ private:
     QTimer* moveTimer;
     int moveInterval;
     double speed;
-    int isMoving;
+    bool isMoving;
 
     void setAllButtonsEnabled(bool isEnable);
 };

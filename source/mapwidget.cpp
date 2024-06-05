@@ -159,7 +159,7 @@ void MapWidget::showEvent(QShowEvent *event) {
     }
 
     CostNumber_MAP = findChild<QLCDNumber*>("CostNumber_map");
-    CostNumber_MAP->setVisible(false);
+//    CostNumber_MAP->setVisible(false);
     if (CostNumber_MAP) {
         qDebug() << "CostNumber_map connected";
     } else {
@@ -235,25 +235,26 @@ void MapWidget::paintEvent(QPaintEvent *event)
 // 去梅溪湖
 void MapWidget::onMEIXIHUButtonClicked()
 {
-    qDebug() << "Go to MEIXIHU";
-    qDebug() << "Passenger is at location" << findClosestNode();
-    int currPosition = findClosestNode();
+    int currPosition = findClosestNode(passenger);
     QPointF source = this->graph.getLocCor(currPosition);
     QPointF target = this->graph.getLocCor(4);
 
+    CostNumber_MAP->display(this->graph.getShortestPathWeight(currPosition, 4));
+
     std::vector<QPointF> paths = this->graph.dijkstra(source, target);
     path = paths;
+
 }
 
 
 // 去回望书店
 void MapWidget::onHUIWANGButtonClicked()
 {
-    qDebug() << "Go to MEIXIHU";
-    qDebug() << "Passenger is at location" << findClosestNode();
-    int currPosition = findClosestNode();
+    int currPosition = findClosestNode(passenger);
     QPointF source = this->graph.getLocCor(currPosition);
     QPointF target = this->graph.getLocCor(2);
+
+    CostNumber_MAP->display(this->graph.getShortestPathWeight(currPosition, 2));
 
     std::vector<QPointF> paths = this->graph.dijkstra(source, target);
     path = paths;
@@ -262,28 +263,34 @@ void MapWidget::onHUIWANGButtonClicked()
 // 去校本部
 void MapWidget::onCSUOLDButtonClicked()
 {
-    qDebug() << "Go to CSU_Old";
-    qDebug() << "Passenger is at location" << findClosestNode();
-    int currPosition = findClosestNode();
+    int currPosition = findClosestNode(passenger);
     QPointF source = this->graph.getLocCor(currPosition);
     QPointF target = this->graph.getLocCor(1);
+
+    CostNumber_MAP->display(this->graph.getShortestPathWeight(currPosition, 1));
 
     std::vector<QPointF> paths = this->graph.dijkstra(source, target);
     path = paths;
 }
 
 void MapWidget::onCSUButtonClicked() {
-    int currPosition = findClosestNode();
+    int currPosition = findClosestNode(passenger);
     QPointF source = this->graph.getLocCor(currPosition);
     QPointF target = this->graph.getLocCor(0);
+
+    CostNumber_MAP->display(this->graph.getShortestPathWeight(currPosition, 0));
+
     std::vector<QPointF> paths = this->graph.dijkstra(source, target);
     path = paths;
 }
 
 void MapWidget::onHNUButtonClicked() {
-    int currPosition = findClosestNode();
+    int currPosition = findClosestNode(passenger);
     QPointF source = this->graph.getLocCor(currPosition);
-    QPointF target = this->graph.getLocCor(3);
+    QPointF target = this->graph.getLocCor(2);
+
+    CostNumber_MAP->display(this->graph.getShortestPathWeight(currPosition, 2));
+
     std::vector<QPointF> paths = this->graph.dijkstra(source, target);
     path = paths;
 }
@@ -291,82 +298,112 @@ void MapWidget::onHNUButtonClicked() {
 // 继续添加其他槽函数...
 
 void MapWidget::onXIANGBIWOButtonClicked() {
-    int currPosition = findClosestNode();
+    int currPosition = findClosestNode(passenger);
     QPointF source = this->graph.getLocCor(currPosition);
     QPointF target = this->graph.getLocCor(5);
+
+    CostNumber_MAP->display(this->graph.getShortestPathWeight(currPosition, 5));
+
     std::vector<QPointF> paths = this->graph.dijkstra(source, target);
     path = paths;
 }
 
 void MapWidget::onYANGHUButtonClicked() {
-    int currPosition = findClosestNode();
+    int currPosition = findClosestNode(passenger);
     QPointF source = this->graph.getLocCor(currPosition);
     QPointF target = this->graph.getLocCor(7);
+
+    CostNumber_MAP->display(this->graph.getShortestPathWeight(currPosition, 7));
+
     std::vector<QPointF> paths = this->graph.dijkstra(source, target);
     path = paths;
 }
 
 void MapWidget::onWUYIButtonClicked() {
-    int currPosition = findClosestNode();
+    int currPosition = findClosestNode(passenger);
     QPointF source = this->graph.getLocCor(currPosition);
     QPointF target = this->graph.getLocCor(11);
+
+    CostNumber_MAP->display(this->graph.getShortestPathWeight(currPosition, 11));
+
     std::vector<QPointF> paths = this->graph.dijkstra(source, target);
     path = paths;
 }
 
 void MapWidget::onHNNUButtonClicked() {
-    int currPosition = findClosestNode();
+    int currPosition = findClosestNode(passenger);
     QPointF source = this->graph.getLocCor(currPosition);
     QPointF target = this->graph.getLocCor(6);
+
+    CostNumber_MAP->display(this->graph.getShortestPathWeight(currPosition, 6));
+
     std::vector<QPointF> paths = this->graph.dijkstra(source, target);
     path = paths;
 }
 
 void MapWidget::onBISHAHUButtonClicked() {
-    int currPosition = findClosestNode();
+    int currPosition = findClosestNode(passenger);
     QPointF source = this->graph.getLocCor(currPosition);
     QPointF target = this->graph.getLocCor(10);
+
+    CostNumber_MAP->display(this->graph.getShortestPathWeight(currPosition, 10));
+
     std::vector<QPointF> paths = this->graph.dijkstra(source, target);
     path = paths;
 }
 
 void MapWidget::onCSUSTButtonClicked() {
-    int currPosition = findClosestNode();
+    int currPosition = findClosestNode(passenger);
     QPointF source = this->graph.getLocCor(currPosition);
     QPointF target = this->graph.getLocCor(9);
+
+    CostNumber_MAP->display(this->graph.getShortestPathWeight(currPosition, 9));
+
     std::vector<QPointF> paths = this->graph.dijkstra(source, target);
     path = paths;
 }
 
 void MapWidget::onXIANGYAButtonClicked() {
-    int currPosition = findClosestNode();
+    int currPosition = findClosestNode(passenger);
     QPointF source = this->graph.getLocCor(currPosition);
     QPointF target = this->graph.getLocCor(13);
+
+    CostNumber_MAP->display(this->graph.getShortestPathWeight(currPosition, 13));
+
     std::vector<QPointF> paths = this->graph.dijkstra(source, target);
     path = paths;
 }
 
 void MapWidget::onNANJIAOButtonClicked() {
-    int currPosition = findClosestNode();
+    int currPosition = findClosestNode(passenger);
     QPointF source = this->graph.getLocCor(currPosition);
     QPointF target = this->graph.getLocCor(8);
+
+    CostNumber_MAP->display(this->graph.getShortestPathWeight(currPosition, 8));
+
     std::vector<QPointF> paths = this->graph.dijkstra(source, target);
     path = paths;
 }
 
 void MapWidget::onCSUFTButtonClicked() {
-    int currPosition = findClosestNode();
+    int currPosition = findClosestNode(passenger);
     QPointF source = this->graph.getLocCor(currPosition);
     QPointF target = this->graph.getLocCor(12);
+
+    CostNumber_MAP->display(this->graph.getShortestPathWeight(currPosition, 12));
+
     std::vector<QPointF> paths = this->graph.dijkstra(source, target);
     path = paths;
 }
 
 
 void MapWidget::onStartMoveButtonClicked() {
+    int currP = findClosestNode(passenger);
+    int currD = findClosestNode(driver);
+    std::vector<QPointF> paths = graph.dijkstra(graph.getLocCor(currD), graph.getLocCor(currP));
+    drivePath = paths;
     qDebug() << "Start Move";
     qDebug() << "Total weight in mapwidget: " << graph.getTotalWeight();
-    CostNumber_MAP->display(graph.getTotalWeight());
     if (!path.empty()) {
         moveAlongPath();
         setAllButtonsEnabled(false); // 禁用按钮
@@ -379,7 +416,6 @@ void MapWidget::onStartMoveButtonClicked() {
 // 沿paths路径移动
 void MapWidget::moveAlongPath()
 {
-    qDebug() << "Path size:" << path.size();
     currentSegment = 0;
     totalSegments = path.size() - 1;
 
@@ -422,8 +458,8 @@ void MapWidget::updatePosition()
 }
 
 // 查询距离最近的节点，找到对应的graph中的节点坐标
-int MapWidget::findClosestNode() {
-    QPointF passengerPos = passenger.getPosition();
+int MapWidget::findClosestNode(Passenger p) {
+    QPointF passengerPos = p.getPosition();
     double minDistance = std::numeric_limits<double>::max();
     int closestNode = -1;
 
