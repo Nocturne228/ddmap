@@ -49,6 +49,8 @@ private slots:
 
     void on_StartButton_clicked();
 
+    void on_CallCarButton_clicked();
+
 signals:
 };
 

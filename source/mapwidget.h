@@ -16,6 +16,7 @@ public:
     MapWidget(QWidget *);
 
 
+    int findNearestDriver();
 protected:
     void paintEvent(QPaintEvent *event) override;
     void showEvent(QShowEvent *event) override;
@@ -43,14 +44,20 @@ private slots:
     void onCSUFTButtonClicked();
 
     void onStartMoveButtonClicked();
+    void onCallCarButtonClicked();
 
 private:
+    int state;
     // 乘客类与图结构
     Passenger passenger;
     Passenger driver;
     Graph graph;
     std::vector<QPointF> path; // 存储路径的成员变量
     std::vector<QPointF> drivePath;
+
+    Passenger driver1;
+    Passenger driver2;
+    int currDriver;
 
     // 展示车费
     QLCDNumber *CostNumber_MAP;
@@ -72,6 +79,7 @@ private:
     QPushButton *CSUFT_Button;
 
     QPushButton *StartMove_Button;
+    QPushButton *CallCar_Button;
 
     // 移动参数
     int currentSegment;

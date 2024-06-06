@@ -8,6 +8,7 @@ class Passenger
 {
 public:
     Passenger(const QPointF &position, int state, const QString &iconPath);
+    Passenger();
 
     QPointF getPosition() const;
     void setPosition(const QPointF &position);
@@ -22,7 +23,6 @@ private:
     QPointF position;
     int state;
     QPixmap icon;
-
 
 };
 

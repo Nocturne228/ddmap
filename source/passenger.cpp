@@ -5,6 +5,8 @@ Passenger::Passenger(const QPointF &position, int state, const QString &iconPath
 {
 }
 
+Passenger::Passenger() {}
+
 QPointF Passenger::getPosition() const
 {
     return position;

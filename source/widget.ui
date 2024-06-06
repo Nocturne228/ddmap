@@ -44,8 +44,8 @@ color: transparent;  /* 白色文字 */
    <widget class="QPushButton" name="HNU_Button">
     <property name="geometry">
      <rect>
-      <x>632</x>
-      <y>100</y>
+      <x>640</x>
+      <y>90</y>
       <width>111</width>
       <height>51</height>
      </rect>
@@ -298,7 +298,7 @@ color: transparent;  /* 白色文字 */
      </rect>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>开始移动</string>
     </property>
    </widget>
    <widget class="QLCDNumber" name="CostNumber_map">
@@ -309,6 +309,19 @@ color: transparent;  /* 白色文字 */
       <width>111</width>
       <height>71</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="CallCar_Button">
+    <property name="geometry">
+     <rect>
+      <x>940</x>
+      <y>50</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>叫车</string>
     </property>
    </widget>
   </widget>
@@ -377,6 +390,19 @@ color: transparent;  /* 白色文字 */
      <width>241</width>
      <height>101</height>
     </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="CallCarButton">
+   <property name="geometry">
+    <rect>
+     <x>1240</x>
+     <y>260</y>
+     <width>93</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>叫车</string>
    </property>
   </widget>
  </widget>

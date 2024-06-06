@@ -1,19 +1,25 @@
 #include "mapwidget.h"
-
+#define PASSENGER 0
+#define DRIVER 1
 #define PEN_WIDTH 5
 
 MapWidget::MapWidget(QWidget *parent) :
     // 根据乘客位置设置图标
     QWidget(parent), passenger(QPointF(CSU_X, CSU_Y+20), 0, ":/ultraman.ico"),
-    driver(QPointF(CSUFT_X, CSUFT_Y+20), 0, ":/car.ico"), graph(),
-    currentSegment(0), totalSegments(0), moveTimer(nullptr), moveInterval(20), speed(10)
-
+    driver(QPointF(CSUFT_X, CSUFT_Y), 0, ":/car.ico"), graph(),
+    currentSegment(0), totalSegments(0), moveTimer(nullptr), moveInterval(20), speed(10),
+    driver1(QPointF(MEIXIHU_X, MEIXIHU_Y), 0, ":/car.ico"),
+    driver2(QPointF(HNNU_X, HNNU_Y), 0, ":/car.ico")
 {
     // 设置基础背景图片
     this->setAutoFillBackground(true);
     QPalette palette = this->palette();
     palette.setBrush(QPalette::Background, QBrush(QPixmap(":/csmap.png")));
     this->setPalette(palette);
+
+    driver.setState(0);
+    driver1.setState(1);
+    driver2.setState(2);
 }
 
 void MapWidget::showEvent(QShowEvent *event) {
@@ -165,6 +171,10 @@ void MapWidget::showEvent(QShowEvent *event) {
     } else {
         qDebug() << "CostNumber_map not found";
     }
+
+    CallCar_Button = findChild<QPushButton*>("CallCar_Button");
+    connect(CallCar_Button, &QPushButton::clicked, this, &MapWidget::onCallCarButtonClicked);
+
 }
 
 void MapWidget::paintEvent(QPaintEvent *event)
@@ -181,6 +191,8 @@ void MapWidget::paintEvent(QPaintEvent *event)
     // 绘制乘客图标
     painter.drawPixmap(this->passenger.getPosition(), this->passenger.getIcon());
     painter.drawPixmap(this->driver.getPosition(), this->driver.getIcon());
+    painter.drawPixmap(this->driver1.getPosition(), this->driver.getIcon());
+    painter.drawPixmap(this->driver2.getPosition(), this->driver.getIcon());
 
     // 绘制地点坐标点
     for (int i = 0; i < graph.getMaxNode(); ++i) { // 假设共有10个地点
@@ -287,9 +299,9 @@ void MapWidget::onCSUButtonClicked() {
 void MapWidget::onHNUButtonClicked() {
     int currPosition = findClosestNode(passenger);
     QPointF source = this->graph.getLocCor(currPosition);
-    QPointF target = this->graph.getLocCor(2);
+    QPointF target = this->graph.getLocCor(3);
 
-    CostNumber_MAP->display(this->graph.getShortestPathWeight(currPosition, 2));
+    CostNumber_MAP->display(this->graph.getShortestPathWeight(currPosition, 3));
 
     std::vector<QPointF> paths = this->graph.dijkstra(source, target);
     path = paths;
@@ -397,14 +409,43 @@ void MapWidget::onCSUFTButtonClicked() {
 }
 
 
+
+
 void MapWidget::onStartMoveButtonClicked() {
-    int currP = findClosestNode(passenger);
-    int currD = findClosestNode(driver);
-    std::vector<QPointF> paths = graph.dijkstra(graph.getLocCor(currD), graph.getLocCor(currP));
-    drivePath = paths;
+    this->state = PASSENGER;
     qDebug() << "Start Move";
     qDebug() << "Total weight in mapwidget: " << graph.getTotalWeight();
     if (!path.empty()) {
+        moveAlongPath();
+        setAllButtonsEnabled(false); // 禁用按钮
+        isMoving = 1;
+    }
+    update();
+}
+
+void MapWidget::onCallCarButtonClicked()
+{
+    this->currDriver = findNearestDriver();
+    this->state = DRIVER;
+    int currP = findClosestNode(passenger);
+    int currD = 0;
+    switch(currDriver) {
+    case 0:
+        currD = findClosestNode(driver);
+        break;
+    case 1:
+        currD = findClosestNode(driver1);
+        break;
+    case 2:
+        currD = findClosestNode(driver2);
+        break;
+
+    }
+    std::vector<QPointF> paths = graph.dijkstra(graph.getLocCor(currD), graph.getLocCor(currP));
+    drivePath = paths;
+
+    qDebug() << "Car is moving";
+    if (!drivePath.empty()) {
         moveAlongPath();
         setAllButtonsEnabled(false); // 禁用按钮
         isMoving = 1;
@@ -417,7 +458,12 @@ void MapWidget::onStartMoveButtonClicked() {
 void MapWidget::moveAlongPath()
 {
     currentSegment = 0;
-    totalSegments = path.size() - 1;
+    if (this->state) {
+        totalSegments = drivePath.size() - 1;
+    } else {
+        totalSegments = path.size() - 1;
+    }
+//    totalSegments = path.size() - 1;
 
     if (moveTimer) {
         moveTimer->stop();
@@ -431,29 +477,111 @@ void MapWidget::moveAlongPath()
 
 void MapWidget::updatePosition()
 {
-    if (currentSegment < totalSegments) {
-        QPointF currentPos = passenger.getPosition();
-        QPointF nextPos = path[currentSegment + 1];
-        double distance = std::hypot(nextPos.x() - currentPos.x(), nextPos.y() - currentPos.y());
+    if (this->state) {
+        switch (currDriver) {
+        case 0:
+            if (currentSegment < totalSegments) {
+                QPointF currentPos = driver.getPosition();
+                QPointF nextPos = drivePath[currentSegment + 1];
+                double distance = std::hypot(nextPos.x() - currentPos.x(), nextPos.y() - currentPos.y());
 
-        if (distance > speed) {
-            double ratio = speed / distance;
-            QPointF moveStep((nextPos.x() - currentPos.x()) * ratio, (nextPos.y() - currentPos.y()) * ratio);
-            passenger.setPosition(currentPos + moveStep);
-        } else {
-            passenger.setPosition(nextPos);
-            ++currentSegment;
+                if (distance > speed) {
+                    double ratio = speed / distance;
+                    QPointF moveStep((nextPos.x() - currentPos.x()) * ratio, (nextPos.y() - currentPos.y()) * ratio);
+                    driver.setPosition(currentPos + moveStep);
+                } else {
+                    driver.setPosition(nextPos);
+                    ++currentSegment;
+                }
+                update();
+            } else {
+                // 停止计时
+                moveTimer->stop();
+                moveTimer->deleteLater();
+                moveTimer = nullptr;
+                setAllButtonsEnabled(true); // 启用按钮
+                isMoving = 0; // 设置移动状态
+                update();
+            }
+            break;
+
+        case 1:
+            if (currentSegment < totalSegments) {
+                QPointF currentPos = driver1.getPosition();
+                QPointF nextPos = drivePath[currentSegment + 1];
+                double distance = std::hypot(nextPos.x() - currentPos.x(), nextPos.y() - currentPos.y());
+
+                if (distance > speed) {
+                    double ratio = speed / distance;
+                    QPointF moveStep((nextPos.x() - currentPos.x()) * ratio, (nextPos.y() - currentPos.y()) * ratio);
+                    driver1.setPosition(currentPos + moveStep);
+                } else {
+                    driver1.setPosition(nextPos);
+                    ++currentSegment;
+                }
+                update();
+            } else {
+                // 停止计时
+                moveTimer->stop();
+                moveTimer->deleteLater();
+                moveTimer = nullptr;
+                setAllButtonsEnabled(true); // 启用按钮
+                isMoving = 0; // 设置移动状态
+                update();
+            }
+            break;
+
+        case 2:
+            if (currentSegment < totalSegments) {
+                QPointF currentPos = driver2.getPosition();
+                QPointF nextPos = drivePath[currentSegment + 1];
+                double distance = std::hypot(nextPos.x() - currentPos.x(), nextPos.y() - currentPos.y());
+
+                if (distance > speed) {
+                    double ratio = speed / distance;
+                    QPointF moveStep((nextPos.x() - currentPos.x()) * ratio, (nextPos.y() - currentPos.y()) * ratio);
+                    driver2.setPosition(currentPos + moveStep);
+                } else {
+                    driver2.setPosition(nextPos);
+                    ++currentSegment;
+                }
+                update();
+            } else {
+                // 停止计时
+                moveTimer->stop();
+                moveTimer->deleteLater();
+                moveTimer = nullptr;
+                setAllButtonsEnabled(true); // 启用按钮
+                isMoving = 0; // 设置移动状态
+                update();
+            }
+            break;
         }
-
-        update();
     } else {
-        // 停止计时
-        moveTimer->stop();
-        moveTimer->deleteLater();
-        moveTimer = nullptr;
-        setAllButtonsEnabled(true); // 启用按钮
-        isMoving = 0; // 设置移动状态
-        update();
+        if (currentSegment < totalSegments) {
+            QPointF currentPos = passenger.getPosition();
+            QPointF nextPos = path[currentSegment + 1];
+            double distance = std::hypot(nextPos.x() - currentPos.x(), nextPos.y() - currentPos.y());
+
+            if (distance > speed) {
+                double ratio = speed / distance;
+                QPointF moveStep((nextPos.x() - currentPos.x()) * ratio, (nextPos.y() - currentPos.y()) * ratio);
+                passenger.setPosition(currentPos + moveStep);
+            } else {
+                passenger.setPosition(nextPos);
+                ++currentSegment;
+            }
+
+            update();
+        } else {
+            // 停止计时
+            moveTimer->stop();
+            moveTimer->deleteLater();
+            moveTimer = nullptr;
+            setAllButtonsEnabled(true); // 启用按钮
+            isMoving = 0; // 设置移动状态
+            update();
+        }
     }
 }
 
@@ -474,6 +602,25 @@ int MapWidget::findClosestNode(Passenger p) {
     }
 
     return closestNode;
+}
+
+// 找到最近的司机
+int MapWidget::findNearestDriver() {
+    QPointF passengerPosition = passenger.getPosition();
+    std::vector<Passenger> drivers = {this->driver1, this->driver2, this->driver};
+
+    Passenger nearestDriver;
+    double minDistance = std::numeric_limits<double>::max();
+
+    for (const auto &driver : drivers) {
+        double distance = std::hypot(driver.getPosition().x() - passengerPosition.x(), driver.getPosition().y() - passengerPosition.y());
+        if (distance < minDistance) {
+            minDistance = distance;
+            nearestDriver = driver;
+        }
+    }
+
+    return nearestDriver.getState();
 }
 
 void MapWidget::setAllButtonsEnabled(bool isEnable) {
