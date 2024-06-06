@@ -36,3 +36,13 @@ void Passenger::setIcon(const QString &iconPath)
 {
     icon = QPixmap(iconPath);
 }
+
+bool Passenger::getIsVisible() const
+{
+    return isVisible;
+}
+
+void Passenger::setIsVisible(bool value)
+{
+    isVisible = value;
+}

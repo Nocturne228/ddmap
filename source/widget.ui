@@ -324,19 +324,19 @@ color: transparent;  /* 白色文字 */
      <string>叫车</string>
     </property>
    </widget>
-  </widget>
-  <widget class="QPushButton" name="StartButton">
-   <property name="geometry">
-    <rect>
-     <x>1240</x>
-     <y>220</y>
-     <width>93</width>
-     <height>28</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>开始</string>
-   </property>
+   <widget class="QPushButton" name="ResetPos_Button">
+    <property name="geometry">
+     <rect>
+      <x>1060</x>
+      <y>80</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>重置位置</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QWidget" name="horizontalLayoutWidget_3">
    <property name="geometry">
@@ -392,18 +392,31 @@ color: transparent;  /* 白色文字 */
     </rect>
    </property>
   </widget>
-  <widget class="QPushButton" name="CallCarButton">
+  <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>1240</x>
-     <y>260</y>
-     <width>93</width>
-     <height>28</height>
+     <x>1220</x>
+     <y>180</y>
+     <width>160</width>
+     <height>80</height>
     </rect>
    </property>
-   <property name="text">
-    <string>叫车</string>
-   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QPushButton" name="StartButton">
+      <property name="text">
+       <string>开始</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="CallCarButton">
+      <property name="text">
+       <string>叫车</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
  </widget>
  <customwidgets>

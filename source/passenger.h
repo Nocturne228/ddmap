@@ -19,10 +19,15 @@ public:
     QPixmap getIcon() const;
     void setIcon(const QString &iconPath);
 
+    bool getIsVisible() const;
+    void setIsVisible(bool value);
+
 private:
     QPointF position;
     int state;
     QPixmap icon;
+
+    bool isVisible;
 
 };
 

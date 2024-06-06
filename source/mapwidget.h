@@ -45,6 +45,7 @@ private slots:
 
     void onStartMoveButtonClicked();
     void onCallCarButtonClicked();
+    void onResetPosButtonClicked();
 
 private:
     int state;
@@ -80,6 +81,7 @@ private:
 
     QPushButton *StartMove_Button;
     QPushButton *CallCar_Button;
+    QPushButton *ResetPos_Button;
 
     // 移动参数
     int currentSegment;
@@ -90,6 +92,7 @@ private:
     bool isMoving;
 
     void setAllButtonsEnabled(bool isEnable);
+    QPointF getRandomLocation();
 };
 
 #endif // MAPWIDGET_H

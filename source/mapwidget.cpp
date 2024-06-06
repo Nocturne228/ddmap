@@ -20,6 +20,7 @@ MapWidget::MapWidget(QWidget *parent) :
     driver.setState(0);
     driver1.setState(1);
     driver2.setState(2);
+    passenger.setIsVisible(true);
 }
 
 void MapWidget::showEvent(QShowEvent *event) {
@@ -28,153 +29,75 @@ void MapWidget::showEvent(QShowEvent *event) {
     // 查找并连接按钮
     // 中南校本部
     CSU_OLD_Button = findChild<QPushButton*>("CSU_OLD_Button");
-    if (CSU_OLD_Button) {
-        CSU_OLD_Button->setIcon(QIcon(":/loc.ico"));
-        connect(CSU_OLD_Button, &QPushButton::clicked, this, &MapWidget::onCSUOLDButtonClicked);
-        qDebug() << "CSU_OLD_Button found and connected.";
-    } else {
-        qDebug() << "CSU_OLD_Button not found!";
-    }
+    CSU_OLD_Button->setIcon(QIcon(":/loc.ico"));
+    connect(CSU_OLD_Button, &QPushButton::clicked, this, &MapWidget::onCSUOLDButtonClicked);
     // 梅溪湖
     MEIXIHU_Button = findChild<QPushButton*>("MEIXIHU_Button");
-    if (MEIXIHU_Button) {
-        MEIXIHU_Button->setIcon(QIcon(":/loc.ico"));
-        connect(MEIXIHU_Button, &QPushButton::clicked, this, &MapWidget::onMEIXIHUButtonClicked);
-        qDebug() << "MEIXIHU_Button found and connected.";
-    } else {
-        qDebug() << "MEIXIHU_Button not found!";
-    }
+    MEIXIHU_Button->setIcon(QIcon(":/loc.ico"));
+    connect(MEIXIHU_Button, &QPushButton::clicked, this, &MapWidget::onMEIXIHUButtonClicked);
     // 回望书店
     HUIWANG_Button = findChild<QPushButton*>("HUIWANG_Button");
-    if (HUIWANG_Button) {
-        HUIWANG_Button->setIcon(QIcon(":/loc.ico"));
-        connect(HUIWANG_Button, &QPushButton::clicked, this, &MapWidget::onHUIWANGButtonClicked);
-        qDebug() << "HUIWANG_Button found and connected.";
-    } else {
-        qDebug() << "HUIWANG_Button not found!";
-    }
+    HUIWANG_Button->setIcon(QIcon(":/loc.ico"));
+    connect(HUIWANG_Button, &QPushButton::clicked, this, &MapWidget::onHUIWANGButtonClicked);
 
     CSU_Button = findChild<QPushButton*>("CSU_Button");
-    if (CSU_Button) {
-        CSU_Button->setIcon(QIcon(":/loc.ico"));
-        connect(CSU_Button, &QPushButton::clicked, this, &MapWidget::onCSUButtonClicked);
-        qDebug() << "CSU_Button found and connected.";
-    } else {
-        qDebug() << "CSU_Button not found!";
-    }
+    CSU_Button->setIcon(QIcon(":/loc.ico"));
+    connect(CSU_Button, &QPushButton::clicked, this, &MapWidget::onCSUButtonClicked);
 
     HNU_Button = findChild<QPushButton*>("HNU_Button");
-    if (HNU_Button) {
-        HNU_Button->setIcon(QIcon(":/loc.ico"));
-        connect(HNU_Button, &QPushButton::clicked, this, &MapWidget::onHNUButtonClicked);
-        qDebug() << "HNU_Button found and connected.";
-    } else {
-        qDebug() << "HNU_Button not found!";
-    }
+    HNU_Button->setIcon(QIcon(":/loc.ico"));
+    connect(HNU_Button, &QPushButton::clicked, this, &MapWidget::onHNUButtonClicked);
 
     XIANGBIWO_Button = findChild<QPushButton*>("XIANGBIWO_Button");
-    if (XIANGBIWO_Button) {
-        XIANGBIWO_Button->setIcon(QIcon(":/loc.ico"));
-        connect(XIANGBIWO_Button, &QPushButton::clicked, this, &MapWidget::onXIANGBIWOButtonClicked);
-        qDebug() << "XIANGBIWO_Button found and connected.";
-    } else {
-        qDebug() << "XIANGBIWO_Button not found!";
-    }
+    XIANGBIWO_Button->setIcon(QIcon(":/loc.ico"));
+    connect(XIANGBIWO_Button, &QPushButton::clicked, this, &MapWidget::onXIANGBIWOButtonClicked);
 
     YANGHU_Button = findChild<QPushButton*>("YANGHU_Button");
-    if (YANGHU_Button) {
-        YANGHU_Button->setIcon(QIcon(":/loc.ico"));
-        connect(YANGHU_Button, &QPushButton::clicked, this, &MapWidget::onYANGHUButtonClicked);
-        qDebug() << "YANGHU_Button found and connected.";
-    } else {
-        qDebug() << "YANGHU_Button not found!";
-    }
+    YANGHU_Button->setIcon(QIcon(":/loc.ico"));
+    connect(YANGHU_Button, &QPushButton::clicked, this, &MapWidget::onYANGHUButtonClicked);
 
     WUYI_Button = findChild<QPushButton*>("WUYI_Button");
-    if (WUYI_Button) {
-        WUYI_Button->setIcon(QIcon(":/loc.ico"));
-        connect(WUYI_Button, &QPushButton::clicked, this, &MapWidget::onWUYIButtonClicked);
-        qDebug() << "WUYI_Button found and connected.";
-    } else {
-        qDebug() << "WUYI_Button not found!";
-    }
+    WUYI_Button->setIcon(QIcon(":/loc.ico"));
+    connect(WUYI_Button, &QPushButton::clicked, this, &MapWidget::onWUYIButtonClicked);
 
     HNNU_Button = findChild<QPushButton*>("HNNU_Button");
-    if (HNNU_Button) {
-        HNNU_Button->setIcon(QIcon(":/loc.ico"));
-        connect(HNNU_Button, &QPushButton::clicked, this, &MapWidget::onHNNUButtonClicked);
-        qDebug() << "HNNU_Button found and connected.";
-    } else {
-        qDebug() << "HNNU_Button not found!";
-    }
+    HNNU_Button->setIcon(QIcon(":/loc.ico"));
+    connect(HNNU_Button, &QPushButton::clicked, this, &MapWidget::onHNNUButtonClicked);
 
     BISHAHU_Button = findChild<QPushButton*>("BISHAHU_Button");
-    if (BISHAHU_Button) {
-        BISHAHU_Button->setIcon(QIcon(":/loc.ico"));
-        connect(BISHAHU_Button, &QPushButton::clicked, this, &MapWidget::onBISHAHUButtonClicked);
-        qDebug() << "BISHAHU_Button found and connected.";
-    } else {
-        qDebug() << "BISHAHU_Button not found!";
-    }
+    BISHAHU_Button->setIcon(QIcon(":/loc.ico"));
+    connect(BISHAHU_Button, &QPushButton::clicked, this, &MapWidget::onBISHAHUButtonClicked);
 
     CSUST_Button = findChild<QPushButton*>("CSUST_Button");
-    if (CSUST_Button) {
-        CSUST_Button->setIcon(QIcon(":/loc.ico"));
-        connect(CSUST_Button, &QPushButton::clicked, this, &MapWidget::onCSUSTButtonClicked);
-        qDebug() << "CSUST_Button found and connected.";
-    } else {
-        qDebug() << "CSUST_Button not found!";
-    }
+    CSUST_Button->setIcon(QIcon(":/loc.ico"));
+    connect(CSUST_Button, &QPushButton::clicked, this, &MapWidget::onCSUSTButtonClicked);
 
     XIANGYA_Button = findChild<QPushButton*>("XIANGYA_Button");
-    if (XIANGYA_Button) {
-        XIANGYA_Button->setIcon(QIcon(":/loc.ico"));
-        connect(XIANGYA_Button, &QPushButton::clicked, this, &MapWidget::onXIANGYAButtonClicked);
-        qDebug() << "XIANGYA_Button found and connected.";
-    } else {
-        qDebug() << "XIANGYA_Button not found!";
-    }
+    XIANGYA_Button->setIcon(QIcon(":/loc.ico"));
+    connect(XIANGYA_Button, &QPushButton::clicked, this, &MapWidget::onXIANGYAButtonClicked);
 
     NANJIAO_Button = findChild<QPushButton*>("NANJIAO_Button");
-    if (NANJIAO_Button) {
-        NANJIAO_Button->setIcon(QIcon(":/loc.ico"));
-        connect(NANJIAO_Button, &QPushButton::clicked, this, &MapWidget::onNANJIAOButtonClicked);
-        qDebug() << "NANJIAO_Button found and connected.";
-    } else {
-        qDebug() << "NANJIAO_Button not found!";
-    }
+    NANJIAO_Button->setIcon(QIcon(":/loc.ico"));
+    connect(NANJIAO_Button, &QPushButton::clicked, this, &MapWidget::onNANJIAOButtonClicked);
 
     CSUFT_Button = findChild<QPushButton*>("CSUFT_Button");
-    if (CSUFT_Button) {
-        CSUFT_Button->setIcon(QIcon(":/loc.ico"));
-        connect(CSUFT_Button, &QPushButton::clicked, this, &MapWidget::onCSUFTButtonClicked);
-        qDebug() << "CSUFT_Button found and connected.";
-    } else {
-        qDebug() << "CSUFT_Button not found!";
-    }
+    CSUFT_Button->setIcon(QIcon(":/loc.ico"));
+    connect(CSUFT_Button, &QPushButton::clicked, this, &MapWidget::onCSUFTButtonClicked);
 
 
     StartMove_Button = findChild<QPushButton*>("StartMove_Button");
     StartMove_Button->setVisible(false);
-    if (StartMove_Button) {
-        StartMove_Button->setIcon(QIcon(":/loc.ico"));
-        connect(StartMove_Button, &QPushButton::clicked, this, &MapWidget::onStartMoveButtonClicked);
-        qDebug() << "StartMove_Button found and connected.";
-    } else {
-        qDebug() << "StartMove_Button not found!";
-    }
+    StartMove_Button->setIcon(QIcon(":/loc.ico"));
+    connect(StartMove_Button, &QPushButton::clicked, this, &MapWidget::onStartMoveButtonClicked);
 
     CostNumber_MAP = findChild<QLCDNumber*>("CostNumber_map");
 //    CostNumber_MAP->setVisible(false);
-    if (CostNumber_MAP) {
-        qDebug() << "CostNumber_map connected";
-    } else {
-        qDebug() << "CostNumber_map not found";
-    }
 
     CallCar_Button = findChild<QPushButton*>("CallCar_Button");
     connect(CallCar_Button, &QPushButton::clicked, this, &MapWidget::onCallCarButtonClicked);
 
+    ResetPos_Button = findChild<QPushButton*>("ResetPos_Button");
+    connect(ResetPos_Button, &QPushButton::clicked, this, &MapWidget::onResetPosButtonClicked);
 }
 
 void MapWidget::paintEvent(QPaintEvent *event)
@@ -189,7 +112,9 @@ void MapWidget::paintEvent(QPaintEvent *event)
     painter.setPen(pen);
 
     // 绘制乘客图标
-    painter.drawPixmap(this->passenger.getPosition(), this->passenger.getIcon());
+    if (passenger.getIsVisible()) {
+        painter.drawPixmap(this->passenger.getPosition(), this->passenger.getIcon());
+    }
     painter.drawPixmap(this->driver.getPosition(), this->driver.getIcon());
     painter.drawPixmap(this->driver1.getPosition(), this->driver.getIcon());
     painter.drawPixmap(this->driver2.getPosition(), this->driver.getIcon());
@@ -453,6 +378,13 @@ void MapWidget::onCallCarButtonClicked()
     update();
 }
 
+void MapWidget::onResetPosButtonClicked()
+{
+    QPointF newPost = getRandomLocation();
+    passenger.setPosition(newPost);
+    update();
+}
+
 
 // 沿paths路径移动
 void MapWidget::moveAlongPath()
@@ -481,6 +413,7 @@ void MapWidget::updatePosition()
         switch (currDriver) {
         case 0:
             if (currentSegment < totalSegments) {
+
                 QPointF currentPos = driver.getPosition();
                 QPointF nextPos = drivePath[currentSegment + 1];
                 double distance = std::hypot(nextPos.x() - currentPos.x(), nextPos.y() - currentPos.y());
@@ -495,6 +428,7 @@ void MapWidget::updatePosition()
                 }
                 update();
             } else {
+
                 // 停止计时
                 moveTimer->stop();
                 moveTimer->deleteLater();
@@ -558,29 +492,93 @@ void MapWidget::updatePosition()
             break;
         }
     } else {
-        if (currentSegment < totalSegments) {
-            QPointF currentPos = passenger.getPosition();
-            QPointF nextPos = path[currentSegment + 1];
-            double distance = std::hypot(nextPos.x() - currentPos.x(), nextPos.y() - currentPos.y());
+        switch (currDriver) {
+        case 0:
+            if (currentSegment < totalSegments) {
+                passenger.setIsVisible(false);
+                QPointF currentPos = driver.getPosition();
+                QPointF nextPos = path[currentSegment + 1];
+                double distance = std::hypot(nextPos.x() - currentPos.x(), nextPos.y() - currentPos.y());
 
-            if (distance > speed) {
-                double ratio = speed / distance;
-                QPointF moveStep((nextPos.x() - currentPos.x()) * ratio, (nextPos.y() - currentPos.y()) * ratio);
-                passenger.setPosition(currentPos + moveStep);
+                if (distance > speed) {
+                    double ratio = speed / distance;
+                    QPointF moveStep((nextPos.x() - currentPos.x()) * ratio, (nextPos.y() - currentPos.y()) * ratio);
+                    driver.setPosition(currentPos + moveStep);
+                } else {
+                    driver.setPosition(nextPos);
+                    ++currentSegment;
+                }
+                update();
             } else {
-                passenger.setPosition(nextPos);
-                ++currentSegment;
+                passenger.setPosition(driver.getPosition());
+                passenger.setIsVisible(true);
+                // 停止计时
+                moveTimer->stop();
+                moveTimer->deleteLater();
+                moveTimer = nullptr;
+                setAllButtonsEnabled(true); // 启用按钮
+                isMoving = 0; // 设置移动状态
+                update();
             }
+            break;
 
-            update();
-        } else {
-            // 停止计时
-            moveTimer->stop();
-            moveTimer->deleteLater();
-            moveTimer = nullptr;
-            setAllButtonsEnabled(true); // 启用按钮
-            isMoving = 0; // 设置移动状态
-            update();
+        case 1:
+            if (currentSegment < totalSegments) {
+                passenger.setIsVisible(false);
+                QPointF currentPos = driver1.getPosition();
+                QPointF nextPos = path[currentSegment + 1];
+                double distance = std::hypot(nextPos.x() - currentPos.x(), nextPos.y() - currentPos.y());
+
+                if (distance > speed) {
+                    double ratio = speed / distance;
+                    QPointF moveStep((nextPos.x() - currentPos.x()) * ratio, (nextPos.y() - currentPos.y()) * ratio);
+                    driver1.setPosition(currentPos + moveStep);
+                } else {
+                    driver1.setPosition(nextPos);
+                    ++currentSegment;
+                }
+                update();
+            } else {
+                passenger.setPosition(driver1.getPosition());
+                passenger.setIsVisible(true);
+                // 停止计时
+                moveTimer->stop();
+                moveTimer->deleteLater();
+                moveTimer = nullptr;
+                setAllButtonsEnabled(true); // 启用按钮
+                isMoving = 0; // 设置移动状态
+                update();
+            }
+            break;
+
+        case 2:
+            if (currentSegment < totalSegments) {
+                passenger.setIsVisible(false);
+                QPointF currentPos = driver2.getPosition();
+                QPointF nextPos = path[currentSegment + 1];
+                double distance = std::hypot(nextPos.x() - currentPos.x(), nextPos.y() - currentPos.y());
+
+                if (distance > speed) {
+                    double ratio = speed / distance;
+                    QPointF moveStep((nextPos.x() - currentPos.x()) * ratio, (nextPos.y() - currentPos.y()) * ratio);
+                    driver2.setPosition(currentPos + moveStep);
+                } else {
+                    driver2.setPosition(nextPos);
+                    ++currentSegment;
+                }
+                update();
+            } else {
+                passenger.setPosition(driver2.getPosition());
+                passenger.setIsVisible(true);
+                // 停止计时
+                moveTimer->stop();
+                moveTimer->deleteLater();
+                moveTimer = nullptr;
+                setAllButtonsEnabled(true); // 启用按钮
+                isMoving = 0; // 设置移动状态
+                update();
+            }
+            break;
         }
     }
 }
@@ -638,4 +636,10 @@ void MapWidget::setAllButtonsEnabled(bool isEnable) {
     WUYI_Button->setEnabled(isEnable);
     NANJIAO_Button->setEnabled(isEnable);
     BISHAHU_Button->setEnabled(isEnable);
+}
+
+QPointF MapWidget::getRandomLocation() {
+    srand(time(nullptr)); // 设置随机数种子
+    int randomIndex = rand() % graph.getMaxNode();
+    return graph.getLocCor(randomIndex);
 }
