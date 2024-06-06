@@ -21,8 +21,7 @@ void Widget::Initial_UI()
     this->setWindowIcon(exe_ico);//设置窗口图标
 
     // 添加出发时间(不可编辑)
-    ui->StartDateTimeEdit->setDateTime(QDateTime::currentDateTime());
-    ui->StartDateTimeEdit->setEnabled(false);
+    ui->StartTimeEdit->setTime(QTime::currentTime());
 }
 
 

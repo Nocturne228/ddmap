@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: white;</string>
+  </property>
   <widget class="MapWidget" name="TopWidget" native="true">
    <property name="geometry">
     <rect>
@@ -21,6 +24,9 @@
      <width>1165</width>
      <height>790</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/csmap.png)</string>
    </property>
    <widget class="QPushButton" name="CSU_Button">
     <property name="geometry">
@@ -32,7 +38,7 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: transparent;  /* 绿色背景 */
+     <string notr="true">background: transparent;  /* 绿色背景 */
 border: none;  /* 无边框 */
 color: transparent;  /* 白色文字 */
 </string>
@@ -51,7 +57,7 @@ color: transparent;  /* 白色文字 */
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: transparent;  /* 绿色背景 */
+     <string notr="true">background: transparent;  /* 绿色背景 */
 border: none;  /* 无边框 */
 color: transparent;  /* 白色文字 */
 </string>
@@ -70,7 +76,7 @@ color: transparent;  /* 白色文字 */
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: transparent;  /* 绿色背景 */
+     <string notr="true">background: transparent;  /* 绿色背景 */
 border: none;  /* 无边框 */
 color: transparent;  /* 白色文字 */
 </string>
@@ -89,7 +95,7 @@ color: transparent;  /* 白色文字 */
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: transparent;  /* 绿色背景 */
+     <string notr="true">background: transparent;  /* 绿色背景 */
 border: none;  /* 无边框 */
 color: transparent;  /* 白色文字 */
 </string>
@@ -108,7 +114,7 @@ color: transparent;  /* 白色文字 */
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: transparent;  /* 绿色背景 */
+     <string notr="true">background: transparent;  /* 绿色背景 */
 border: none;  /* 无边框 */
 color: transparent;  /* 白色文字 */
 </string>
@@ -127,7 +133,7 @@ color: transparent;  /* 白色文字 */
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: transparent;  /* 绿色背景 */
+     <string notr="true">background: transparent;  /* 绿色背景 */
 border: none;  /* 无边框 */
 color: transparent;  /* 白色文字 */
 </string>
@@ -146,7 +152,7 @@ color: transparent;  /* 白色文字 */
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: transparent;  /* 绿色背景 */
+     <string notr="true">background: transparent;  /* 绿色背景 */
 border: none;  /* 无边框 */
 color: transparent;  /* 白色文字 */
 </string>
@@ -165,7 +171,7 @@ color: transparent;  /* 白色文字 */
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: transparent;  /* 绿色背景 */
+     <string notr="true">background: transparent;  /* 绿色背景 */
 border: none;  /* 无边框 */
 color: transparent;  /* 白色文字 */
 </string>
@@ -184,7 +190,7 @@ color: transparent;  /* 白色文字 */
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: transparent;  /* 绿色背景 */
+     <string notr="true">background: transparent;  /* 绿色背景 */
 border: none;  /* 无边框 */
 color: transparent;  /* 白色文字 */
 </string>
@@ -196,14 +202,14 @@ color: transparent;  /* 白色文字 */
    <widget class="QPushButton" name="BISHAHU_Button">
     <property name="geometry">
      <rect>
-      <x>798</x>
+      <x>790</x>
       <y>371</y>
-      <width>93</width>
-      <height>28</height>
+      <width>101</width>
+      <height>51</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: transparent;  /* 绿色背景 */
+     <string notr="true">background: transparent;  /* 绿色背景 */
 border: none;  /* 无边框 */
 color: transparent;  /* 白色文字 */
 </string>
@@ -222,7 +228,7 @@ color: transparent;  /* 白色文字 */
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: transparent;  /* 绿色背景 */
+     <string notr="true">background: transparent;  /* 绿色背景 */
 border: none;  /* 无边框 */
 color: transparent;  /* 白色文字 */
 </string>
@@ -241,7 +247,7 @@ color: transparent;  /* 白色文字 */
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: transparent;  /* 绿色背景 */
+     <string notr="true">background: transparent;  /* 绿色背景 */
 border: none;  /* 无边框 */
 color: transparent;  /* 白色文字 */
 </string>
@@ -260,7 +266,7 @@ color: transparent;  /* 白色文字 */
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: transparent;  /* 绿色背景 */
+     <string notr="true">background: transparent;  /* 绿色背景 */
 border: none;  /* 无边框 */
 color: transparent;  /* 白色文字 */
 </string>
@@ -279,10 +285,11 @@ color: transparent;  /* 白色文字 */
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: transparent;  /* 绿色背景 */
-border: none;  /* 无边框 */
-color: transparent;  /* 白色文字 */
-</string>
+     <string notr="true">QPushButton {
+    background: transparent; /* 背景透明 */
+    border: none; /* 无边框 */
+    color: transparent; /* 文本透明 */
+}</string>
     </property>
     <property name="text">
      <string>PushButton</string>
@@ -310,6 +317,12 @@ color: transparent;  /* 白色文字 */
       <height>71</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background: transparent;  /* 绿色背景 */
+border: none;  /* 无边框 */
+color: transparent;  /* 白色文字 */
+</string>
+    </property>
    </widget>
    <widget class="QPushButton" name="CallCar_Button">
     <property name="geometry">
@@ -319,6 +332,12 @@ color: transparent;  /* 白色文字 */
       <width>93</width>
       <height>28</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: transparent;  /* 绿色背景 */
+border: none;  /* 无边框 */
+color: transparent;  /* 白色文字 */
+</string>
     </property>
     <property name="text">
      <string>叫车</string>
@@ -338,50 +357,6 @@ color: transparent;  /* 白色文字 */
     </property>
    </widget>
   </widget>
-  <widget class="QWidget" name="horizontalLayoutWidget_3">
-   <property name="geometry">
-    <rect>
-     <x>1170</x>
-     <y>530</y>
-     <width>243</width>
-     <height>80</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="StartTimeHorizonalLayout">
-    <item>
-     <widget class="QLabel" name="StartTimeLabel">
-      <property name="text">
-       <string>  起始时间</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QDateTimeEdit" name="StartDateTimeEdit"/>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="horizontalLayoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>1180</x>
-     <y>350</y>
-     <width>241</width>
-     <height>111</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="TimeCostHorizonalLayout">
-    <item>
-     <widget class="QLabel" name="TimeCostLabel">
-      <property name="text">
-       <string>预计用时</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QTimeEdit" name="TimeCostEdit"/>
-    </item>
-   </layout>
-  </widget>
   <widget class="QLCDNumber" name="CostNumber">
    <property name="geometry">
     <rect>
@@ -391,33 +366,319 @@ color: transparent;  /* 白色文字 */
      <height>101</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">color: red; background-color: black;</string>
+   </property>
   </widget>
-  <widget class="QWidget" name="verticalLayoutWidget">
+  <widget class="QLabel" name="CostLabel">
    <property name="geometry">
     <rect>
-     <x>1220</x>
-     <y>180</y>
-     <width>160</width>
-     <height>80</height>
+     <x>1180</x>
+     <y>20</y>
+     <width>72</width>
+     <height>15</height>
     </rect>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="text">
+    <string>计费</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="verticalLayoutWidget_2">
+   <property name="geometry">
+    <rect>
+     <x>1170</x>
+     <y>410</y>
+     <width>251</width>
+     <height>131</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_3">
     <item>
-     <widget class="QPushButton" name="StartButton">
-      <property name="text">
-       <string>开始</string>
-      </property>
-     </widget>
+     <layout class="QHBoxLayout" name="StartTimeHorizonalLayout">
+      <item>
+       <widget class="QLabel" name="StartTimeLabel">
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+    color: #2c3e50; /* 文字颜色 */
+    background-color: #ecf0f1; /* 背景颜色 */
+    border: 1px solid #bdc3c7; /* 边框颜色 */
+    border-radius: 5px; /* 圆角半径 */
+    padding: 5px; /* 内边距 */
+}
+</string>
+        </property>
+        <property name="text">
+         <string>  出发时间</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QTimeEdit" name="StartTimeEdit">
+        <property name="styleSheet">
+         <string notr="true">QTimeEdit {
+    background-color: #ffffff; /* 背景颜色 */
+    color: #2c3e50; /* 文字颜色 */
+    border: 2px solid #bdc3c7; /* 边框颜色 */
+    border-radius: 5px; /* 圆角半径 */
+    padding: 5px; /* 内边距 */
+}
+
+QTimeEdit:hover {
+    border: 2px solid #3498db; /* 悬停时边框颜色 */
+}
+
+QTimeEdit:focus {
+    border: 2px solid #2980b9; /* 聚焦时边框颜色 */
+    background-color: #ecf0f1; /* 聚焦时背景颜色 */
+}
+
+QTimeEdit::up-button, QTimeEdit::down-button {
+    background-color: #3498db; /* 按钮背景颜色 */
+    border: 1px solid #2980b9; /* 按钮边框颜色 */
+    width: 20px; /* 按钮宽度 */
+    height: 20px; /* 按钮高度 */
+    border-radius: 3px; /* 按钮圆角 */
+}
+
+QTimeEdit::up-button:hover, QTimeEdit::down-button:hover {
+    background-color: #2980b9; /* 悬停时按钮背景颜色 */
+}
+
+QTimeEdit::up-button:pressed, QTimeEdit::down-button:pressed {
+    background-color: #1c669b; /* 按下时按钮背景颜色 */
+}
+
+QTimeEdit::up-arrow {
+    image: url(:/icons/up-arrow.png); /* 替换为你的上箭头图标路径 */
+    width: 10px; /* 图标宽度 */
+    height: 10px; /* 图标高度 */
+}
+
+QTimeEdit::down-arrow {
+    image: url(:/icons/down-arrow.png); /* 替换为你的下箭头图标路径 */
+    width: 10px; /* 图标宽度 */
+    height: 10px; /* 图标高度 */
+}
+
+QTimeEdit::up-button {
+    subcontrol-origin: border;
+    subcontrol-position: right; /* 上按钮位于右侧 */
+    width: 20px; /* 上按钮宽度 */
+}
+
+QTimeEdit::down-button {
+    subcontrol-origin: border;
+    subcontrol-position: left; /* 下按钮位于左侧 */
+    width: 20px; /* 下按钮宽度 */
+}
+</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </item>
     <item>
-     <widget class="QPushButton" name="CallCarButton">
-      <property name="text">
-       <string>叫车</string>
-      </property>
-     </widget>
+     <layout class="QHBoxLayout" name="TimeCostHorizonalLayout">
+      <item>
+       <widget class="QLabel" name="TimeCostLabel">
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+    color: #2c3e50; /* 文字颜色 */
+    background-color: #ecf0f1; /* 背景颜色 */
+    border: 1px solid #bdc3c7; /* 边框颜色 */
+    border-radius: 5px; /* 圆角半径 */
+    padding: 5px; /* 内边距 */
+}
+</string>
+        </property>
+        <property name="text">
+         <string>  预计用时</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QTimeEdit" name="TimeCostEdit">
+        <property name="styleSheet">
+         <string notr="true">QTimeEdit {
+    background-color: #ffffff; /* 背景颜色 */
+    color: #2c3e50; /* 文字颜色 */
+    border: 2px solid #bdc3c7; /* 边框颜色 */
+    border-radius: 5px; /* 圆角半径 */
+    padding: 5px; /* 内边距 */
+}
+
+QTimeEdit:hover {
+    border: 2px solid #3498db; /* 悬停时边框颜色 */
+}
+
+QTimeEdit:focus {
+    border: 2px solid #2980b9; /* 聚焦时边框颜色 */
+    background-color: #ecf0f1; /* 聚焦时背景颜色 */
+}
+
+QTimeEdit::up-button, QTimeEdit::down-button {
+    background-color: #3498db; /* 按钮背景颜色 */
+    border: 1px solid #2980b9; /* 按钮边框颜色 */
+    width: 20px; /* 按钮宽度 */
+    height: 20px; /* 按钮高度 */
+    border-radius: 3px; /* 按钮圆角 */
+}
+
+QTimeEdit::up-button:hover, QTimeEdit::down-button:hover {
+    background-color: #2980b9; /* 悬停时按钮背景颜色 */
+}
+
+QTimeEdit::up-button:pressed, QTimeEdit::down-button:pressed {
+    background-color: #1c669b; /* 按下时按钮背景颜色 */
+}
+
+QTimeEdit::up-arrow {
+    image: url(:/icons/up-arrow.png); /* 替换为你的上箭头图标路径 */
+    width: 10px; /* 图标宽度 */
+    height: 10px; /* 图标高度 */
+}
+
+QTimeEdit::down-arrow {
+    image: url(:/icons/down-arrow.png); /* 替换为你的下箭头图标路径 */
+    width: 10px; /* 图标宽度 */
+    height: 10px; /* 图标高度 */
+}
+
+QTimeEdit::up-button {
+    subcontrol-origin: border;
+    subcontrol-position: right; /* 上按钮位于右侧 */
+    width: 20px; /* 上按钮宽度 */
+}
+
+QTimeEdit::down-button {
+    subcontrol-origin: border;
+    subcontrol-position: left; /* 下按钮位于左侧 */
+    width: 20px; /* 下按钮宽度 */
+}
+</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </item>
    </layout>
   </widget>
+  <widget class="QPushButton" name="StartButton">
+   <property name="geometry">
+    <rect>
+     <x>1238</x>
+     <y>280</y>
+     <width>121</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+	border-style: solid;
+	border-color: #050a0e;
+	border-width: 1px;
+	border-radius: 5px;
+	color: #d3dae3;
+	padding: 2px;
+	background-color: #100E19;
+}
+QPushButton::default{
+	border-style: solid;
+	border-color: #050a0e;
+	border-width: 1px;
+	border-radius: 5px;
+	color: #FFFFFF;
+	padding: 2px;
+	background-color: #151a1e;
+}
+QPushButton:hover{
+	border-style: solid;
+	border-top-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:1, stop:0 #C0DB50, stop:0.4 #C0DB50, stop:0.5 #100E19, stop:1 #100E19);
+    border-bottom-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:1, stop:0 #100E19, stop:0.5 #100E19, stop:0.6 #C0DB50, stop:1 #C0DB50);
+    border-left-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #C0DB50, stop:0.3 #C0DB50, stop:0.7 #100E19, stop:1 #100E19);
+    border-right-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 #C0DB50, stop:0.3 #C0DB50, stop:0.7 #100E19, stop:1 #100E19);
+	border-width: 2px;
+    border-radius: 1px;
+	color: #d3dae3;
+	padding: 2px;
+}
+QPushButton:pressed{
+	border-style: solid;
+	border-top-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:1, stop:0 #d33af1, stop:0.4 #d33af1, stop:0.5 #100E19, stop:1 #100E19);
+    border-bottom-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:1, stop:0 #100E19, stop:0.5 #100E19, stop:0.6 #d33af1, stop:1 #d33af1);
+    border-left-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #d33af1, stop:0.3 #d33af1, stop:0.7 #100E19, stop:1 #100E19);
+    border-right-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 #d33af1, stop:0.3 #d33af1, stop:0.7 #100E19, stop:1 #100E19);
+	border-width: 2px;
+    border-radius: 1px;
+	color: #d3dae3;
+	padding: 2px;
+}</string>
+   </property>
+   <property name="text">
+    <string>出发</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="CallCarButton">
+   <property name="geometry">
+    <rect>
+     <x>1238</x>
+     <y>220</y>
+     <width>121</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+	border-style: solid;
+	border-color: #050a0e;
+	border-width: 1px;
+	border-radius: 5px;
+	color: #d3dae3;
+	padding: 2px;
+	background-color: #100E19;
+}
+QPushButton::default{
+	border-style: solid;
+	border-color: #050a0e;
+	border-width: 1px;
+	border-radius: 5px;
+	color: #FFFFFF;
+	padding: 2px;
+	background-color: #151a1e;
+}
+QPushButton:hover{
+	border-style: solid;
+	border-top-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:1, stop:0 #C0DB50, stop:0.4 #C0DB50, stop:0.5 #100E19, stop:1 #100E19);
+    border-bottom-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:1, stop:0 #100E19, stop:0.5 #100E19, stop:0.6 #C0DB50, stop:1 #C0DB50);
+    border-left-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #C0DB50, stop:0.3 #C0DB50, stop:0.7 #100E19, stop:1 #100E19);
+    border-right-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 #C0DB50, stop:0.3 #C0DB50, stop:0.7 #100E19, stop:1 #100E19);
+	border-width: 2px;
+    border-radius: 1px;
+	color: #d3dae3;
+	padding: 2px;
+}
+QPushButton:pressed{
+	border-style: solid;
+	border-top-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:1, stop:0 #d33af1, stop:0.4 #d33af1, stop:0.5 #100E19, stop:1 #100E19);
+    border-bottom-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:1, stop:0 #100E19, stop:0.5 #100E19, stop:0.6 #d33af1, stop:1 #d33af1);
+    border-left-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #d33af1, stop:0.3 #d33af1, stop:0.7 #100E19, stop:1 #100E19);
+    border-right-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 #d33af1, stop:0.3 #d33af1, stop:0.7 #100E19, stop:1 #100E19);
+	border-width: 2px;
+    border-radius: 1px;
+	color: #d3dae3;
+	padding: 2px;
+}</string>
+   </property>
+   <property name="text">
+    <string>叫车</string>
+   </property>
+  </widget>
+  <zorder>CostNumber</zorder>
+  <zorder>CostLabel</zorder>
+  <zorder>verticalLayoutWidget_2</zorder>
+  <zorder>StartButton</zorder>
+  <zorder>CallCarButton</zorder>
+  <zorder>TopWidget</zorder>
  </widget>
  <customwidgets>
   <customwidget>

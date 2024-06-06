@@ -12,10 +12,10 @@ MapWidget::MapWidget(QWidget *parent) :
     driver2(QPointF(HNNU_X, HNNU_Y), 0, ":/car.ico")
 {
     // 设置基础背景图片
-    this->setAutoFillBackground(true);
-    QPalette palette = this->palette();
-    palette.setBrush(QPalette::Background, QBrush(QPixmap(":/csmap.png")));
-    this->setPalette(palette);
+//    this->setAutoFillBackground(true);
+//    QPalette palette = this->palette();
+//    palette.setBrush(QPalette::Background, QBrush(QPixmap(":/csmap.png")));
+//    this->setPalette(palette);
 
     driver.setState(0);
     driver1.setState(1);

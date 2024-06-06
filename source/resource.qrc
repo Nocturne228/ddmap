@@ -8,5 +8,6 @@
         <file>loc.ico</file>
         <file>appicon.ico</file>
         <file>car.ico</file>
+        <file>callcar.ico</file>
     </qresource>
 </RCC>

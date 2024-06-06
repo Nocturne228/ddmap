@@ -43,4 +43,4 @@ FORMS += \
     widget.ui
 
 RESOURCES += \
-    resources.qrc
+    resource.qrc
