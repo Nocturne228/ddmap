@@ -100,6 +100,7 @@ void MapWidget::showEvent(QShowEvent *event) {
     connect(ResetPos_Button, &QPushButton::clicked, this, &MapWidget::onResetPosButtonClicked);
 
     Dis_Label = findChild<QLabel*>("Dis_Laebl");
+    Time_Label = findChild<QLabel*>("Time_Label");
 //    DistanceEdit = findChild<QTextEdit*>("DistanceEdit");
 }
 
@@ -255,6 +256,8 @@ void MapWidget::onYANGHUButtonClicked() {
 
     CostNumber_MAP->display(this->graph.getShortestPathWeight(currPosition, 7));
 
+
+
     std::vector<QPointF> paths = this->graph.dijkstra(source, target);
     path = paths;
 }
@@ -340,9 +343,18 @@ void MapWidget::onCSUFTButtonClicked() {
 
 
 void MapWidget::onStartMoveButtonClicked() {
+    int totalWeight = this->CostNumber_MAP->value();
+    int minutes = totalWeight/10/7;
+
+    QString timeText = QString("预计用时: %1分钟").arg(minutes);
+    this->Time_Label->setText(timeText);
+
+    double distance = this->CostNumber_MAP->value() / 110.0;
+
+    QString distanceText = QString("距离目的地：%1公里").arg(distance, 0, 'f', 2);
+    this->Dis_Label->setText(distanceText);
+
     this->state = PASSENGER;
-    qDebug() << "Start Move";
-    qDebug() << "Total weight in mapwidget: " << graph.getTotalWeight();
     if (!path.empty()) {
         moveAlongPath();
         setAllButtonsEnabled(false); // 禁用按钮
@@ -371,6 +383,8 @@ void MapWidget::onCallCarButtonClicked()
     }
     std::vector<QPointF> paths = graph.dijkstra(graph.getLocCor(currD), graph.getLocCor(currP));
     drivePath = paths;
+
+
 
     qDebug() << "Car is moving";
     if (!drivePath.empty()) {
@@ -626,8 +640,13 @@ int MapWidget::findNearestDriver() {
 
     int totalWeight = this->graph.getShortestPathWeight(driverPosIdx, pasPosIdx);
     double distance = totalWeight / 110.0;
-    QString distanceText = QString("司机距您: %1公里").arg(distance, 0, 'f', 2);
+    QString distanceText = QString("司机距您 %1 公里").arg(distance, 0, 'f', 2);
     this->Dis_Label->setText(distanceText);
+
+    int minutes = totalWeight/10/7;
+
+    QString timeText = QString("预计在 %1 分钟内抵达").arg(minutes);
+    this->Time_Label->setText(timeText);
 
     return nearestDriver.getState();
 }

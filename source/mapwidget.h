@@ -10,6 +10,8 @@
 #include <QLCDNumber>
 #include <QTextEdit>
 #include <QLabel>
+#include <QTime>
+#include <QTimeEdit>
 
 
 class MapWidget : public QWidget
@@ -67,6 +69,7 @@ private:
     // 展示车程
 //    QTextEdit *DistanceEdit;
     QLabel *Dis_Label;
+    QLabel *Time_Label;
 
     // 地图中的按钮
     QPushButton *MEIXIHU_Button;
@@ -87,6 +90,7 @@ private:
     QPushButton *StartMove_Button;
     QPushButton *CallCar_Button;
     QPushButton *ResetPos_Button;
+
 
     // 移动参数
     int currentSegment;

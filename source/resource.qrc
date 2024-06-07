@@ -10,5 +10,6 @@
         <file>callcar.ico</file>
         <file>waiting.ico</file>
         <file>go.ico</file>
+        <file>dis.ico</file>
     </qresource>
 </RCC>

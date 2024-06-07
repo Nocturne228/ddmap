@@ -63,9 +63,6 @@ void Widget::on_CSU_Button_clicked()
     // 将时间转换为字符串
     QString timeString = currentDateTime.toString("hh:mm:ss");
 
-    // 将时间字符串设置为 TimeEdit 的值
-    ui->TimeCostEdit->setTime(QTime::fromString(timeString, "hh:mm:ss"));
-
 }
 
 void Widget::on_XIANGYA_Button_clicked()
@@ -78,10 +75,14 @@ void Widget::on_StartButton_clicked()
 {
     ui->StartMove_Button->click();
     ui->CostNumber->display(ui->CostNumber_map->value()/30);
+    ui->DistanceLabel->setText(ui->Dis_Laebl->text());
+    ui->TimeLabel->setText(ui->Time_Label->text());
+
 }
 
 void Widget::on_CallCarButton_clicked()
 {
     ui->CallCar_Button->click();
-    ui->DistanceLaebl->setText(ui->Dis_Laebl->text());
+    ui->DistanceLabel->setText(ui->Dis_Laebl->text());
+    ui->TimeLabel->setText(ui->Time_Label->text());
 }
