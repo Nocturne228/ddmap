@@ -310,6 +310,12 @@ color: transparent;  /* 白色文字 */
       <height>28</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background: transparent;  /* 绿色背景 */
+border: none;  /* 无边框 */
+color: transparent;  /* 白色文字 */
+</string>
+    </property>
     <property name="text">
      <string>开始移动</string>
     </property>
@@ -352,11 +358,17 @@ color: transparent;  /* 白色文字 */
    <widget class="QPushButton" name="ResetPos_Button">
     <property name="geometry">
      <rect>
-      <x>1060</x>
-      <y>80</y>
+      <x>940</x>
+      <y>20</y>
       <width>93</width>
       <height>28</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: transparent;  /* 绿色背景 */
+border: none;  /* 无边框 */
+color: transparent;  /* 白色文字 */
+</string>
     </property>
     <property name="text">
      <string>重置位置</string>
@@ -371,6 +383,12 @@ color: transparent;  /* 白色文字 */
       <height>16</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background: transparent;  /* 绿色背景 */
+border: none;  /* 无边框 */
+color: transparent;  /* 白色文字 */
+</string>
+    </property>
     <property name="text">
      <string>TextLabel</string>
     </property>
@@ -384,6 +402,31 @@ color: transparent;  /* 白色文字 */
       <height>16</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background: transparent;  /* 绿色背景 */
+border: none;  /* 无边框 */
+color: transparent;  /* 白色文字 */
+</string>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Loc_Label">
+    <property name="geometry">
+     <rect>
+      <x>1060</x>
+      <y>20</y>
+      <width>72</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: transparent;  /* 绿色背景 */
+border: none;  /* 无边框 */
+color: transparent;  /* 白色文字 */
+</string>
+    </property>
     <property name="text">
      <string>TextLabel</string>
     </property>
@@ -393,7 +436,7 @@ color: transparent;  /* 白色文字 */
    <property name="geometry">
     <rect>
      <x>1180</x>
-     <y>50</y>
+     <y>70</y>
      <width>241</width>
      <height>101</height>
     </rect>
@@ -405,11 +448,24 @@ color: transparent;  /* 白色文字 */
   <widget class="QLabel" name="CostLabel">
    <property name="geometry">
     <rect>
-     <x>1180</x>
-     <y>20</y>
-     <width>72</width>
-     <height>15</height>
+     <x>1210</x>
+     <y>10</y>
+     <width>91</width>
+     <height>41</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel {
+    font-size: 16px;                      /* 字体大小 */
+    color: #333333;                       /* 字体颜色，深灰色 */
+    background-color: #ffffff;            /* 背景颜色，白色 */
+    border: none;            /* 边框颜色和宽度，浅灰色 */
+    border-radius: 10px;                  /* 边框圆角 */
+    padding: 10px;                        /* 内边距 */
+    qproperty-alignment: 'AlignCenter';   /* 文本居中 */
+	font-weight: bold;
+}
+</string>
    </property>
    <property name="text">
     <string>计费</string>
@@ -599,7 +655,7 @@ QPushButton:disabled, QToolButton:disabled, QCommandLinkButton:disabled{
    <property name="geometry">
     <rect>
      <x>1170</x>
-     <y>510</y>
+     <y>690</y>
      <width>81</width>
      <height>41</height>
     </rect>
@@ -621,7 +677,7 @@ QPushButton:disabled, QToolButton:disabled, QCommandLinkButton:disabled{
    <property name="geometry">
     <rect>
      <x>1260</x>
-     <y>510</y>
+     <y>690</y>
      <width>161</width>
      <height>41</height>
     </rect>
@@ -693,6 +749,114 @@ QTimeEdit::down-arrow {
 </string>
    </property>
   </widget>
+  <widget class="QPushButton" name="ResetButton">
+   <property name="geometry">
+    <rect>
+     <x>1300</x>
+     <y>750</y>
+     <width>121</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton, QToolButton, QCommandLinkButton{
+    padding: 0 5px 0 5px;
+    border-style: solid;
+    border-top-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #c1c9cf, stop:1 #d2d8dd);
+    border-right-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:0, stop:0 #c1c9cf, stop:1 #d2d8dd);
+    border-bottom-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 #c1c9cf, stop:1 #d2d8dd);
+    border-left-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #c1c9cf, stop:1 #d2d8dd);
+    border-width: 2px;
+    border-radius: 8px;
+    color: #616161;
+    font-weight: bold;
+    background-color: qlineargradient(spread:pad, x1:0.5, y1:0, x2:0.5, y2:1, stop:0 #fbfdfd, stop:0.5 #ffffff, stop:1 #fbfdfd);
+}
+QPushButton::default, QToolButton::default, QCommandLinkButton::default{
+    border: 2px solid transparent;
+    color: #FFFFFF;
+    background-color: qlineargradient(spread:pad, x1:0.5, y1:0, x2:0.5, y2:1, stop:0 #84afe5, stop:1 #1168e4);
+}
+QPushButton:hover, QToolButton:hover, QCommandLinkButton:hover{
+    color: #3d3d3d;
+    background-color: qlineargradient(spread:pad, x1:0.5, y1:0, x2:0.5, y2:1, stop:0 #e0e0e0, stop:0.5 #f0f0f0, stop:1 #e0e0e0);
+    border-top-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #b0b0b0, stop:1 #c0c0c0);
+    border-right-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:0, stop:0 #b0b0b0, stop:1 #c0c0c0);
+    border-bottom-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 #b0b0b0, stop:1 #c0c0c0);
+    border-left-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #b0b0b0, stop:1 #c0c0c0);
+}
+QPushButton:pressed, QToolButton:pressed, QCommandLinkButton:pressed{
+    color: #aeaeae;
+    background-color: qlineargradient(spread:pad, x1:0.5, y1:0, x2:0.5, y2:1, stop:0 #ffffff, stop:0.5 #fbfdfd, stop:1 #ffffff);
+}
+QPushButton:disabled, QToolButton:disabled, QCommandLinkButton:disabled{
+    color: #616161;
+    background-color: qlineargradient(spread:pad, x1:0.5, y1:0, x2:0.5, y2:1, stop:0 #dce7eb, stop:0.5 #e0e8eb, stop:1 #dee7ec);
+}</string>
+   </property>
+   <property name="text">
+    <string>重置位置</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="TargetLabel">
+   <property name="geometry">
+    <rect>
+     <x>1220</x>
+     <y>500</y>
+     <width>181</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel {
+    font-size: 16px;                      /* 字体大小 */
+    color: #333333;                       /* 字体颜色，深灰色 */
+    background-color: #ffffff;            /* 背景颜色，白色 */
+    border: 1px solid #cccccc;            /* 边框颜色和宽度，浅灰色 */
+    border-radius: 10px;                  /* 边框圆角 */
+    padding: 10px;                        /* 内边距 */
+    qproperty-alignment: 'AlignCenter';   /* 文本居中 */
+}
+</string>
+   </property>
+   <property name="text">
+    <string>在地图中选择目的地</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="WatingIcon_3">
+   <property name="geometry">
+    <rect>
+     <x>1180</x>
+     <y>500</y>
+     <width>31</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">image: url(:/go.ico)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>1130</x>
+     <y>0</y>
+     <width>141</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">image: url(:/speedometer.png);
+background: transparent;
+</string>
+   </property>
+   <property name="text">
+    <string> </string>
+   </property>
+  </widget>
   <zorder>CostNumber</zorder>
   <zorder>CostLabel</zorder>
   <zorder>StartButton</zorder>
@@ -704,6 +868,10 @@ QTimeEdit::down-arrow {
   <zorder>WatingIcon_2</zorder>
   <zorder>StartTimeLabel</zorder>
   <zorder>StartTimeEdit</zorder>
+  <zorder>ResetButton</zorder>
+  <zorder>TargetLabel</zorder>
+  <zorder>WatingIcon_3</zorder>
+  <zorder>label</zorder>
  </widget>
  <customwidgets>
   <customwidget>

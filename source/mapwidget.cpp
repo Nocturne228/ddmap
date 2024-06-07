@@ -5,10 +5,10 @@
 
 MapWidget::MapWidget(QWidget *parent) :
     // 根据乘客位置设置图标
-    QWidget(parent), passenger(QPointF(CSU_X, CSU_Y), 0, ":/ultraman.ico"),
-    driver(QPointF(CSUFT_X, CSUFT_Y), 0, ":/car.ico"), graph(),
-    driver1(QPointF(MEIXIHU_X, MEIXIHU_Y), 0, ":/car.ico"),
-    driver2(QPointF(HNNU_X, HNNU_Y), 0, ":/car.ico"),
+    QWidget(parent), passenger(QPointF(CSU_X, CSU_Y), 0, ":/girl.png"),
+    driver(QPointF(CSUFT_X, CSUFT_Y), 0, ":/car.png"), graph(),
+    driver1(QPointF(MEIXIHU_X, MEIXIHU_Y), 0, ":/car1.png"),
+    driver2(QPointF(HNNU_X, HNNU_Y), 0, ":/car2.png"),
     currentSegment(0), totalSegments(0), moveTimer(nullptr), moveInterval(20), speed(10)
 {
     // 设置基础背景图片
@@ -101,6 +101,7 @@ void MapWidget::showEvent(QShowEvent *event) {
 
     Dis_Label = findChild<QLabel*>("Dis_Laebl");
     Time_Label = findChild<QLabel*>("Time_Label");
+    Loc_Label = findChild<QLabel*>("Loc_Label");
 //    DistanceEdit = findChild<QTextEdit*>("DistanceEdit");
 }
 
@@ -117,17 +118,21 @@ void MapWidget::paintEvent(QPaintEvent *event)
 
     // 绘制乘客图标
     if (passenger.getIsVisible()) {
-        painter.drawPixmap(this->passenger.getPosition(), this->passenger.getIcon());
+        // 获取图标并调整其大小
+        QPixmap icon = passenger.getIcon().scaled(QSize(40, 40), Qt::KeepAspectRatio, Qt::SmoothTransformation);
+        painter.drawPixmap(this->passenger.getPosition(), icon);
     }
-    painter.drawPixmap(this->driver.getPosition(), this->driver.getIcon());
-    painter.drawPixmap(this->driver1.getPosition(), this->driver.getIcon());
-    painter.drawPixmap(this->driver2.getPosition(), this->driver.getIcon());
+    QPixmap icon0 = driver.getIcon().scaled(QSize(40, 40), Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    painter.drawPixmap(this->driver.getPosition(), icon0);
+    QPixmap icon1 = driver1.getIcon().scaled(QSize(40, 40), Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    painter.drawPixmap(this->driver1.getPosition(), icon1);
+    QPixmap icon2 = driver2.getIcon().scaled(QSize(40, 40), Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    painter.drawPixmap(this->driver2.getPosition(), icon2);
 
     // 绘制地点坐标点
     for (int i = 0; i < graph.getMaxNode(); ++i) { // 假设共有10个地点
         QPointF loc = this->graph.getLoc(i);
         painter.drawEllipse(loc, 5, 5); // 绘制圆形表示地点
-        painter.drawText(loc.x() + 10, loc.y() + 10, QString::number(i)); // 绘制地点序号
     }
 
     // 绘制连接线
@@ -185,6 +190,8 @@ void MapWidget::onMEIXIHUButtonClicked()
     std::vector<QPointF> paths = this->graph.dijkstra(source, target);
     path = paths;
 
+    QString loc("去往：梅溪湖");
+    this->Loc_Label->setText(loc);
 }
 
 
@@ -199,6 +206,9 @@ void MapWidget::onHUIWANGButtonClicked()
 
     std::vector<QPointF> paths = this->graph.dijkstra(source, target);
     path = paths;
+
+    QString loc("去往：回望书店");
+    this->Loc_Label->setText(loc);
 }
 
 // 去校本部
@@ -212,6 +222,9 @@ void MapWidget::onCSUOLDButtonClicked()
 
     std::vector<QPointF> paths = this->graph.dijkstra(source, target);
     path = paths;
+
+    QString loc("去往：中南大学校本部");
+    this->Loc_Label->setText(loc);
 }
 
 void MapWidget::onCSUButtonClicked() {
@@ -223,6 +236,9 @@ void MapWidget::onCSUButtonClicked() {
 
     std::vector<QPointF> paths = this->graph.dijkstra(source, target);
     path = paths;
+
+    QString loc("去往：中南大学新校区");
+    this->Loc_Label->setText(loc);
 }
 
 void MapWidget::onHNUButtonClicked() {
@@ -234,6 +250,9 @@ void MapWidget::onHNUButtonClicked() {
 
     std::vector<QPointF> paths = this->graph.dijkstra(source, target);
     path = paths;
+
+    QString loc("去往：湖南大学");
+    this->Loc_Label->setText(loc);
 }
 
 // 继续添加其他槽函数...
@@ -247,6 +266,9 @@ void MapWidget::onXIANGBIWOButtonClicked() {
 
     std::vector<QPointF> paths = this->graph.dijkstra(source, target);
     path = paths;
+
+    QString loc("去往：象鼻窝森林公园");
+    this->Loc_Label->setText(loc);
 }
 
 void MapWidget::onYANGHUButtonClicked() {
@@ -255,11 +277,11 @@ void MapWidget::onYANGHUButtonClicked() {
     QPointF target = this->graph.getLocCor(7);
 
     CostNumber_MAP->display(this->graph.getShortestPathWeight(currPosition, 7));
-
-
-
     std::vector<QPointF> paths = this->graph.dijkstra(source, target);
     path = paths;
+
+    QString loc("去往：洋湖湿地公园");
+    this->Loc_Label->setText(loc);
 }
 
 void MapWidget::onWUYIButtonClicked() {
@@ -271,6 +293,9 @@ void MapWidget::onWUYIButtonClicked() {
 
     std::vector<QPointF> paths = this->graph.dijkstra(source, target);
     path = paths;
+
+    QString loc("去往：五一广场");
+    this->Loc_Label->setText(loc);
 }
 
 void MapWidget::onHNNUButtonClicked() {
@@ -282,6 +307,9 @@ void MapWidget::onHNNUButtonClicked() {
 
     std::vector<QPointF> paths = this->graph.dijkstra(source, target);
     path = paths;
+
+    QString loc("去往：湖南师范大学");
+    this->Loc_Label->setText(loc);
 }
 
 void MapWidget::onBISHAHUButtonClicked() {
@@ -293,6 +321,9 @@ void MapWidget::onBISHAHUButtonClicked() {
 
     std::vector<QPointF> paths = this->graph.dijkstra(source, target);
     path = paths;
+
+    QString loc("去往：碧沙湖");
+    this->Loc_Label->setText(loc);
 }
 
 void MapWidget::onCSUSTButtonClicked() {
@@ -304,6 +335,9 @@ void MapWidget::onCSUSTButtonClicked() {
 
     std::vector<QPointF> paths = this->graph.dijkstra(source, target);
     path = paths;
+
+    QString loc("去往：长沙理工大学");
+    this->Loc_Label->setText(loc);
 }
 
 void MapWidget::onXIANGYAButtonClicked() {
@@ -315,6 +349,9 @@ void MapWidget::onXIANGYAButtonClicked() {
 
     std::vector<QPointF> paths = this->graph.dijkstra(source, target);
     path = paths;
+
+    QString loc("去往：湘雅二医院");
+    this->Loc_Label->setText(loc);
 }
 
 void MapWidget::onNANJIAOButtonClicked() {
@@ -326,6 +363,9 @@ void MapWidget::onNANJIAOButtonClicked() {
 
     std::vector<QPointF> paths = this->graph.dijkstra(source, target);
     path = paths;
+
+    QString loc("去往：南郊公园");
+    this->Loc_Label->setText(loc);
 }
 
 void MapWidget::onCSUFTButtonClicked() {
@@ -337,6 +377,9 @@ void MapWidget::onCSUFTButtonClicked() {
 
     std::vector<QPointF> paths = this->graph.dijkstra(source, target);
     path = paths;
+
+    QString loc("去往：中南林业科技大学");
+    this->Loc_Label->setText(loc);
 }
 
 

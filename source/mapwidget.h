@@ -70,6 +70,7 @@ private:
 //    QTextEdit *DistanceEdit;
     QLabel *Dis_Label;
     QLabel *Time_Label;
+    QLabel *Loc_Label;
 
     // 地图中的按钮
     QPushButton *MEIXIHU_Button;

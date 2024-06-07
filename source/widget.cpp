@@ -26,6 +26,8 @@ void Widget::Initial_UI()
     ui->CallCarButton->setIcon(QIcon(":/callcar.ico"));
     ui->StartButton->setIcon(QIcon(":/go.ico"));
 
+    ui->StartButton->setEnabled(false);
+
 }
 
 
@@ -77,7 +79,7 @@ void Widget::on_StartButton_clicked()
     ui->CostNumber->display(ui->CostNumber_map->value()/30);
     ui->DistanceLabel->setText(ui->Dis_Laebl->text());
     ui->TimeLabel->setText(ui->Time_Label->text());
-
+    ui->TargetLabel->setText(ui->Loc_Label->text());
 }
 
 void Widget::on_CallCarButton_clicked()
@@ -85,4 +87,12 @@ void Widget::on_CallCarButton_clicked()
     ui->CallCar_Button->click();
     ui->DistanceLabel->setText(ui->Dis_Laebl->text());
     ui->TimeLabel->setText(ui->Time_Label->text());
+
+    ui->StartButton->setEnabled(true);
+}
+
+void Widget::on_ResetButton_clicked()
+{
+    ui->StartButton->setEnabled(false);
+    ui->ResetPos_Button->click();
 }
