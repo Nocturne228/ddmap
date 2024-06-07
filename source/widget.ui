@@ -37,7 +37,7 @@
    <widget class="QPushButton" name="CSU_Button">
     <property name="geometry">
      <rect>
-      <x>530</x>
+      <x>490</x>
       <y>440</y>
       <width>121</width>
       <height>61</height>
@@ -47,7 +47,7 @@
      <string notr="true">background: transparent;  /* 绿色背景 */
 border: none;  /* 无边框 */
 color: transparent;  /* 白色文字 */
-</string>
+image: url(:/loc.ico)</string>
     </property>
     <property name="text">
      <string>PushButton</string>
@@ -56,7 +56,7 @@ color: transparent;  /* 白色文字 */
    <widget class="QPushButton" name="HNU_Button">
     <property name="geometry">
      <rect>
-      <x>640</x>
+      <x>600</x>
       <y>90</y>
       <width>111</width>
       <height>51</height>
@@ -66,7 +66,7 @@ color: transparent;  /* 白色文字 */
      <string notr="true">background: transparent;  /* 绿色背景 */
 border: none;  /* 无边框 */
 color: transparent;  /* 白色文字 */
-</string>
+image: url(:/loc.ico)</string>
     </property>
     <property name="text">
      <string>PushButton</string>
@@ -76,7 +76,7 @@ color: transparent;  /* 白色文字 */
     <property name="geometry">
      <rect>
       <x>320</x>
-      <y>-20</y>
+      <y>-10</y>
       <width>131</width>
       <height>71</height>
      </rect>
@@ -85,7 +85,7 @@ color: transparent;  /* 白色文字 */
      <string notr="true">background: transparent;  /* 绿色背景 */
 border: none;  /* 无边框 */
 color: transparent;  /* 白色文字 */
-</string>
+image: url(:/loc.ico)</string>
     </property>
     <property name="text">
      <string>到这</string>
@@ -94,8 +94,8 @@ color: transparent;  /* 白色文字 */
    <widget class="QPushButton" name="HUIWANG_Button">
     <property name="geometry">
      <rect>
-      <x>590</x>
-      <y>330</y>
+      <x>540</x>
+      <y>320</y>
       <width>111</width>
       <height>51</height>
      </rect>
@@ -104,7 +104,7 @@ color: transparent;  /* 白色文字 */
      <string notr="true">background: transparent;  /* 绿色背景 */
 border: none;  /* 无边框 */
 color: transparent;  /* 白色文字 */
-</string>
+image: url(:/loc.ico)</string>
     </property>
     <property name="text">
      <string>PushButton</string>
@@ -113,7 +113,7 @@ color: transparent;  /* 白色文字 */
    <widget class="QPushButton" name="CSU_OLD_Button">
     <property name="geometry">
      <rect>
-      <x>420</x>
+      <x>380</x>
       <y>320</y>
       <width>101</width>
       <height>51</height>
@@ -123,7 +123,7 @@ color: transparent;  /* 白色文字 */
      <string notr="true">background: transparent;  /* 绿色背景 */
 border: none;  /* 无边框 */
 color: transparent;  /* 白色文字 */
-</string>
+image: url(:/loc.ico)</string>
     </property>
     <property name="text">
      <string>PushButton</string>
@@ -132,17 +132,17 @@ color: transparent;  /* 白色文字 */
    <widget class="QPushButton" name="XIANGBIWO_Button">
     <property name="geometry">
      <rect>
-      <x>74</x>
-      <y>250</y>
-      <width>93</width>
-      <height>28</height>
+      <x>30</x>
+      <y>240</y>
+      <width>101</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">background: transparent;  /* 绿色背景 */
 border: none;  /* 无边框 */
 color: transparent;  /* 白色文字 */
-</string>
+image: url(:/loc.ico)</string>
     </property>
     <property name="text">
      <string>PushButton</string>
@@ -151,7 +151,7 @@ color: transparent;  /* 白色文字 */
    <widget class="QPushButton" name="YANGHU_Button">
     <property name="geometry">
      <rect>
-      <x>480</x>
+      <x>440</x>
       <y>570</y>
       <width>131</width>
       <height>51</height>
@@ -161,7 +161,7 @@ color: transparent;  /* 白色文字 */
      <string notr="true">background: transparent;  /* 绿色背景 */
 border: none;  /* 无边框 */
 color: transparent;  /* 白色文字 */
-</string>
+image: url(:/loc.ico)</string>
     </property>
     <property name="text">
      <string>PushButton</string>
@@ -170,7 +170,7 @@ color: transparent;  /* 白色文字 */
    <widget class="QPushButton" name="WUYI_Button">
     <property name="geometry">
      <rect>
-      <x>890</x>
+      <x>840</x>
       <y>110</y>
       <width>121</width>
       <height>61</height>
@@ -180,7 +180,7 @@ color: transparent;  /* 白色文字 */
      <string notr="true">background: transparent;  /* 绿色背景 */
 border: none;  /* 无边框 */
 color: transparent;  /* 白色文字 */
-</string>
+image: url(:/loc.ico)</string>
     </property>
     <property name="text">
      <string>PushButton</string>
@@ -189,7 +189,7 @@ color: transparent;  /* 白色文字 */
    <widget class="QPushButton" name="HNNU_Button">
     <property name="geometry">
      <rect>
-      <x>160</x>
+      <x>110</x>
       <y>580</y>
       <width>111</width>
       <height>51</height>
@@ -199,7 +199,7 @@ color: transparent;  /* 白色文字 */
      <string notr="true">background: transparent;  /* 绿色背景 */
 border: none;  /* 无边框 */
 color: transparent;  /* 白色文字 */
-</string>
+image: url(:/loc.ico)</string>
     </property>
     <property name="text">
      <string>PushButton</string>
@@ -208,8 +208,8 @@ color: transparent;  /* 白色文字 */
    <widget class="QPushButton" name="BISHAHU_Button">
     <property name="geometry">
      <rect>
-      <x>790</x>
-      <y>371</y>
+      <x>760</x>
+      <y>360</y>
       <width>101</width>
       <height>51</height>
      </rect>
@@ -218,7 +218,7 @@ color: transparent;  /* 白色文字 */
      <string notr="true">background: transparent;  /* 绿色背景 */
 border: none;  /* 无边框 */
 color: transparent;  /* 白色文字 */
-</string>
+image: url(:/loc.ico)</string>
     </property>
     <property name="text">
      <string>PushButton</string>
@@ -227,17 +227,17 @@ color: transparent;  /* 白色文字 */
    <widget class="QPushButton" name="CSUST_Button">
     <property name="geometry">
      <rect>
-      <x>890</x>
-      <y>410</y>
-      <width>111</width>
-      <height>51</height>
+      <x>850</x>
+      <y>400</y>
+      <width>91</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">background: transparent;  /* 绿色背景 */
 border: none;  /* 无边框 */
 color: transparent;  /* 白色文字 */
-</string>
+image: url(:/loc.ico)</string>
     </property>
     <property name="text">
      <string>PushButton</string>
@@ -246,17 +246,17 @@ color: transparent;  /* 白色文字 */
    <widget class="QPushButton" name="XIANGYA_Button">
     <property name="geometry">
      <rect>
-      <x>975</x>
-      <y>125</y>
+      <x>930</x>
+      <y>120</y>
       <width>101</width>
-      <height>41</height>
+      <height>51</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">background: transparent;  /* 绿色背景 */
 border: none;  /* 无边框 */
 color: transparent;  /* 白色文字 */
-</string>
+image: url(:/loc.ico)</string>
     </property>
     <property name="text">
      <string>PushButton</string>
@@ -265,7 +265,7 @@ color: transparent;  /* 白色文字 */
    <widget class="QPushButton" name="NANJIAO_Button">
     <property name="geometry">
      <rect>
-      <x>890</x>
+      <x>850</x>
       <y>530</y>
       <width>111</width>
       <height>51</height>
@@ -275,7 +275,7 @@ color: transparent;  /* 白色文字 */
      <string notr="true">background: transparent;  /* 绿色背景 */
 border: none;  /* 无边框 */
 color: transparent;  /* 白色文字 */
-</string>
+image: url(:/loc.ico)</string>
     </property>
     <property name="text">
      <string>PushButton</string>
@@ -284,18 +284,17 @@ color: transparent;  /* 白色文字 */
    <widget class="QPushButton" name="CSUFT_Button">
     <property name="geometry">
      <rect>
-      <x>1000</x>
-      <y>610</y>
+      <x>950</x>
+      <y>600</y>
       <width>111</width>
       <height>51</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">QPushButton {
-    background: transparent; /* 背景透明 */
-    border: none; /* 无边框 */
-    color: transparent; /* 文本透明 */
-}</string>
+     <string notr="true">background: transparent;  /* 绿色背景 */
+border: none;  /* 无边框 */
+color: transparent;  /* 白色文字 */
+image: url(:/loc.ico)</string>
     </property>
     <property name="text">
      <string>PushButton</string>
@@ -435,10 +434,10 @@ color: transparent;  /* 白色文字 */
   <widget class="QLCDNumber" name="CostNumber">
    <property name="geometry">
     <rect>
-     <x>1180</x>
-     <y>70</y>
-     <width>241</width>
-     <height>101</height>
+     <x>1160</x>
+     <y>60</y>
+     <width>181</width>
+     <height>81</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -475,7 +474,7 @@ color: transparent;  /* 白色文字 */
    <property name="geometry">
     <rect>
      <x>1238</x>
-     <y>280</y>
+     <y>320</y>
      <width>121</width>
      <height>41</height>
     </rect>
@@ -524,7 +523,7 @@ QPushButton:disabled, QToolButton:disabled, QCommandLinkButton:disabled{
    <property name="geometry">
     <rect>
      <x>1238</x>
-     <y>220</y>
+     <y>260</y>
      <width>121</width>
      <height>41</height>
     </rect>
@@ -573,7 +572,7 @@ QPushButton:disabled, QToolButton:disabled, QCommandLinkButton:disabled{
    <property name="geometry">
     <rect>
      <x>1220</x>
-     <y>360</y>
+     <y>490</y>
      <width>181</width>
      <height>51</height>
     </rect>
@@ -598,7 +597,7 @@ QPushButton:disabled, QToolButton:disabled, QCommandLinkButton:disabled{
    <property name="geometry">
     <rect>
      <x>1180</x>
-     <y>430</y>
+     <y>560</y>
      <width>31</width>
      <height>41</height>
     </rect>
@@ -614,7 +613,7 @@ QPushButton:disabled, QToolButton:disabled, QCommandLinkButton:disabled{
    <property name="geometry">
     <rect>
      <x>1220</x>
-     <y>430</y>
+     <y>560</y>
      <width>181</width>
      <height>51</height>
     </rect>
@@ -639,7 +638,7 @@ QPushButton:disabled, QToolButton:disabled, QCommandLinkButton:disabled{
    <property name="geometry">
     <rect>
      <x>1180</x>
-     <y>360</y>
+     <y>490</y>
      <width>31</width>
      <height>41</height>
     </rect>
@@ -802,7 +801,7 @@ QPushButton:disabled, QToolButton:disabled, QCommandLinkButton:disabled{
    <property name="geometry">
     <rect>
      <x>1220</x>
-     <y>500</y>
+     <y>630</y>
      <width>181</width>
      <height>51</height>
     </rect>
@@ -820,14 +819,14 @@ QPushButton:disabled, QToolButton:disabled, QCommandLinkButton:disabled{
 </string>
    </property>
    <property name="text">
-    <string>在地图中选择目的地</string>
+    <string>前往目的地</string>
    </property>
   </widget>
   <widget class="QLabel" name="WatingIcon_3">
    <property name="geometry">
     <rect>
      <x>1180</x>
-     <y>500</y>
+     <y>630</y>
      <width>31</width>
      <height>41</height>
     </rect>
@@ -849,12 +848,57 @@ QPushButton:disabled, QToolButton:disabled, QCommandLinkButton:disabled{
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">image: url(:/speedometer.png);
+    <string notr="true">image: url(:/countdown.png);
 background: transparent;
 </string>
    </property>
    <property name="text">
     <string> </string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="CostLabel_2">
+   <property name="geometry">
+    <rect>
+     <x>1340</x>
+     <y>60</y>
+     <width>41</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel {
+    font-size: 16px;                      /* 字体大小 */
+    color: #333333;                       /* 字体颜色，深灰色 */
+    background-color: #ffffff;            /* 背景颜色，白色 */
+    border: none;            /* 边框颜色和宽度，浅灰色 */
+    border-radius: 10px;                  /* 边框圆角 */
+    padding: 10px;                        /* 内边距 */
+    qproperty-alignment: 'AlignCenter';   /* 文本居中 */
+	font-weight: bold;
+	font-size: 26px;
+}
+</string>
+   </property>
+   <property name="text">
+    <string>元</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>1370</x>
+     <y>80</y>
+     <width>81</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">image: url(:/yuan.png);
+background: transparent;
+</string>
+   </property>
+   <property name="text">
+    <string/>
    </property>
   </widget>
   <zorder>CostNumber</zorder>
@@ -872,6 +916,8 @@ background: transparent;
   <zorder>TargetLabel</zorder>
   <zorder>WatingIcon_3</zorder>
   <zorder>label</zorder>
+  <zorder>CostLabel_2</zorder>
+  <zorder>label_2</zorder>
  </widget>
  <customwidgets>
   <customwidget>

@@ -1,7 +1,7 @@
 #include "mapwidget.h"
 #define PASSENGER 0
 #define DRIVER 1
-#define PEN_WIDTH 5
+#define PEN_WIDTH 10
 
 MapWidget::MapWidget(QWidget *parent) :
     // 根据乘客位置设置图标
@@ -29,59 +29,45 @@ void MapWidget::showEvent(QShowEvent *event) {
     // 查找并连接按钮
     // 中南校本部
     CSU_OLD_Button = findChild<QPushButton*>("CSU_OLD_Button");
-    CSU_OLD_Button->setIcon(QIcon(":/loc.ico"));
     connect(CSU_OLD_Button, &QPushButton::clicked, this, &MapWidget::onCSUOLDButtonClicked);
     // 梅溪湖
     MEIXIHU_Button = findChild<QPushButton*>("MEIXIHU_Button");
-    MEIXIHU_Button->setIcon(QIcon(":/loc.ico"));
     connect(MEIXIHU_Button, &QPushButton::clicked, this, &MapWidget::onMEIXIHUButtonClicked);
     // 回望书店
     HUIWANG_Button = findChild<QPushButton*>("HUIWANG_Button");
-    HUIWANG_Button->setIcon(QIcon(":/loc.ico"));
     connect(HUIWANG_Button, &QPushButton::clicked, this, &MapWidget::onHUIWANGButtonClicked);
 
     CSU_Button = findChild<QPushButton*>("CSU_Button");
-    CSU_Button->setIcon(QIcon(":/loc.ico"));
     connect(CSU_Button, &QPushButton::clicked, this, &MapWidget::onCSUButtonClicked);
 
     HNU_Button = findChild<QPushButton*>("HNU_Button");
-    HNU_Button->setIcon(QIcon(":/loc.ico"));
     connect(HNU_Button, &QPushButton::clicked, this, &MapWidget::onHNUButtonClicked);
 
     XIANGBIWO_Button = findChild<QPushButton*>("XIANGBIWO_Button");
-    XIANGBIWO_Button->setIcon(QIcon(":/loc.ico"));
     connect(XIANGBIWO_Button, &QPushButton::clicked, this, &MapWidget::onXIANGBIWOButtonClicked);
 
     YANGHU_Button = findChild<QPushButton*>("YANGHU_Button");
-    YANGHU_Button->setIcon(QIcon(":/loc.ico"));
     connect(YANGHU_Button, &QPushButton::clicked, this, &MapWidget::onYANGHUButtonClicked);
 
     WUYI_Button = findChild<QPushButton*>("WUYI_Button");
-    WUYI_Button->setIcon(QIcon(":/loc.ico"));
     connect(WUYI_Button, &QPushButton::clicked, this, &MapWidget::onWUYIButtonClicked);
 
     HNNU_Button = findChild<QPushButton*>("HNNU_Button");
-    HNNU_Button->setIcon(QIcon(":/loc.ico"));
     connect(HNNU_Button, &QPushButton::clicked, this, &MapWidget::onHNNUButtonClicked);
 
     BISHAHU_Button = findChild<QPushButton*>("BISHAHU_Button");
-    BISHAHU_Button->setIcon(QIcon(":/loc.ico"));
     connect(BISHAHU_Button, &QPushButton::clicked, this, &MapWidget::onBISHAHUButtonClicked);
 
     CSUST_Button = findChild<QPushButton*>("CSUST_Button");
-    CSUST_Button->setIcon(QIcon(":/loc.ico"));
     connect(CSUST_Button, &QPushButton::clicked, this, &MapWidget::onCSUSTButtonClicked);
 
     XIANGYA_Button = findChild<QPushButton*>("XIANGYA_Button");
-    XIANGYA_Button->setIcon(QIcon(":/loc.ico"));
     connect(XIANGYA_Button, &QPushButton::clicked, this, &MapWidget::onXIANGYAButtonClicked);
 
     NANJIAO_Button = findChild<QPushButton*>("NANJIAO_Button");
-    NANJIAO_Button->setIcon(QIcon(":/loc.ico"));
     connect(NANJIAO_Button, &QPushButton::clicked, this, &MapWidget::onNANJIAOButtonClicked);
 
     CSUFT_Button = findChild<QPushButton*>("CSUFT_Button");
-    CSUFT_Button->setIcon(QIcon(":/loc.ico"));
     connect(CSUFT_Button, &QPushButton::clicked, this, &MapWidget::onCSUFTButtonClicked);
 
 
@@ -112,7 +98,7 @@ void MapWidget::paintEvent(QPaintEvent *event)
     painter.setRenderHint(QPainter::Antialiasing); // 抗锯齿
 
     // 设置画笔
-    QPen pen(Qt::black);
+    QPen pen("#F08080");
     pen.setWidth(PEN_WIDTH); // 设置宽度
     painter.setPen(pen);
 
@@ -128,6 +114,11 @@ void MapWidget::paintEvent(QPaintEvent *event)
     painter.drawPixmap(this->driver1.getPosition(), icon1);
     QPixmap icon2 = driver2.getIcon().scaled(QSize(40, 40), Qt::KeepAspectRatio, Qt::SmoothTransformation);
     painter.drawPixmap(this->driver2.getPosition(), icon2);
+
+    // 设置背景颜色
+
+   // 设置线条样式
+
 
     // 绘制地点坐标点
     for (int i = 0; i < graph.getMaxNode(); ++i) { // 假设共有10个地点
@@ -152,12 +143,18 @@ void MapWidget::paintEvent(QPaintEvent *event)
     }
 
     // 绘制出行路线的路径
-    if (!path.empty() && isMoving == 1) {
-        painter.setPen(QPen(Qt::red, 2)); // 红色线条表示路径，线条宽度为2
+    if (!path.empty() && this->state==PASSENGER) {
+        pen.setColor("#008000");
+        pen.setWidth(7);
+        painter.setPen(pen); // 红色线条表示路径，线条宽度为2
         for (size_t i = 1; i < path.size(); ++i) {
             painter.drawLine(path[i - 1], path[i]);
         }
     }
+
+    pen.setColor("#F08080");
+    pen.setWidth(PEN_WIDTH); // 设置宽度
+    painter.setPen(pen);
 
     if (!isMoving) {
         // 绘制连接线
@@ -473,7 +470,7 @@ void MapWidget::updatePosition()
         switch (currDriver) {
         case 0:
             if (currentSegment < totalSegments) {
-
+                setAllButtonsEnabled(false); // 禁用按钮
                 QPointF currentPos = driver.getPosition();
                 QPointF nextPos = drivePath[currentSegment + 1];
                 double distance = std::hypot(nextPos.x() - currentPos.x(), nextPos.y() - currentPos.y());
@@ -501,6 +498,7 @@ void MapWidget::updatePosition()
 
         case 1:
             if (currentSegment < totalSegments) {
+                setAllButtonsEnabled(false); // 禁用按钮
                 QPointF currentPos = driver1.getPosition();
                 QPointF nextPos = drivePath[currentSegment + 1];
                 double distance = std::hypot(nextPos.x() - currentPos.x(), nextPos.y() - currentPos.y());
@@ -527,6 +525,7 @@ void MapWidget::updatePosition()
 
         case 2:
             if (currentSegment < totalSegments) {
+                setAllButtonsEnabled(false); // 禁用按钮
                 QPointF currentPos = driver2.getPosition();
                 QPointF nextPos = drivePath[currentSegment + 1];
                 double distance = std::hypot(nextPos.x() - currentPos.x(), nextPos.y() - currentPos.y());
@@ -555,6 +554,7 @@ void MapWidget::updatePosition()
         switch (currDriver) {
         case 0:
             if (currentSegment < totalSegments) {
+                setAllButtonsEnabled(false); // 禁用按钮
                 passenger.setIsVisible(false);
                 QPointF currentPos = driver.getPosition();
                 QPointF nextPos = path[currentSegment + 1];
@@ -584,6 +584,7 @@ void MapWidget::updatePosition()
 
         case 1:
             if (currentSegment < totalSegments) {
+                setAllButtonsEnabled(false); // 禁用按钮
                 passenger.setIsVisible(false);
                 QPointF currentPos = driver1.getPosition();
                 QPointF nextPos = path[currentSegment + 1];
@@ -613,6 +614,7 @@ void MapWidget::updatePosition()
 
         case 2:
             if (currentSegment < totalSegments) {
+                setAllButtonsEnabled(false); // 禁用按钮
                 passenger.setIsVisible(false);
                 QPointF currentPos = driver2.getPosition();
                 QPointF nextPos = path[currentSegment + 1];

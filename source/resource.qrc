@@ -14,5 +14,8 @@
         <file>car2.png</file>
         <file>car.png</file>
         <file>speedometer.png</file>
+        <file>yen.png</file>
+        <file>countdown.png</file>
+        <file>yuan.png</file>
     </qresource>
 </RCC>
