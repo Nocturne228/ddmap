@@ -22,6 +22,10 @@ void Widget::Initial_UI()
 
     // 添加出发时间(不可编辑)
     ui->StartTimeEdit->setTime(QTime::currentTime());
+
+    ui->CallCarButton->setIcon(QIcon(":/callcar.ico"));
+    ui->StartButton->setIcon(QIcon(":/go.ico"));
+
 }
 
 
@@ -79,4 +83,5 @@ void Widget::on_StartButton_clicked()
 void Widget::on_CallCarButton_clicked()
 {
     ui->CallCar_Button->click();
+    ui->DistanceLaebl->setText(ui->Dis_Laebl->text());
 }

@@ -5,11 +5,11 @@
 
 MapWidget::MapWidget(QWidget *parent) :
     // 根据乘客位置设置图标
-    QWidget(parent), passenger(QPointF(CSU_X, CSU_Y+20), 0, ":/ultraman.ico"),
+    QWidget(parent), passenger(QPointF(CSU_X, CSU_Y), 0, ":/ultraman.ico"),
     driver(QPointF(CSUFT_X, CSUFT_Y), 0, ":/car.ico"), graph(),
-    currentSegment(0), totalSegments(0), moveTimer(nullptr), moveInterval(20), speed(10),
     driver1(QPointF(MEIXIHU_X, MEIXIHU_Y), 0, ":/car.ico"),
-    driver2(QPointF(HNNU_X, HNNU_Y), 0, ":/car.ico")
+    driver2(QPointF(HNNU_X, HNNU_Y), 0, ":/car.ico"),
+    currentSegment(0), totalSegments(0), moveTimer(nullptr), moveInterval(20), speed(10)
 {
     // 设置基础背景图片
 //    this->setAutoFillBackground(true);
@@ -98,6 +98,9 @@ void MapWidget::showEvent(QShowEvent *event) {
 
     ResetPos_Button = findChild<QPushButton*>("ResetPos_Button");
     connect(ResetPos_Button, &QPushButton::clicked, this, &MapWidget::onResetPosButtonClicked);
+
+    Dis_Label = findChild<QLabel*>("Dis_Laebl");
+//    DistanceEdit = findChild<QTextEdit*>("DistanceEdit");
 }
 
 void MapWidget::paintEvent(QPaintEvent *event)
@@ -617,6 +620,14 @@ int MapWidget::findNearestDriver() {
             nearestDriver = driver;
         }
     }
+
+    int driverPosIdx = this->findClosestNode(nearestDriver);
+    int pasPosIdx = this->findClosestNode(passenger);
+
+    int totalWeight = this->graph.getShortestPathWeight(driverPosIdx, pasPosIdx);
+    double distance = totalWeight / 110.0;
+    QString distanceText = QString("司机距您: %1公里").arg(distance, 0, 'f', 2);
+    this->Dis_Label->setText(distanceText);
 
     return nearestDriver.getState();
 }

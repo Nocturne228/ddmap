@@ -10,6 +10,12 @@
     <height>800</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>1431</width>
+    <height>800</height>
+   </size>
+  </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
@@ -356,6 +362,19 @@ color: transparent;  /* 白色文字 */
      <string>重置位置</string>
     </property>
    </widget>
+   <widget class="QLabel" name="Dis_Laebl">
+    <property name="geometry">
+     <rect>
+      <x>780</x>
+      <y>20</y>
+      <width>171</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QLCDNumber" name="CostNumber">
    <property name="geometry">
@@ -386,13 +405,13 @@ color: transparent;  /* 白色文字 */
   <widget class="QWidget" name="verticalLayoutWidget_2">
    <property name="geometry">
     <rect>
-     <x>1170</x>
-     <y>410</y>
+     <x>1150</x>
+     <y>430</y>
      <width>251</width>
      <height>131</height>
     </rect>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout_3">
+   <layout class="QVBoxLayout" name="TimeLayout">
     <item>
      <layout class="QHBoxLayout" name="StartTimeHorizonalLayout">
       <item>
@@ -400,76 +419,82 @@ color: transparent;  /* 白色文字 */
         <property name="styleSheet">
          <string notr="true">QLabel {
     color: #2c3e50; /* 文字颜色 */
-    background-color: #ecf0f1; /* 背景颜色 */
-    border: 1px solid #bdc3c7; /* 边框颜色 */
+    background-color: qlineargradient(spread:pad, x1:0.5, y1:0, x2:0.5, y2:1, stop:0 #fbfdfd, stop:0.5 #ffffff, stop:1 #fbfdfd);
     border-radius: 5px; /* 圆角半径 */
     padding: 5px; /* 内边距 */
 }
 </string>
         </property>
         <property name="text">
-         <string>  出发时间</string>
+         <string>     出发时间</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QTimeEdit" name="StartTimeEdit">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>23</height>
+         </size>
+        </property>
         <property name="styleSheet">
          <string notr="true">QTimeEdit {
-    background-color: #ffffff; /* 背景颜色 */
-    color: #2c3e50; /* 文字颜色 */
-    border: 2px solid #bdc3c7; /* 边框颜色 */
-    border-radius: 5px; /* 圆角半径 */
-    padding: 5px; /* 内边距 */
-}
-
-QTimeEdit:hover {
-    border: 2px solid #3498db; /* 悬停时边框颜色 */
-}
-
-QTimeEdit:focus {
-    border: 2px solid #2980b9; /* 聚焦时边框颜色 */
-    background-color: #ecf0f1; /* 聚焦时背景颜色 */
-}
-
-QTimeEdit::up-button, QTimeEdit::down-button {
-    background-color: #3498db; /* 按钮背景颜色 */
-    border: 1px solid #2980b9; /* 按钮边框颜色 */
-    width: 20px; /* 按钮宽度 */
-    height: 20px; /* 按钮高度 */
-    border-radius: 3px; /* 按钮圆角 */
-}
-
-QTimeEdit::up-button:hover, QTimeEdit::down-button:hover {
-    background-color: #2980b9; /* 悬停时按钮背景颜色 */
-}
-
-QTimeEdit::up-button:pressed, QTimeEdit::down-button:pressed {
-    background-color: #1c669b; /* 按下时按钮背景颜色 */
-}
-
-QTimeEdit::up-arrow {
-    image: url(:/icons/up-arrow.png); /* 替换为你的上箭头图标路径 */
-    width: 10px; /* 图标宽度 */
-    height: 10px; /* 图标高度 */
-}
-
-QTimeEdit::down-arrow {
-    image: url(:/icons/down-arrow.png); /* 替换为你的下箭头图标路径 */
-    width: 10px; /* 图标宽度 */
-    height: 10px; /* 图标高度 */
+    border: 1px solid #c0c0c0;
+    border-radius: 5px;
+    padding: 2px 5px;
+    background-color: qlineargradient(spread:pad, x1:0.5, y1:0, x2:0.5, y2:1, stop:0 #fbfdfd, stop:0.5 #ffffff, stop:1 #fbfdfd);
+    color: #616161;
+    selection-background-color: #d3d3d3;
+    selection-color: #000000;
 }
 
 QTimeEdit::up-button {
     subcontrol-origin: border;
-    subcontrol-position: right; /* 上按钮位于右侧 */
-    width: 20px; /* 上按钮宽度 */
+    subcontrol-position: top right;
+    width: 16px;
+    border-left: 1px solid #c0c0c0;
+    border-bottom: 1px solid #c0c0c0;
+    border-top-right-radius: 3px;
+    background-color: #e0e0e0;
+}
+
+QTimeEdit::up-button:hover {
+    background-color: #b0b0b0;
+}
+
+QTimeEdit::up-button:pressed {
+    background-color: #a0a0a0;
 }
 
 QTimeEdit::down-button {
     subcontrol-origin: border;
-    subcontrol-position: left; /* 下按钮位于左侧 */
-    width: 20px; /* 下按钮宽度 */
+    subcontrol-position: bottom right;
+    width: 16px;
+    border-left: 1px solid #c0c0c0;
+    border-top: 1px solid #c0c0c0;
+    border-bottom-right-radius: 3px;
+    background-color: #e0e0e0;
+}
+
+QTimeEdit::down-button:hover {
+    background-color: #b0b0b0;
+}
+
+QTimeEdit::down-button:pressed {
+    background-color: #a0a0a0;
+}
+
+QTimeEdit::up-arrow {
+    image: url(:/path/to/up_arrow.png); /* 替换为实际的上箭头图标路径 */
+    width: 10px;
+    height: 10px;
+}
+
+QTimeEdit::down-arrow {
+    image: url(:/path/to/down_arrow.png); /* 替换为实际的下箭头图标路径 */
+    width: 10px;
+    height: 10px;
 }
 </string>
         </property>
@@ -484,15 +509,14 @@ QTimeEdit::down-button {
         <property name="styleSheet">
          <string notr="true">QLabel {
     color: #2c3e50; /* 文字颜色 */
-    background-color: #ecf0f1; /* 背景颜色 */
-    border: 1px solid #bdc3c7; /* 边框颜色 */
+    background-color: qlineargradient(spread:pad, x1:0.5, y1:0, x2:0.5, y2:1, stop:0 #fbfdfd, stop:0.5 #ffffff, stop:1 #fbfdfd);
     border-radius: 5px; /* 圆角半径 */
     padding: 5px; /* 内边距 */
 }
 </string>
         </property>
         <property name="text">
-         <string>  预计用时</string>
+         <string>     预计用时</string>
         </property>
        </widget>
       </item>
@@ -500,60 +524,61 @@ QTimeEdit::down-button {
        <widget class="QTimeEdit" name="TimeCostEdit">
         <property name="styleSheet">
          <string notr="true">QTimeEdit {
-    background-color: #ffffff; /* 背景颜色 */
-    color: #2c3e50; /* 文字颜色 */
-    border: 2px solid #bdc3c7; /* 边框颜色 */
-    border-radius: 5px; /* 圆角半径 */
-    padding: 5px; /* 内边距 */
-}
-
-QTimeEdit:hover {
-    border: 2px solid #3498db; /* 悬停时边框颜色 */
-}
-
-QTimeEdit:focus {
-    border: 2px solid #2980b9; /* 聚焦时边框颜色 */
-    background-color: #ecf0f1; /* 聚焦时背景颜色 */
-}
-
-QTimeEdit::up-button, QTimeEdit::down-button {
-    background-color: #3498db; /* 按钮背景颜色 */
-    border: 1px solid #2980b9; /* 按钮边框颜色 */
-    width: 20px; /* 按钮宽度 */
-    height: 20px; /* 按钮高度 */
-    border-radius: 3px; /* 按钮圆角 */
-}
-
-QTimeEdit::up-button:hover, QTimeEdit::down-button:hover {
-    background-color: #2980b9; /* 悬停时按钮背景颜色 */
-}
-
-QTimeEdit::up-button:pressed, QTimeEdit::down-button:pressed {
-    background-color: #1c669b; /* 按下时按钮背景颜色 */
-}
-
-QTimeEdit::up-arrow {
-    image: url(:/icons/up-arrow.png); /* 替换为你的上箭头图标路径 */
-    width: 10px; /* 图标宽度 */
-    height: 10px; /* 图标高度 */
-}
-
-QTimeEdit::down-arrow {
-    image: url(:/icons/down-arrow.png); /* 替换为你的下箭头图标路径 */
-    width: 10px; /* 图标宽度 */
-    height: 10px; /* 图标高度 */
+    border: 1px solid #c0c0c0;
+    border-radius: 5px;
+    padding: 2px 5px;
+    background-color: qlineargradient(spread:pad, x1:0.5, y1:0, x2:0.5, y2:1, stop:0 #fbfdfd, stop:0.5 #ffffff, stop:1 #fbfdfd);
+    color: #616161;
+    selection-background-color: #d3d3d3;
+    selection-color: #000000;
 }
 
 QTimeEdit::up-button {
     subcontrol-origin: border;
-    subcontrol-position: right; /* 上按钮位于右侧 */
-    width: 20px; /* 上按钮宽度 */
+    subcontrol-position: top right;
+    width: 16px;
+    border-left: 1px solid #c0c0c0;
+    border-bottom: 1px solid #c0c0c0;
+    border-top-right-radius: 3px;
+    background-color: #e0e0e0;
+}
+
+QTimeEdit::up-button:hover {
+    background-color: #b0b0b0;
+}
+
+QTimeEdit::up-button:pressed {
+    background-color: #a0a0a0;
 }
 
 QTimeEdit::down-button {
     subcontrol-origin: border;
-    subcontrol-position: left; /* 下按钮位于左侧 */
-    width: 20px; /* 下按钮宽度 */
+    subcontrol-position: bottom right;
+    width: 16px;
+    border-left: 1px solid #c0c0c0;
+    border-top: 1px solid #c0c0c0;
+    border-bottom-right-radius: 3px;
+    background-color: #e0e0e0;
+}
+
+QTimeEdit::down-button:hover {
+    background-color: #b0b0b0;
+}
+
+QTimeEdit::down-button:pressed {
+    background-color: #a0a0a0;
+}
+
+QTimeEdit::up-arrow {
+    image: url(:/path/to/up_arrow.png); /* 替换为实际的上箭头图标路径 */
+    width: 10px;
+    height: 10px;
+}
+
+QTimeEdit::down-arrow {
+    image: url(:/path/to/down_arrow.png); /* 替换为实际的下箭头图标路径 */
+    width: 10px;
+    height: 10px;
 }
 </string>
         </property>
@@ -573,45 +598,39 @@ QTimeEdit::down-button {
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">QPushButton{
-	border-style: solid;
-	border-color: #050a0e;
-	border-width: 1px;
-	border-radius: 5px;
-	color: #d3dae3;
-	padding: 2px;
-	background-color: #100E19;
+    <string notr="true">QPushButton, QToolButton, QCommandLinkButton{
+    padding: 0 5px 0 5px;
+    border-style: solid;
+    border-top-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #c1c9cf, stop:1 #d2d8dd);
+    border-right-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:0, stop:0 #c1c9cf, stop:1 #d2d8dd);
+    border-bottom-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 #c1c9cf, stop:1 #d2d8dd);
+    border-left-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #c1c9cf, stop:1 #d2d8dd);
+    border-width: 2px;
+    border-radius: 8px;
+    color: #616161;
+    font-weight: bold;
+    background-color: qlineargradient(spread:pad, x1:0.5, y1:0, x2:0.5, y2:1, stop:0 #fbfdfd, stop:0.5 #ffffff, stop:1 #fbfdfd);
 }
-QPushButton::default{
-	border-style: solid;
-	border-color: #050a0e;
-	border-width: 1px;
-	border-radius: 5px;
-	color: #FFFFFF;
-	padding: 2px;
-	background-color: #151a1e;
+QPushButton::default, QToolButton::default, QCommandLinkButton::default{
+    border: 2px solid transparent;
+    color: #FFFFFF;
+    background-color: qlineargradient(spread:pad, x1:0.5, y1:0, x2:0.5, y2:1, stop:0 #84afe5, stop:1 #1168e4);
 }
-QPushButton:hover{
-	border-style: solid;
-	border-top-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:1, stop:0 #C0DB50, stop:0.4 #C0DB50, stop:0.5 #100E19, stop:1 #100E19);
-    border-bottom-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:1, stop:0 #100E19, stop:0.5 #100E19, stop:0.6 #C0DB50, stop:1 #C0DB50);
-    border-left-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #C0DB50, stop:0.3 #C0DB50, stop:0.7 #100E19, stop:1 #100E19);
-    border-right-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 #C0DB50, stop:0.3 #C0DB50, stop:0.7 #100E19, stop:1 #100E19);
-	border-width: 2px;
-    border-radius: 1px;
-	color: #d3dae3;
-	padding: 2px;
+QPushButton:hover, QToolButton:hover, QCommandLinkButton:hover{
+    color: #3d3d3d;
+    background-color: qlineargradient(spread:pad, x1:0.5, y1:0, x2:0.5, y2:1, stop:0 #e0e0e0, stop:0.5 #f0f0f0, stop:1 #e0e0e0);
+    border-top-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #b0b0b0, stop:1 #c0c0c0);
+    border-right-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:0, stop:0 #b0b0b0, stop:1 #c0c0c0);
+    border-bottom-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 #b0b0b0, stop:1 #c0c0c0);
+    border-left-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #b0b0b0, stop:1 #c0c0c0);
 }
-QPushButton:pressed{
-	border-style: solid;
-	border-top-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:1, stop:0 #d33af1, stop:0.4 #d33af1, stop:0.5 #100E19, stop:1 #100E19);
-    border-bottom-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:1, stop:0 #100E19, stop:0.5 #100E19, stop:0.6 #d33af1, stop:1 #d33af1);
-    border-left-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #d33af1, stop:0.3 #d33af1, stop:0.7 #100E19, stop:1 #100E19);
-    border-right-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 #d33af1, stop:0.3 #d33af1, stop:0.7 #100E19, stop:1 #100E19);
-	border-width: 2px;
-    border-radius: 1px;
-	color: #d3dae3;
-	padding: 2px;
+QPushButton:pressed, QToolButton:pressed, QCommandLinkButton:pressed{
+    color: #aeaeae;
+    background-color: qlineargradient(spread:pad, x1:0.5, y1:0, x2:0.5, y2:1, stop:0 #ffffff, stop:0.5 #fbfdfd, stop:1 #ffffff);
+}
+QPushButton:disabled, QToolButton:disabled, QCommandLinkButton:disabled{
+    color: #616161;
+    background-color: qlineargradient(spread:pad, x1:0.5, y1:0, x2:0.5, y2:1, stop:0 #dce7eb, stop:0.5 #e0e8eb, stop:1 #dee7ec);
 }</string>
    </property>
    <property name="text">
@@ -628,49 +647,84 @@ QPushButton:pressed{
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">QPushButton{
-	border-style: solid;
-	border-color: #050a0e;
-	border-width: 1px;
-	border-radius: 5px;
-	color: #d3dae3;
-	padding: 2px;
-	background-color: #100E19;
+    <string notr="true">QPushButton, QToolButton, QCommandLinkButton{
+    padding: 0 5px 0 5px;
+    border-style: solid;
+    border-top-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #c1c9cf, stop:1 #d2d8dd);
+    border-right-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:0, stop:0 #c1c9cf, stop:1 #d2d8dd);
+    border-bottom-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 #c1c9cf, stop:1 #d2d8dd);
+    border-left-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #c1c9cf, stop:1 #d2d8dd);
+    border-width: 2px;
+    border-radius: 8px;
+    color: #616161;
+    font-weight: bold;
+    background-color: qlineargradient(spread:pad, x1:0.5, y1:0, x2:0.5, y2:1, stop:0 #fbfdfd, stop:0.5 #ffffff, stop:1 #fbfdfd);
 }
-QPushButton::default{
-	border-style: solid;
-	border-color: #050a0e;
-	border-width: 1px;
-	border-radius: 5px;
-	color: #FFFFFF;
-	padding: 2px;
-	background-color: #151a1e;
+QPushButton::default, QToolButton::default, QCommandLinkButton::default{
+    border: 2px solid transparent;
+    color: #FFFFFF;
+    background-color: qlineargradient(spread:pad, x1:0.5, y1:0, x2:0.5, y2:1, stop:0 #84afe5, stop:1 #1168e4);
 }
-QPushButton:hover{
-	border-style: solid;
-	border-top-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:1, stop:0 #C0DB50, stop:0.4 #C0DB50, stop:0.5 #100E19, stop:1 #100E19);
-    border-bottom-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:1, stop:0 #100E19, stop:0.5 #100E19, stop:0.6 #C0DB50, stop:1 #C0DB50);
-    border-left-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #C0DB50, stop:0.3 #C0DB50, stop:0.7 #100E19, stop:1 #100E19);
-    border-right-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 #C0DB50, stop:0.3 #C0DB50, stop:0.7 #100E19, stop:1 #100E19);
-	border-width: 2px;
-    border-radius: 1px;
-	color: #d3dae3;
-	padding: 2px;
+QPushButton:hover, QToolButton:hover, QCommandLinkButton:hover{
+    color: #3d3d3d;
+    background-color: qlineargradient(spread:pad, x1:0.5, y1:0, x2:0.5, y2:1, stop:0 #e0e0e0, stop:0.5 #f0f0f0, stop:1 #e0e0e0);
+    border-top-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #b0b0b0, stop:1 #c0c0c0);
+    border-right-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:0, stop:0 #b0b0b0, stop:1 #c0c0c0);
+    border-bottom-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 #b0b0b0, stop:1 #c0c0c0);
+    border-left-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #b0b0b0, stop:1 #c0c0c0);
 }
-QPushButton:pressed{
-	border-style: solid;
-	border-top-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:1, stop:0 #d33af1, stop:0.4 #d33af1, stop:0.5 #100E19, stop:1 #100E19);
-    border-bottom-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:1, stop:0 #100E19, stop:0.5 #100E19, stop:0.6 #d33af1, stop:1 #d33af1);
-    border-left-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #d33af1, stop:0.3 #d33af1, stop:0.7 #100E19, stop:1 #100E19);
-    border-right-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 #d33af1, stop:0.3 #d33af1, stop:0.7 #100E19, stop:1 #100E19);
-	border-width: 2px;
-    border-radius: 1px;
-	color: #d3dae3;
-	padding: 2px;
+QPushButton:pressed, QToolButton:pressed, QCommandLinkButton:pressed{
+    color: #aeaeae;
+    background-color: qlineargradient(spread:pad, x1:0.5, y1:0, x2:0.5, y2:1, stop:0 #ffffff, stop:0.5 #fbfdfd, stop:1 #ffffff);
+}
+QPushButton:disabled, QToolButton:disabled, QCommandLinkButton:disabled{
+    color: #616161;
+    background-color: qlineargradient(spread:pad, x1:0.5, y1:0, x2:0.5, y2:1, stop:0 #dce7eb, stop:0.5 #e0e8eb, stop:1 #dee7ec);
 }</string>
    </property>
    <property name="text">
     <string>叫车</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="DistanceLaebl">
+   <property name="geometry">
+    <rect>
+     <x>1220</x>
+     <y>360</y>
+     <width>161</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel {
+    font-size: 16px;                      /* 字体大小 */
+    color: #333333;                       /* 字体颜色，深灰色 */
+    background-color: #ffffff;            /* 背景颜色，白色 */
+    border: 1px solid #cccccc;            /* 边框颜色和宽度，浅灰色 */
+    border-radius: 10px;                  /* 边框圆角 */
+    padding: 10px;                        /* 内边距 */
+    qproperty-alignment: 'AlignCenter';   /* 文本居中 */
+}
+</string>
+   </property>
+   <property name="text">
+    <string>请您叫车</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="WatingIcon">
+   <property name="geometry">
+    <rect>
+     <x>1180</x>
+     <y>360</y>
+     <width>31</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">image: url(:/waiting.ico)</string>
+   </property>
+   <property name="text">
+    <string> </string>
    </property>
   </widget>
   <zorder>CostNumber</zorder>
@@ -679,6 +733,8 @@ QPushButton:pressed{
   <zorder>StartButton</zorder>
   <zorder>CallCarButton</zorder>
   <zorder>TopWidget</zorder>
+  <zorder>DistanceLaebl</zorder>
+  <zorder>WatingIcon</zorder>
  </widget>
  <customwidgets>
   <customwidget>

@@ -8,6 +8,8 @@
 #include <QPainter>
 #include <QPushButton>
 #include <QLCDNumber>
+#include <QTextEdit>
+#include <QLabel>
 
 
 class MapWidget : public QWidget
@@ -62,6 +64,9 @@ private:
 
     // 展示车费
     QLCDNumber *CostNumber_MAP;
+    // 展示车程
+//    QTextEdit *DistanceEdit;
+    QLabel *Dis_Label;
 
     // 地图中的按钮
     QPushButton *MEIXIHU_Button;

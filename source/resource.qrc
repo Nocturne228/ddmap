@@ -2,12 +2,13 @@
     <qresource prefix="/">
         <file>map.jpg</file>
         <file>exe.ico</file>
-        <file>waiting.ico</file>
         <file>ultraman.ico</file>
         <file>csmap.png</file>
         <file>loc.ico</file>
         <file>appicon.ico</file>
         <file>car.ico</file>
         <file>callcar.ico</file>
+        <file>waiting.ico</file>
+        <file>go.ico</file>
     </qresource>
 </RCC>
